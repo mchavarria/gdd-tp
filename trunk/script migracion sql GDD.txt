@@ -1,0 +1,38 @@
+--tipos de documento
+insert into GESTION_DE_INFARTOS.tipos_documento values ('DNI');
+insert into GESTION_DE_INFARTOS.tipos_documento values ('CI');
+insert into GESTION_DE_INFARTOS.tipos_documento values ('LE');
+insert into GESTION_DE_INFARTOS.tipos_documento values ('LC');
+insert into GESTION_DE_INFARTOS.tipos_documento values ('PAS');
+
+--usuario administrador
+insert into GESTION_DE_INFARTOS.usuarios values ('admin', 'w23e', 0, 1, 0, NULL);
+
+--roles
+insert into GESTION_DE_INFARTOS.roles values ('Administrador', 1);
+insert into GESTION_DE_INFARTOS.roles values ('Recepcionista', 1);
+insert into GESTION_DE_INFARTOS.roles values ('Guest', 1);
+insert into GESTION_DE_INFARTOS.rol_usuario (rol, usuario) values (1, 1);
+
+--funcionalidades
+insert into GESTION_DE_INFARTOS.funcionalidad (codigo, descripcion) values
+	('ROL1', 'alta de rol de usuario');
+insert into GESTION_DE_INFARTOS.rol_funcionalidad(rol, funcionalidad) values
+	(1, 'ROL1');
+
+--get funciones
+CREATE FUNCTION GESTION_DE_INFARTOS.getFuncionalidades(@Usuario varchar(50))
+RETURNS table
+AS
+return SELECT f.codigo 
+FROM GESTION_DE_INFARTOS.funcionalidad f, 
+GESTION_DE_INFARTOS.rol_funcionalidad rf,
+GESTION_DE_INFARTOS.roles r,
+GESTION_DE_INFARTOS.rol_usuario ru,
+GESTION_DE_INFARTOS.usuarios u
+WHERE 
+f.codigo = rf.funcionalidad AND
+rf.rol = r.codigo AND
+r.codigo = ru.rol AND
+ru.usuario = u.codigo AND
+u.nombre = @Usuario
