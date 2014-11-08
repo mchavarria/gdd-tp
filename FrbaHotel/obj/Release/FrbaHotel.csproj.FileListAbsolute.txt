@@ -1,0 +1,11 @@
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.exe.config
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.exe
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.pdb
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\ResolveAssemblyReference.cache
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Inicial.resources
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Login.LoginForm.resources
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Properties.Resources.resources
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.csproj.GenerateResource.Cache
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.exe
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.pdb
+C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Rol.Alta_Rol.resources
