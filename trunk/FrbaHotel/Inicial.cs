@@ -59,6 +59,8 @@ namespace FrbaHotel
         {
             ABM_de_Rol.Alta_Rol altaRolForm = new ABM_de_Rol.Alta_Rol();
             altaRolForm.Tag = this;
+            altaRolForm.ActivarRadioButton();
+            altaRolForm.CargarFuncionalidades();
             altaRolForm.Show(this);
             //Hide();
         }
