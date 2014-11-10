@@ -35,8 +35,44 @@ namespace FrbaHotel.ABM_de_Rol
 
             foreach (DataRow dataRow in dataSet.Tables[0].Rows)
             {
-                funcionalidadesBox.Items.Add(dataRow["codigo"].ToString() + " - " + dataRow["descripcion"].ToString(), false);
+                funcionalidadesBox.Items.Add(dataRow["codigo"].ToString() + "-" + dataRow["descripcion"].ToString(), false);
             }
+        }
+
+        private void altarolbtn_Click(object sender, EventArgs e)
+        {
+            string parametrosAltaRol = "";
+            string prefijo = "";
+
+   
+
+
+            foreach (object itemChecked in funcionalidadesBox.CheckedItems)
+            {
+                string itemSeleccionado = itemChecked.ToString();
+
+                string[] itemArray = itemSeleccionado.Split('-');
+
+                string codigoFuncion = itemArray[0];
+                string descripcionFuncion = itemArray[1];
+
+                parametrosAltaRol = parametrosAltaRol + prefijo + codigoFuncion;
+                prefijo = ",";
+            }
+
+            Funcionalidades funcionalidadesOb = new Funcionalidades();
+            string descripcionRol = descripcionRoltxt.Text;
+            
+            int estado = 0;
+            if(altarolactivorbtn.Checked) {
+                estado = 1;
+            }
+            
+            funcionalidadesOb.altaRol(descripcionRol, estado, parametrosAltaRol);
+
+            MessageBox.Show("Rol agregado correctamente", "Alta-Rol");
+
+            Close();
         }
     }
 }

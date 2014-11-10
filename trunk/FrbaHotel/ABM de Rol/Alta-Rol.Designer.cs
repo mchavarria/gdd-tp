@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.funcionalidadesBox = new System.Windows.Forms.CheckedListBox();
-            this.descripciontxt = new System.Windows.Forms.TextBox();
+            this.descripcionRoltxt = new System.Windows.Forms.TextBox();
             this.altarolbtn = new System.Windows.Forms.Button();
             this.cancelaltarolbtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -47,7 +47,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.funcionalidadesBox);
-            this.groupBox1.Controls.Add(this.descripciontxt);
+            this.groupBox1.Controls.Add(this.descripcionRoltxt);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(259, 229);
@@ -102,14 +102,13 @@
             this.funcionalidadesBox.Name = "funcionalidadesBox";
             this.funcionalidadesBox.Size = new System.Drawing.Size(243, 94);
             this.funcionalidadesBox.TabIndex = 3;
-            this.funcionalidadesBox.SelectedIndexChanged += new System.EventHandler(this.funcionalidadesBox_SelectedIndexChanged);
             // 
-            // descripciontxt
+            // descripcionRoltxt
             // 
-            this.descripciontxt.Location = new System.Drawing.Point(10, 19);
-            this.descripciontxt.Name = "descripciontxt";
-            this.descripciontxt.Size = new System.Drawing.Size(243, 20);
-            this.descripciontxt.TabIndex = 0;
+            this.descripcionRoltxt.Location = new System.Drawing.Point(10, 19);
+            this.descripcionRoltxt.Name = "descripcionRoltxt";
+            this.descripcionRoltxt.Size = new System.Drawing.Size(243, 20);
+            this.descripcionRoltxt.TabIndex = 0;
             // 
             // altarolbtn
             // 
@@ -119,6 +118,7 @@
             this.altarolbtn.TabIndex = 1;
             this.altarolbtn.Text = "Grabar";
             this.altarolbtn.UseVisualStyleBackColor = true;
+            this.altarolbtn.Click += new System.EventHandler(this.altarolbtn_Click);
             // 
             // cancelaltarolbtn
             // 
@@ -149,7 +149,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox descripciontxt;
+        private System.Windows.Forms.TextBox descripcionRoltxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox funcionalidadesBox;
         private System.Windows.Forms.Button altarolbtn;
