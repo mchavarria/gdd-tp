@@ -34,11 +34,10 @@ namespace FrbaHotel.Login
 
         public DataSet buscarFuncionalidades()
         {
-            this.sql = "select * from GESTION_DE_INFARTOS.getFuncionalidades(@Usuario);";
+            this.sql = "select * from GESTION_DE_INFARTOS.funcionalidad;";
             this.comandoSql = new SqlCommand(this.sql, this.conn);
             this.conn.Open();
-            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(
-                    "SELECT * FROM GESTION_DE_INFARTOS.funcionalidad", this.conn))
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(this.sql, this.conn))
                 {
                     DataSet dataSet = new DataSet();
                     sqlDataAdapter.Fill(dataSet);
@@ -46,6 +45,22 @@ namespace FrbaHotel.Login
                     this.conn.Close();
                     return dataSet;
                 }
+        }
+
+        public DataSet buscarFuncionalidadesPorRol(string codigoRol)
+        {
+            this.sql = string.Format("select * from GESTION_DE_INFARTOS.getFuncionalidadesPorRol('{0}');", codigoRol);
+            this.comandoSql = new SqlCommand(this.sql, this.conn);
+            this.conn.Open();
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(
+                    this.sql, this.conn))
+            {
+                DataSet dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet);
+
+                this.conn.Close();
+                return dataSet;
+            }
         }
 
         public void altaRol(string descripcion, int estado, string parametrosAltaRol)

@@ -6,13 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaHotel.Login;
 
 namespace FrbaHotel.ABM_de_Rol
 {
     public partial class Editar_Rol_Form : Form
     {
-        private string codigoRol;
-        private string descripcionRol;
 
         public Editar_Rol_Form()
         {
@@ -21,17 +20,50 @@ namespace FrbaHotel.ABM_de_Rol
 
         private void Editar_Rol_Form_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(codigoRol);
         }
 
-        public void setCodigoRol(string codigoRol)
+        internal void setCodigoRol(string codigoRol)
         {
-            this.codigoRol = codigoRol;
+            codigotxt.Text = codigoRol;
         }
 
         internal void setDescripcionRol(string descripcionRol)
         {
-            this.descripcionRol = descripcionRol;
+            descripciontxt.Text = descripcionRol;
+        }
+
+        internal void setEstadoRol(bool estadoRol)
+        {
+            if (estadoRol)
+            {
+                activorbn.Checked = true;
+            }
+            else
+            {
+                inactivorbn.Checked = true;
+            }
+        }
+
+        internal void cargarFuncionalidades()
+        {
+            Funcionalidades funcionalidadesOb = new Funcionalidades();
+            DataSet dataSet = funcionalidadesOb.buscarFuncionalidadesPorRol(codigotxt.Text);
+            DataSet todasFuncDataSet = funcionalidadesOb.buscarFuncionalidades();
+
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                funcionalidadesbox.Items.Add(dataRow["codigo"].ToString() + "-" + dataRow["descripcion"].ToString());
+            }
+
+            foreach (DataRow dataRow in todasFuncDataSet.Tables[0].Rows)
+            {
+                rolaasignarcmb.Items.Add(dataRow["codigo"].ToString() + "-" + dataRow["descripcion"].ToString());
+            }
+        }
+
+        private void cancelarbtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
