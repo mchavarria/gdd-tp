@@ -62,13 +62,13 @@
             this.altarolnoactivorbtn.Name = "altarolnoactivorbtn";
             this.altarolnoactivorbtn.Size = new System.Drawing.Size(71, 17);
             this.altarolnoactivorbtn.TabIndex = 7;
-            this.altarolnoactivorbtn.TabStop = true;
             this.altarolnoactivorbtn.Text = "No activo";
             this.altarolnoactivorbtn.UseVisualStyleBackColor = true;
             // 
             // altarolactivorbtn
             // 
             this.altarolactivorbtn.AutoSize = true;
+            this.altarolactivorbtn.Checked = true;
             this.altarolactivorbtn.Location = new System.Drawing.Point(13, 196);
             this.altarolactivorbtn.Name = "altarolactivorbtn";
             this.altarolactivorbtn.Size = new System.Drawing.Size(55, 17);

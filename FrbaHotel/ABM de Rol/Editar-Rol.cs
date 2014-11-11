@@ -50,10 +50,17 @@ namespace FrbaHotel.ABM_de_Rol
             {
                 DataGridViewCell codigoCell = tablaRolestbl.Rows[e.RowIndex].Cells["codigo"];
                 DataGridViewCell descripcionCell = tablaRolestbl.Rows[e.RowIndex].Cells["descripcion"];
+                DataGridViewCell estadoCell = tablaRolestbl.Rows[e.RowIndex].Cells["estado"];
 
                 Editar_Rol_Form editarRolForm = new Editar_Rol_Form();
                 editarRolForm.setCodigoRol(codigoCell.Value.ToString());
                 editarRolForm.setDescripcionRol(descripcionCell.Value.ToString());
+
+                string estadostr = estadoCell.Value.ToString();
+
+                editarRolForm.setEstadoRol(estadostr == "True");
+                editarRolForm.cargarFuncionalidades();
+
                 editarRolForm.Show();
             }
         }
