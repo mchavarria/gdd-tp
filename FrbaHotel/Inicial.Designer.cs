@@ -91,6 +91,7 @@
             this.ROL3.Size = new System.Drawing.Size(152, 22);
             this.ROL3.Text = "Editar Rol";
             this.ROL3.Visible = false;
+            this.ROL3.Click += new System.EventHandler(this.ROL3_Click);
             // 
             // logoutbtn
             // 

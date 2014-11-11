@@ -96,6 +96,12 @@
     <Compile Include="ABM de Rol\Baja-Rol.Designer.cs">
       <DependentUpon>Baja-Rol.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM de Rol\Editar-Rol-Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM de Rol\Editar-Rol-Form.Designer.cs">
+      <DependentUpon>Editar-Rol-Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM de Rol\Editar-Rol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ABM de Rol\Alta-Rol.resx">
       <DependentUpon>Alta-Rol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM de Rol\Editar-Rol-Form.resx">
+      <DependentUpon>Editar-Rol-Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM de Rol\Editar-Rol.resx">
+      <DependentUpon>Editar-Rol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicial.resx">
       <DependentUpon>Inicial.cs</DependentUpon>
