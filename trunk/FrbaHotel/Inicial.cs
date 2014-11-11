@@ -28,7 +28,7 @@ namespace FrbaHotel
             // vamos a la pagina de login
             
             Login.LoginForm loginForm = new Login.LoginForm();
-            loginForm.Tag = this;
+            loginForm.Tag = this;            
             loginForm.Show(this);
             Hide();
         }
@@ -82,6 +82,13 @@ namespace FrbaHotel
 
             UsuarioOb.LogOut();
             Close();    
+        }
+
+        private void ROL3_Click(object sender, EventArgs e)
+        {
+            ABM_de_Rol.Editar_Rol editarRolForm = new ABM_de_Rol.Editar_Rol();
+            editarRolForm.Tag = this;
+            editarRolForm.Show(this);
         }
     }
 }
