@@ -103,5 +103,27 @@ namespace FrbaHotel.Login
                 return dataSet;
             }
         }
+
+        internal void editarRol(string rolId, string descripcionRol, int estado, string parametrosEditarRol)
+        {
+            this.sql = "GESTION_DE_INFARTOS.modificacion_rol";
+            this.comandoSql = new SqlCommand(this.sql, this.conn);
+            this.comandoSql.CommandType = CommandType.StoredProcedure;
+            this.comandoSql.Parameters.AddWithValue("@Rol_id", SqlDbType.Int).Value = rolId;
+            this.comandoSql.Parameters.AddWithValue("@Descripcion", SqlDbType.VarChar).Value = descripcionRol;
+            this.comandoSql.Parameters.AddWithValue("@Estado", SqlDbType.Bit).Value = estado;
+            this.comandoSql.Parameters.AddWithValue("@Codigos_Funciones", SqlDbType.VarChar).Value = parametrosEditarRol;
+
+            try
+            {
+                this.conn.Open();
+                this.comandoSql.ExecuteNonQuery();
+                this.conn.Close();
+            }
+            finally
+            {
+                this.conn.Close();
+            }
+        }
     }
 }

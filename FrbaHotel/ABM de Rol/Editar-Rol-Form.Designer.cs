@@ -159,6 +159,7 @@
             this.agregarbtn.TabIndex = 13;
             this.agregarbtn.Text = "Agregar";
             this.agregarbtn.UseVisualStyleBackColor = true;
+            this.agregarbtn.Click += new System.EventHandler(this.agregarbtn_Click);
             // 
             // rolaasignarcmb
             // 
@@ -176,6 +177,7 @@
             this.eliminarbtn.TabIndex = 1;
             this.eliminarbtn.Text = "Eliminar";
             this.eliminarbtn.UseVisualStyleBackColor = true;
+            this.eliminarbtn.Click += new System.EventHandler(this.eliminarbtn_Click);
             // 
             // funcionalidadesbox
             // 
@@ -193,6 +195,7 @@
             this.actualizarbtn.TabIndex = 10;
             this.actualizarbtn.Text = "Actualizar";
             this.actualizarbtn.UseVisualStyleBackColor = true;
+            this.actualizarbtn.Click += new System.EventHandler(this.actualizarbtn_Click);
             // 
             // cancelarbtn
             // 
