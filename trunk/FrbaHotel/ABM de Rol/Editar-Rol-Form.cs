@@ -65,5 +65,52 @@ namespace FrbaHotel.ABM_de_Rol
         {
             Close();
         }
+
+        private void agregarbtn_Click(object sender, EventArgs e)
+        {
+            //TODO validar repetidos
+            funcionalidadesbox.Items.Add(rolaasignarcmb.SelectedItem);
+        }
+
+        private void eliminarbtn_Click(object sender, EventArgs e)
+        {
+            funcionalidadesbox.Items.Remove(funcionalidadesbox.SelectedItem);
+        }
+
+        private void actualizarbtn_Click(object sender, EventArgs e)
+        {
+            //TODO agregar validaciones
+            string parametrosEditarRol = "";
+            string prefijo = "";
+
+            foreach (object funcionalidad in funcionalidadesbox.Items)
+            {
+                string funcionalidadRow = funcionalidad.ToString();
+
+                string[] funcionalidadArray = funcionalidadRow.Split('-');
+
+                string codigoFuncion = funcionalidadArray[0];
+                string descripcionFuncion = funcionalidadArray[1];
+
+                parametrosEditarRol = parametrosEditarRol + prefijo + codigoFuncion;
+                prefijo = ",";
+            }
+
+            Funcionalidades funcionalidadesOb = new Funcionalidades();
+            string descripcionRol = descripciontxt.Text;
+
+            int estado = 0;
+            if (activorbn.Checked)
+            {
+                estado = 1;
+            }
+
+            funcionalidadesOb.editarRol(codigotxt.Text, descripcionRol, estado, parametrosEditarRol);
+
+            MessageBox.Show("Rol Modificado correctamente", "Editar-Rol");
+
+            Close();
+
+        }
     }
 }
