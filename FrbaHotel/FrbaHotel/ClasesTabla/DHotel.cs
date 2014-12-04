@@ -35,7 +35,7 @@ namespace FrbaHotel.ClasesTabla
             return hoteles;
         }
 
-        /*public List<Hotel> GetAllActivos()
+        public List<Hotel> GetAllActivos()
         {
             DataTable us = entidadBase.TraerDatos("hotel.SP_GETHOTELESACTIVOS");
             List<Hotel> hoteles = new List<Hotel>();
@@ -58,7 +58,7 @@ namespace FrbaHotel.ClasesTabla
                 hoteles.Add(hotel);
             }
             return hoteles;
-        }*/
+        }
 
         public Hotel GetByDireccion(string direccion)
         {

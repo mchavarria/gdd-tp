@@ -31,13 +31,13 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.cboDescrip = new System.Windows.Forms.ComboBox();
             this.ckActivo = new System.Windows.Forms.CheckBox();
             this.txtPrecio = new System.Windows.Forms.MaskedTextBox();
             this.txtCodigo = new System.Windows.Forms.MaskedTextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblDescrip = new System.Windows.Forms.Label();
             this.lblCod = new System.Windows.Forms.Label();
-            this.cboDescrip = new System.Windows.Forms.ComboBox();
             this.gpoBoxAlta.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +78,15 @@
             this.gpoBoxAlta.Size = new System.Drawing.Size(344, 159);
             this.gpoBoxAlta.TabIndex = 13;
             this.gpoBoxAlta.TabStop = false;
-            this.gpoBoxAlta.Text = "Regimen nuevo";
+            this.gpoBoxAlta.Text = "Regimen";
+            // 
+            // cboDescrip
+            // 
+            this.cboDescrip.FormattingEnabled = true;
+            this.cboDescrip.Location = new System.Drawing.Point(112, 66);
+            this.cboDescrip.Name = "cboDescrip";
+            this.cboDescrip.Size = new System.Drawing.Size(220, 24);
+            this.cboDescrip.TabIndex = 28;
             // 
             // ckActivo
             // 
@@ -112,9 +120,9 @@
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.Location = new System.Drawing.Point(10, 95);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(96, 20);
+            this.lblPrecio.Size = new System.Drawing.Size(106, 20);
             this.lblPrecio.TabIndex = 17;
-            this.lblPrecio.Text = "Precio base:";
+            this.lblPrecio.Text = "* Precio base:";
             // 
             // lblDescrip
             // 
@@ -122,9 +130,9 @@
             this.lblDescrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescrip.Location = new System.Drawing.Point(10, 66);
             this.lblDescrip.Name = "lblDescrip";
-            this.lblDescrip.Size = new System.Drawing.Size(96, 20);
+            this.lblDescrip.Size = new System.Drawing.Size(106, 20);
             this.lblDescrip.TabIndex = 15;
-            this.lblDescrip.Text = "Descripción:";
+            this.lblDescrip.Text = "* Descripción:";
             // 
             // lblCod
             // 
@@ -132,17 +140,9 @@
             this.lblCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCod.Location = new System.Drawing.Point(10, 37);
             this.lblCod.Name = "lblCod";
-            this.lblCod.Size = new System.Drawing.Size(63, 20);
+            this.lblCod.Size = new System.Drawing.Size(73, 20);
             this.lblCod.TabIndex = 3;
-            this.lblCod.Text = "Código:";
-            // 
-            // cboDescrip
-            // 
-            this.cboDescrip.FormattingEnabled = true;
-            this.cboDescrip.Location = new System.Drawing.Point(112, 66);
-            this.cboDescrip.Name = "cboDescrip";
-            this.cboDescrip.Size = new System.Drawing.Size(220, 24);
-            this.cboDescrip.TabIndex = 28;
+            this.lblCod.Text = "* Código:";
             // 
             // ABMRegimen
             // 

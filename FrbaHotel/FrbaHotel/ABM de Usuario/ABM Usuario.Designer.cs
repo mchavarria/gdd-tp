@@ -31,6 +31,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.cboHotel = new System.Windows.Forms.ComboBox();
             this.btnCalendario = new System.Windows.Forms.Button();
             this.calendNacimiento = new System.Windows.Forms.MonthCalendar();
             this.cboRol = new System.Windows.Forms.ComboBox();
@@ -57,7 +58,6 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblRol = new System.Windows.Forms.Label();
-            this.cboHotel = new System.Windows.Forms.ComboBox();
             this.gpoBoxAlta.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,7 +118,21 @@
             this.gpoBoxAlta.Size = new System.Drawing.Size(704, 375);
             this.gpoBoxAlta.TabIndex = 4;
             this.gpoBoxAlta.TabStop = false;
-            this.gpoBoxAlta.Text = "Usuario nuevo";
+            this.gpoBoxAlta.Text = "Usuario";
+            // 
+            // cboHotel
+            // 
+            this.cboHotel.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.cboHotel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboHotel.FormattingEnabled = true;
+            this.cboHotel.Items.AddRange(new object[] {
+            "Exterior",
+            "Interior"});
+            this.cboHotel.Location = new System.Drawing.Point(158, 330);
+            this.cboHotel.Name = "cboHotel";
+            this.cboHotel.Size = new System.Drawing.Size(265, 24);
+            this.cboHotel.TabIndex = 32;
             // 
             // btnCalendario
             // 
@@ -189,9 +203,11 @@
             // 
             // txtMail
             // 
+            this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.Location = new System.Drawing.Point(404, 134);
+            this.txtMail.Mask = "A{1}A\\@A{1}A\\.A{1}A";
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(299, 23);
+            this.txtMail.Size = new System.Drawing.Size(299, 21);
             this.txtMail.TabIndex = 24;
             // 
             // cboTipoDNI
@@ -236,9 +252,9 @@
             this.Hotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hotel.Location = new System.Drawing.Point(75, 330);
             this.Hotel.Name = "Hotel";
-            this.Hotel.Size = new System.Drawing.Size(51, 20);
+            this.Hotel.Size = new System.Drawing.Size(61, 20);
             this.Hotel.TabIndex = 19;
-            this.Hotel.Text = "Hotel:";
+            this.Hotel.Text = "* Hotel:";
             // 
             // lblNacido
             // 
@@ -364,20 +380,6 @@
             this.lblRol.Size = new System.Drawing.Size(47, 20);
             this.lblRol.TabIndex = 2;
             this.lblRol.Text = "* Rol:";
-            // 
-            // cboHotel
-            // 
-            this.cboHotel.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.cboHotel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboHotel.FormattingEnabled = true;
-            this.cboHotel.Items.AddRange(new object[] {
-            "Exterior",
-            "Interior"});
-            this.cboHotel.Location = new System.Drawing.Point(158, 330);
-            this.cboHotel.Name = "cboHotel";
-            this.cboHotel.Size = new System.Drawing.Size(265, 24);
-            this.cboHotel.TabIndex = 32;
             // 
             // ABMUser
             // 

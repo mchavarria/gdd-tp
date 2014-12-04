@@ -31,6 +31,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.numUpDownRecEstrella = new System.Windows.Forms.NumericUpDown();
+            this.lblRecarga = new System.Windows.Forms.Label();
             this.btnCalendario = new System.Windows.Forms.Button();
             this.calendFecha = new System.Windows.Forms.MonthCalendar();
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
@@ -52,11 +54,9 @@
             this.lblTel = new System.Windows.Forms.Label();
             this.lblMail = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.lblRecarga = new System.Windows.Forms.Label();
-            this.numUpDownRecEstrella = new System.Windows.Forms.NumericUpDown();
             this.gpoBoxAlta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDnCantEstrellas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownRecEstrella)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDnCantEstrellas)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -112,7 +112,29 @@
             this.gpoBoxAlta.Size = new System.Drawing.Size(597, 368);
             this.gpoBoxAlta.TabIndex = 10;
             this.gpoBoxAlta.TabStop = false;
-            this.gpoBoxAlta.Text = "Hotel nuevo";
+            this.gpoBoxAlta.Text = "Hotel";
+            // 
+            // numUpDownRecEstrella
+            // 
+            this.numUpDownRecEstrella.Location = new System.Drawing.Point(438, 122);
+            this.numUpDownRecEstrella.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numUpDownRecEstrella.Name = "numUpDownRecEstrella";
+            this.numUpDownRecEstrella.Size = new System.Drawing.Size(78, 23);
+            this.numUpDownRecEstrella.TabIndex = 43;
+            // 
+            // lblRecarga
+            // 
+            this.lblRecarga.AutoSize = true;
+            this.lblRecarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecarga.Location = new System.Drawing.Point(321, 124);
+            this.lblRecarga.Name = "lblRecarga";
+            this.lblRecarga.Size = new System.Drawing.Size(111, 20);
+            this.lblRecarga.TabIndex = 42;
+            this.lblRecarga.Text = "Rec. Estrellas:";
             // 
             // btnCalendario
             // 
@@ -137,10 +159,10 @@
             // txtFecha
             // 
             this.txtFecha.Enabled = false;
-            this.txtFecha.Location = new System.Drawing.Point(153, 334);
+            this.txtFecha.Location = new System.Drawing.Point(163, 334);
             this.txtFecha.Mask = "00/00/0000";
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(93, 23);
+            this.txtFecha.Size = new System.Drawing.Size(83, 23);
             this.txtFecha.TabIndex = 40;
             this.txtFecha.ValidatingType = typeof(System.DateTime);
             // 
@@ -158,9 +180,9 @@
             this.lblCreacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreacion.Location = new System.Drawing.Point(25, 334);
             this.lblCreacion.Name = "lblCreacion";
-            this.lblCreacion.Size = new System.Drawing.Size(122, 20);
+            this.lblCreacion.Size = new System.Drawing.Size(132, 20);
             this.lblCreacion.TabIndex = 36;
-            this.lblCreacion.Text = "Fecha creación:";
+            this.lblCreacion.Text = "* Fecha creación:";
             // 
             // lblRegimen
             // 
@@ -174,7 +196,7 @@
             // 
             // numUpDnCantEstrellas
             // 
-            this.numUpDnCantEstrellas.Location = new System.Drawing.Point(420, 67);
+            this.numUpDnCantEstrellas.Location = new System.Drawing.Point(430, 67);
             this.numUpDnCantEstrellas.Maximum = new decimal(new int[] {
             10,
             0,
@@ -188,27 +210,27 @@
             // 
             this.lblPais.AutoSize = true;
             this.lblPais.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPais.Location = new System.Drawing.Point(16, 150);
+            this.lblPais.Location = new System.Drawing.Point(10, 150);
             this.lblPais.Name = "lblPais";
-            this.lblPais.Size = new System.Drawing.Size(43, 20);
+            this.lblPais.Size = new System.Drawing.Size(53, 20);
             this.lblPais.TabIndex = 2;
-            this.lblPais.Text = "Pais:";
+            this.lblPais.Text = "* Pais:";
             // 
             // lblCiudad
             // 
             this.lblCiudad.AutoSize = true;
             this.lblCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCiudad.Location = new System.Drawing.Point(13, 121);
+            this.lblCiudad.Location = new System.Drawing.Point(10, 121);
             this.lblCiudad.Name = "lblCiudad";
-            this.lblCiudad.Size = new System.Drawing.Size(63, 20);
+            this.lblCiudad.Size = new System.Drawing.Size(73, 20);
             this.lblCiudad.TabIndex = 1;
-            this.lblCiudad.Text = "Ciudad:";
+            this.lblCiudad.Text = "* Ciudad:";
             // 
             // txtCiudad
             // 
-            this.txtCiudad.Location = new System.Drawing.Point(79, 121);
+            this.txtCiudad.Location = new System.Drawing.Point(92, 121);
             this.txtCiudad.Name = "txtCiudad";
-            this.txtCiudad.Size = new System.Drawing.Size(236, 23);
+            this.txtCiudad.Size = new System.Drawing.Size(223, 23);
             this.txtCiudad.TabIndex = 12;
             // 
             // txtNumCalle
@@ -221,16 +243,16 @@
             // 
             // txtPais
             // 
-            this.txtPais.Location = new System.Drawing.Point(65, 150);
+            this.txtPais.Location = new System.Drawing.Point(67, 150);
             this.txtPais.Name = "txtPais";
-            this.txtPais.Size = new System.Drawing.Size(250, 23);
+            this.txtPais.Size = new System.Drawing.Size(248, 23);
             this.txtPais.TabIndex = 10;
             // 
             // txtCalle
             // 
-            this.txtCalle.Location = new System.Drawing.Point(138, 92);
+            this.txtCalle.Location = new System.Drawing.Point(148, 92);
             this.txtCalle.Name = "txtCalle";
-            this.txtCalle.Size = new System.Drawing.Size(177, 23);
+            this.txtCalle.Size = new System.Drawing.Size(167, 23);
             this.txtCalle.TabIndex = 26;
             // 
             // lblCantEstrellas
@@ -239,13 +261,13 @@
             this.lblCantEstrellas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantEstrellas.Location = new System.Drawing.Point(298, 69);
             this.lblCantEstrellas.Name = "lblCantEstrellas";
-            this.lblCantEstrellas.Size = new System.Drawing.Size(116, 20);
+            this.lblCantEstrellas.Size = new System.Drawing.Size(126, 20);
             this.lblCantEstrellas.TabIndex = 0;
-            this.lblCantEstrellas.Text = "Cant. Estrellas:";
+            this.lblCantEstrellas.Text = "* Cant. Estrellas:";
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(379, 37);
+            this.txtTelefono.Location = new System.Drawing.Point(389, 37);
             this.txtTelefono.Mask = "000-000-0000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(119, 23);
@@ -253,27 +275,27 @@
             // 
             // txtMail
             // 
-            this.txtMail.Location = new System.Drawing.Point(57, 66);
+            this.txtMail.Location = new System.Drawing.Point(67, 66);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(235, 23);
+            this.txtMail.Size = new System.Drawing.Size(225, 23);
             this.txtMail.TabIndex = 24;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(85, 37);
+            this.txtNombre.Location = new System.Drawing.Point(95, 37);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(207, 23);
+            this.txtNombre.Size = new System.Drawing.Size(197, 23);
             this.txtNombre.TabIndex = 20;
             // 
             // lblDirecc
             // 
             this.lblDirecc.AutoSize = true;
             this.lblDirecc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirecc.Location = new System.Drawing.Point(13, 92);
+            this.lblDirecc.Location = new System.Drawing.Point(10, 95);
             this.lblDirecc.Name = "lblDirecc";
-            this.lblDirecc.Size = new System.Drawing.Size(119, 20);
+            this.lblDirecc.Size = new System.Drawing.Size(129, 20);
             this.lblDirecc.TabIndex = 17;
-            this.lblDirecc.Text = "Calle y Número:";
+            this.lblDirecc.Text = "* Calle y Número:";
             // 
             // lblTel
             // 
@@ -281,9 +303,9 @@
             this.lblTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTel.Location = new System.Drawing.Point(298, 37);
             this.lblTel.Name = "lblTel";
-            this.lblTel.Size = new System.Drawing.Size(75, 20);
+            this.lblTel.Size = new System.Drawing.Size(85, 20);
             this.lblTel.TabIndex = 16;
-            this.lblTel.Text = "Teléfono:";
+            this.lblTel.Text = "* Teléfono:";
             // 
             // lblMail
             // 
@@ -291,9 +313,9 @@
             this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMail.Location = new System.Drawing.Point(10, 66);
             this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(41, 20);
+            this.lblMail.Size = new System.Drawing.Size(51, 20);
             this.lblMail.TabIndex = 15;
-            this.lblMail.Text = "Mail:";
+            this.lblMail.Text = "* Mail:";
             // 
             // lblNombre
             // 
@@ -301,31 +323,9 @@
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.Location = new System.Drawing.Point(10, 37);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(69, 20);
+            this.lblNombre.Size = new System.Drawing.Size(79, 20);
             this.lblNombre.TabIndex = 3;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // lblRecarga
-            // 
-            this.lblRecarga.AutoSize = true;
-            this.lblRecarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecarga.Location = new System.Drawing.Point(321, 124);
-            this.lblRecarga.Name = "lblRecarga";
-            this.lblRecarga.Size = new System.Drawing.Size(111, 20);
-            this.lblRecarga.TabIndex = 42;
-            this.lblRecarga.Text = "Rec. Estrellas:";
-            // 
-            // numUpDownRecEstrella
-            // 
-            this.numUpDownRecEstrella.Location = new System.Drawing.Point(438, 122);
-            this.numUpDownRecEstrella.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numUpDownRecEstrella.Name = "numUpDownRecEstrella";
-            this.numUpDownRecEstrella.Size = new System.Drawing.Size(78, 23);
-            this.numUpDownRecEstrella.TabIndex = 43;
+            this.lblNombre.Text = "* Nombre:";
             // 
             // ABMHotel
             // 
@@ -340,8 +340,8 @@
             this.Load += new System.EventHandler(this.ABMHotel_Load);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDnCantEstrellas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownRecEstrella)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDnCantEstrellas)).EndInit();
             this.ResumeLayout(false);
 
         }
