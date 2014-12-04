@@ -18,10 +18,10 @@ namespace FrbaHotel.ClasesTabla
                 }
             }
 
-            /*public List<Hotel> GetAllActivos()
+            public List<Hotel> GetAllActivos()
             {
                 return hotelDao.GetAllActivos();
-            }*/
+            }
 
             public List<HotelDTO> GetBySQLGRID(string consulta)
             {

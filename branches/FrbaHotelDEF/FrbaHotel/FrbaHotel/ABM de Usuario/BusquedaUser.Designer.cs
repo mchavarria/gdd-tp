@@ -31,7 +31,6 @@
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
             this.txtMail = new System.Windows.Forms.MaskedTextBox();
             this.lblMail = new System.Windows.Forms.Label();
-            this.ckDisponible = new System.Windows.Forms.CheckBox();
             this.txtUser = new System.Windows.Forms.MaskedTextBox();
             this.cboRol = new System.Windows.Forms.ComboBox();
             this.lblRol = new System.Windows.Forms.Label();
@@ -50,7 +49,6 @@
             // 
             this.gpoBoxAlta.Controls.Add(this.txtMail);
             this.gpoBoxAlta.Controls.Add(this.lblMail);
-            this.gpoBoxAlta.Controls.Add(this.ckDisponible);
             this.gpoBoxAlta.Controls.Add(this.txtUser);
             this.gpoBoxAlta.Controls.Add(this.cboRol);
             this.gpoBoxAlta.Controls.Add(this.lblRol);
@@ -78,16 +76,6 @@
             this.lblMail.Size = new System.Drawing.Size(42, 17);
             this.lblMail.TabIndex = 18;
             this.lblMail.Text = "Mail:";
-            // 
-            // ckDisponible
-            // 
-            this.ckDisponible.AutoSize = true;
-            this.ckDisponible.Location = new System.Drawing.Point(345, 58);
-            this.ckDisponible.Name = "ckDisponible";
-            this.ckDisponible.Size = new System.Drawing.Size(71, 21);
-            this.ckDisponible.TabIndex = 16;
-            this.ckDisponible.Text = "Activo";
-            this.ckDisponible.UseVisualStyleBackColor = true;
             // 
             // txtUser
             // 
@@ -176,7 +164,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(226, 109);
+            this.btnNew.Location = new System.Drawing.Point(256, 109);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(106, 23);
             this.btnNew.TabIndex = 9;
@@ -207,7 +195,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gpoBoxAlta;
-        private System.Windows.Forms.CheckBox ckDisponible;
         private System.Windows.Forms.MaskedTextBox txtUser;
         private System.Windows.Forms.ComboBox cboRol;
         private System.Windows.Forms.Label lblRol;

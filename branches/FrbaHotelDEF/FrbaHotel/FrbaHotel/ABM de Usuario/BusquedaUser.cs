@@ -38,7 +38,6 @@ namespace FrbaHotel.ABM_de_Usuario
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            ckDisponible.Checked = false;
             txtMail.Text = "";
             txtUser.Text = "";
             cboRol.Text = "";
@@ -53,15 +52,9 @@ namespace FrbaHotel.ABM_de_Usuario
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (ckDisponible.Checked == true || txtMail.Text != "" || txtUser.Text != "" || cboRol.Text != "")
+            if (txtMail.Text != "" || txtUser.Text != "" || cboRol.Text != "")
             {
                 StringBuilder Valores = new StringBuilder();
-                if (ckDisponible.Checked == true)
-                    Valores.Append("u.estado = " + 1 + " ");
-                if ((ckDisponible.Checked == true && txtMail.Text != "") || (ckDisponible.Checked == true && txtUser.Text != "") ||
-                    (ckDisponible.Checked == true && cboRol.Text != "")
-                    ) Valores.Append(" and ");
-
                 if (txtMail.Text != "")
                     Valores.Append("p.mail like '%" + txtMail.Text + "%' ");
 

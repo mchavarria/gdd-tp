@@ -31,16 +31,16 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.txtMotivo = new System.Windows.Forms.RichTextBox();
+            this.lblMotivo = new System.Windows.Forms.Label();
+            this.calendHasta = new System.Windows.Forms.MonthCalendar();
+            this.btnFechaHasta = new System.Windows.Forms.Button();
+            this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
+            this.lblHasta = new System.Windows.Forms.Label();
             this.btnCalendarioDesde = new System.Windows.Forms.Button();
             this.calendFechaDesde = new System.Windows.Forms.MonthCalendar();
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.lblDesde = new System.Windows.Forms.Label();
-            this.btnFechaHasta = new System.Windows.Forms.Button();
-            this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
-            this.lblHasta = new System.Windows.Forms.Label();
-            this.calendHasta = new System.Windows.Forms.MonthCalendar();
-            this.lblMotivo = new System.Windows.Forms.Label();
-            this.txtMotivo = new System.Windows.Forms.RichTextBox();
             this.gpoBoxAlta.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,45 +86,32 @@
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Baja de hotel";
             // 
-            // btnCalendarioDesde
+            // txtMotivo
             // 
-            this.btnCalendarioDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalendarioDesde.Location = new System.Drawing.Point(225, 41);
-            this.btnCalendarioDesde.Name = "btnCalendarioDesde";
-            this.btnCalendarioDesde.Size = new System.Drawing.Size(94, 25);
-            this.btnCalendarioDesde.TabIndex = 39;
-            this.btnCalendarioDesde.Text = "Seleccionar";
-            this.btnCalendarioDesde.UseVisualStyleBackColor = true;
-            this.btnCalendarioDesde.Click += new System.EventHandler(this.btnCalendarioDesde_Click);
+            this.txtMotivo.Location = new System.Drawing.Point(20, 102);
+            this.txtMotivo.Name = "txtMotivo";
+            this.txtMotivo.Size = new System.Drawing.Size(299, 182);
+            this.txtMotivo.TabIndex = 47;
+            this.txtMotivo.Text = "";
             // 
-            // calendFechaDesde
+            // lblMotivo
             // 
-            this.calendFechaDesde.Location = new System.Drawing.Point(331, 28);
-            this.calendFechaDesde.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.calendFechaDesde.Name = "calendFechaDesde";
-            this.calendFechaDesde.TabIndex = 41;
-            this.calendFechaDesde.Visible = false;
-            this.calendFechaDesde.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendFechaDesde_DateSelected);
+            this.lblMotivo.AutoSize = true;
+            this.lblMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMotivo.Location = new System.Drawing.Point(14, 79);
+            this.lblMotivo.Name = "lblMotivo";
+            this.lblMotivo.Size = new System.Drawing.Size(69, 20);
+            this.lblMotivo.TabIndex = 46;
+            this.lblMotivo.Text = "* Motivo:";
             // 
-            // txtFechaDesde
+            // calendHasta
             // 
-            this.txtFechaDesde.Enabled = false;
-            this.txtFechaDesde.Location = new System.Drawing.Point(126, 42);
-            this.txtFechaDesde.Mask = "00/00/0000";
-            this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(93, 23);
-            this.txtFechaDesde.TabIndex = 40;
-            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
-            // 
-            // lblDesde
-            // 
-            this.lblDesde.AutoSize = true;
-            this.lblDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesde.Location = new System.Drawing.Point(14, 42);
-            this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(106, 20);
-            this.lblDesde.TabIndex = 36;
-            this.lblDesde.Text = "Fecha desde:";
+            this.calendHasta.Location = new System.Drawing.Point(331, 194);
+            this.calendHasta.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.calendHasta.Name = "calendHasta";
+            this.calendHasta.TabIndex = 45;
+            this.calendHasta.Visible = false;
+            this.calendHasta.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendHasta_DateSelected);
             // 
             // btnFechaHasta
             // 
@@ -153,36 +140,49 @@
             this.lblHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHasta.Location = new System.Drawing.Point(14, 291);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(102, 20);
+            this.lblHasta.Size = new System.Drawing.Size(112, 20);
             this.lblHasta.TabIndex = 42;
-            this.lblHasta.Text = "Fecha hasta:";
+            this.lblHasta.Text = "* Fecha hasta:";
             // 
-            // calendHasta
+            // btnCalendarioDesde
             // 
-            this.calendHasta.Location = new System.Drawing.Point(331, 194);
-            this.calendHasta.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.calendHasta.Name = "calendHasta";
-            this.calendHasta.TabIndex = 45;
-            this.calendHasta.Visible = false;
-            this.calendHasta.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendHasta_DateSelected);
+            this.btnCalendarioDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalendarioDesde.Location = new System.Drawing.Point(225, 41);
+            this.btnCalendarioDesde.Name = "btnCalendarioDesde";
+            this.btnCalendarioDesde.Size = new System.Drawing.Size(94, 25);
+            this.btnCalendarioDesde.TabIndex = 39;
+            this.btnCalendarioDesde.Text = "Seleccionar";
+            this.btnCalendarioDesde.UseVisualStyleBackColor = true;
+            this.btnCalendarioDesde.Click += new System.EventHandler(this.btnCalendarioDesde_Click);
             // 
-            // lblMotivo
+            // calendFechaDesde
             // 
-            this.lblMotivo.AutoSize = true;
-            this.lblMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotivo.Location = new System.Drawing.Point(14, 79);
-            this.lblMotivo.Name = "lblMotivo";
-            this.lblMotivo.Size = new System.Drawing.Size(59, 20);
-            this.lblMotivo.TabIndex = 46;
-            this.lblMotivo.Text = "Motivo:";
+            this.calendFechaDesde.Location = new System.Drawing.Point(331, 28);
+            this.calendFechaDesde.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.calendFechaDesde.Name = "calendFechaDesde";
+            this.calendFechaDesde.TabIndex = 41;
+            this.calendFechaDesde.Visible = false;
+            this.calendFechaDesde.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendFechaDesde_DateSelected);
             // 
-            // txtMotivo
+            // txtFechaDesde
             // 
-            this.txtMotivo.Location = new System.Drawing.Point(20, 102);
-            this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(299, 182);
-            this.txtMotivo.TabIndex = 47;
-            this.txtMotivo.Text = "";
+            this.txtFechaDesde.Enabled = false;
+            this.txtFechaDesde.Location = new System.Drawing.Point(136, 42);
+            this.txtFechaDesde.Mask = "00/00/0000";
+            this.txtFechaDesde.Name = "txtFechaDesde";
+            this.txtFechaDesde.Size = new System.Drawing.Size(83, 23);
+            this.txtFechaDesde.TabIndex = 40;
+            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
+            // 
+            // lblDesde
+            // 
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesde.Location = new System.Drawing.Point(14, 42);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(116, 20);
+            this.lblDesde.TabIndex = 36;
+            this.lblDesde.Text = "* Fecha desde:";
             // 
             // BajaHotel
             // 
