@@ -25,7 +25,7 @@ namespace FrbaHotel.ClasesTabla
             }
             return roles;
         }
-        
+
         public List<Rol> GetAllTODOS()
         {
             DataTable rols = entidadBase.TraerDatos("select * from hotel.Rol");
@@ -53,24 +53,21 @@ namespace FrbaHotel.ClasesTabla
 
         public List<Rol> GetRolesUser(decimal codUser)
         {
-            List<Rol> roles = GetBySQL("select r.codigo, r.descripcion,r.estado from hotel.Rol r, hotel.Rol_usuario u where r.codigo = u.cod_rol and u.cod_usuario="+codUser);
+            List<Rol> roles = GetBySQL("select r.codigo, r.descripcion,r.estado from hotel.Rol r, hotel.Rol_usuario u where r.codigo = u.cod_rol and u.cod_usuario=" + codUser);
             return roles;
         }
 
-        public decimal Save(Rol rol, decimal codFuncionNEW)
+        public decimal Save(Rol rol)
         {
-            int ex = entidadBase.EjecutarSQL("insert hotel.Rol (descripcion,estado) values (" + ArmarValores(rol)+")");
+            int ex = entidadBase.EjecutarSQL("insert hotel.Rol (descripcion,estado) values (" + ArmarValores(rol) + ")");
             DataTable resultID = entidadBase.TraerDatos("SELECT max(codigo) from hotel.Rol ");
             DataRow row = resultID.Rows[0];
-            rol.codigo = Convert.ToInt32(row[0]);  
-            int ex2 = entidadBase.EjecutarSQL("insert hotel.Rol_Funcion (cod_rol,cod_funcion) values (" + rol.codigo + "," + codFuncionNEW + ")");
             return Convert.ToInt32(row[0]);
         }
 
-        public void Update(Rol rol, decimal codFuncionNEW)
+        public void Update(Rol rol)
         {
             int ex = entidadBase.EjecutarSQL("hotel.SP_UPDROL " + ArmarValores(rol));
-            int ex2 = entidadBase.EjecutarSQL("insert hotel.Rol_Funcion (cod_rol,cod_funcion) values (" + rol.codigo + "," + codFuncionNEW + ")");
         }
 
         private string ArmarValores(Rol rol)

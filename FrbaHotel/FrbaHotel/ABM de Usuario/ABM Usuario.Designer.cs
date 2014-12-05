@@ -31,10 +31,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
-            this.cboHotel = new System.Windows.Forms.ComboBox();
             this.btnCalendario = new System.Windows.Forms.Button();
             this.calendNacimiento = new System.Windows.Forms.MonthCalendar();
-            this.cboRol = new System.Windows.Forms.ComboBox();
             this.txtNacimiento = new System.Windows.Forms.MaskedTextBox();
             this.txtNumCalle = new System.Windows.Forms.MaskedTextBox();
             this.txtCalle = new System.Windows.Forms.MaskedTextBox();
@@ -58,13 +56,16 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblRol = new System.Windows.Forms.Label();
+            this.ckActivo = new System.Windows.Forms.CheckBox();
+            this.ckLstHoteles = new System.Windows.Forms.CheckedListBox();
+            this.ckListRoles = new System.Windows.Forms.CheckedListBox();
             this.gpoBoxAlta.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(618, 393);
+            this.btnGuardar.Location = new System.Drawing.Point(618, 559);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(98, 25);
             this.btnGuardar.TabIndex = 6;
@@ -75,7 +76,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 393);
+            this.btnLimpiar.Location = new System.Drawing.Point(12, 559);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(79, 25);
             this.btnLimpiar.TabIndex = 5;
@@ -85,10 +86,11 @@
             // 
             // gpoBoxAlta
             // 
-            this.gpoBoxAlta.Controls.Add(this.cboHotel);
+            this.gpoBoxAlta.Controls.Add(this.ckListRoles);
+            this.gpoBoxAlta.Controls.Add(this.ckLstHoteles);
+            this.gpoBoxAlta.Controls.Add(this.ckActivo);
             this.gpoBoxAlta.Controls.Add(this.btnCalendario);
             this.gpoBoxAlta.Controls.Add(this.calendNacimiento);
-            this.gpoBoxAlta.Controls.Add(this.cboRol);
             this.gpoBoxAlta.Controls.Add(this.txtNacimiento);
             this.gpoBoxAlta.Controls.Add(this.txtNumCalle);
             this.gpoBoxAlta.Controls.Add(this.txtCalle);
@@ -115,24 +117,10 @@
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
-            this.gpoBoxAlta.Size = new System.Drawing.Size(704, 375);
+            this.gpoBoxAlta.Size = new System.Drawing.Size(704, 541);
             this.gpoBoxAlta.TabIndex = 4;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Usuario";
-            // 
-            // cboHotel
-            // 
-            this.cboHotel.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.cboHotel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboHotel.FormattingEnabled = true;
-            this.cboHotel.Items.AddRange(new object[] {
-            "Exterior",
-            "Interior"});
-            this.cboHotel.Location = new System.Drawing.Point(158, 330);
-            this.cboHotel.Name = "cboHotel";
-            this.cboHotel.Size = new System.Drawing.Size(265, 24);
-            this.cboHotel.TabIndex = 32;
             // 
             // btnCalendario
             // 
@@ -153,20 +141,6 @@
             this.calendNacimiento.TabIndex = 31;
             this.calendNacimiento.Visible = false;
             this.calendNacimiento.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendNacimiento_DateSelected);
-            // 
-            // cboRol
-            // 
-            this.cboRol.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.cboRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboRol.FormattingEnabled = true;
-            this.cboRol.Items.AddRange(new object[] {
-            "Exterior",
-            "Interior"});
-            this.cboRol.Location = new System.Drawing.Point(458, 29);
-            this.cboRol.Name = "cboRol";
-            this.cboRol.Size = new System.Drawing.Size(240, 24);
-            this.cboRol.TabIndex = 30;
             // 
             // txtNacimiento
             // 
@@ -205,9 +179,8 @@
             // 
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.Location = new System.Drawing.Point(404, 134);
-            this.txtMail.Mask = "A{1}A\\@A{1}A\\.A{1}A";
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(299, 21);
+            this.txtMail.Size = new System.Drawing.Size(294, 21);
             this.txtMail.TabIndex = 24;
             // 
             // cboTipoDNI
@@ -227,7 +200,7 @@
             // txtNumDNI
             // 
             this.txtNumDNI.Location = new System.Drawing.Point(338, 202);
-            this.txtNumDNI.Mask = "999999999";
+            this.txtNumDNI.Mask = "99999999";
             this.txtNumDNI.Name = "txtNumDNI";
             this.txtNumDNI.Size = new System.Drawing.Size(85, 23);
             this.txtNumDNI.TabIndex = 22;
@@ -250,11 +223,11 @@
             // 
             this.Hotel.AutoSize = true;
             this.Hotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hotel.Location = new System.Drawing.Point(75, 330);
+            this.Hotel.Location = new System.Drawing.Point(6, 312);
             this.Hotel.Name = "Hotel";
-            this.Hotel.Size = new System.Drawing.Size(61, 20);
+            this.Hotel.Size = new System.Drawing.Size(78, 20);
             this.Hotel.TabIndex = 19;
-            this.Hotel.Text = "* Hotel:";
+            this.Hotel.Text = "* Hoteles:";
             // 
             // lblNacido
             // 
@@ -375,23 +348,51 @@
             // 
             this.lblRol.AutoSize = true;
             this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(395, 29);
+            this.lblRol.Location = new System.Drawing.Point(434, 372);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(47, 20);
+            this.lblRol.Size = new System.Drawing.Size(64, 20);
             this.lblRol.TabIndex = 2;
-            this.lblRol.Text = "* Rol:";
+            this.lblRol.Text = "* Roles:";
+            // 
+            // ckActivo
+            // 
+            this.ckActivo.AutoSize = true;
+            this.ckActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckActivo.Location = new System.Drawing.Point(404, 66);
+            this.ckActivo.Name = "ckActivo";
+            this.ckActivo.Size = new System.Drawing.Size(71, 24);
+            this.ckActivo.TabIndex = 33;
+            this.ckActivo.Text = "Activo";
+            this.ckActivo.UseVisualStyleBackColor = true;
+            // 
+            // ckLstHoteles
+            // 
+            this.ckLstHoteles.FormattingEnabled = true;
+            this.ckLstHoteles.Location = new System.Drawing.Point(10, 335);
+            this.ckLstHoteles.Name = "ckLstHoteles";
+            this.ckLstHoteles.Size = new System.Drawing.Size(416, 184);
+            this.ckLstHoteles.TabIndex = 40;
+            // 
+            // ckListRoles
+            // 
+            this.ckListRoles.FormattingEnabled = true;
+            this.ckListRoles.Location = new System.Drawing.Point(438, 395);
+            this.ckListRoles.Name = "ckListRoles";
+            this.ckListRoles.Size = new System.Drawing.Size(260, 130);
+            this.ckListRoles.TabIndex = 41;
             // 
             // ABMUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 427);
+            this.ClientSize = new System.Drawing.Size(739, 596);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.gpoBoxAlta);
             this.Name = "ABMUser";
             this.Text = "ABM Usuario";
             this.Load += new System.EventHandler(this.ABMUser_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ABMUser_FormClosing);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             this.ResumeLayout(false);
@@ -427,9 +428,10 @@
         private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.MaskedTextBox txtMail;
         private System.Windows.Forms.Button btnCalendario;
-        private System.Windows.Forms.ComboBox cboRol;
         private System.Windows.Forms.MonthCalendar calendNacimiento;
-        private System.Windows.Forms.ComboBox cboHotel;
+        private System.Windows.Forms.CheckBox ckActivo;
+        private System.Windows.Forms.CheckedListBox ckLstHoteles;
+        private System.Windows.Forms.CheckedListBox ckListRoles;
 
     }
 }

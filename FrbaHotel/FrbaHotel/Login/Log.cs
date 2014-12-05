@@ -26,7 +26,8 @@ namespace FrbaHotel.Login
         private void Log_Load(object sender, EventArgs e)
         {
             // si no hay usuarios aparte del default tiene q cargarse el nuevo admin o recep..
-            List<Usuario> usuarios = sUsuario.GetAll();
+            List<Usuario> usuariosTodos = sUsuario.GetAll();
+            List<Usuario> usuarios = (from u in usuariosTodos where u.estado == true select u).ToList();
             if(usuarios.Count() == 1 && FormIni.rol == "Administrador") {
                 ABM_de_Usuario.ABMUser usuarioNuevo = new FrbaHotel.ABM_de_Usuario.ABMUser();
                 usuarioNuevo.Show();
@@ -111,7 +112,7 @@ namespace FrbaHotel.Login
                     hotelNombre = cboHotel.Text;
                     MessageBox.Show("Operación exitosa!");
                     this.Close();
-                    FormIni.ActiveForm.Refresh();
+                    FormIni.ventanaPrincip.cargarCBOFunc();
                 }
             }
         }
@@ -126,7 +127,7 @@ namespace FrbaHotel.Login
                 }
                 else return true;
             }else
-                if (cboHotel.SelectedText == "")
+                if (((Hotel)cboHotel.SelectedItem).direccionCompleta == "")
                 {
                     MessageBox.Show("Debe elegir el hotel.");
                     return false;

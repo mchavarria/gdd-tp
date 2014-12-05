@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
-            this.ckActiva = new System.Windows.Forms.CheckBox();
             this.cboFunc = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.MaskedTextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -46,7 +45,6 @@
             // 
             // gpoBoxAlta
             // 
-            this.gpoBoxAlta.Controls.Add(this.ckActiva);
             this.gpoBoxAlta.Controls.Add(this.cboFunc);
             this.gpoBoxAlta.Controls.Add(this.txtNombre);
             this.gpoBoxAlta.Controls.Add(this.lblNombre);
@@ -54,21 +52,10 @@
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
-            this.gpoBoxAlta.Size = new System.Drawing.Size(655, 65);
+            this.gpoBoxAlta.Size = new System.Drawing.Size(563, 65);
             this.gpoBoxAlta.TabIndex = 8;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Filtros de búsqueda";
-            // 
-            // ckActiva
-            // 
-            this.ckActiva.AutoSize = true;
-            this.ckActiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckActiva.Location = new System.Drawing.Point(235, 29);
-            this.ckActiva.Name = "ckActiva";
-            this.ckActiva.Size = new System.Drawing.Size(71, 24);
-            this.ckActiva.TabIndex = 37;
-            this.ckActiva.Text = "Activo";
-            this.ckActiva.UseVisualStyleBackColor = true;
             // 
             // cboFunc
             // 
@@ -76,7 +63,7 @@
             this.cboFunc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFunc.FormattingEnabled = true;
-            this.cboFunc.Location = new System.Drawing.Point(430, 29);
+            this.cboFunc.Location = new System.Drawing.Point(356, 29);
             this.cboFunc.Name = "cboFunc";
             this.cboFunc.Size = new System.Drawing.Size(199, 24);
             this.cboFunc.TabIndex = 36;
@@ -102,7 +89,7 @@
             // 
             this.lblFuncion.AutoSize = true;
             this.lblFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFuncion.Location = new System.Drawing.Point(312, 29);
+            this.lblFuncion.Location = new System.Drawing.Point(238, 29);
             this.lblFuncion.Name = "lblFuncion";
             this.lblFuncion.Size = new System.Drawing.Size(112, 20);
             this.lblFuncion.TabIndex = 33;
@@ -110,7 +97,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(578, 83);
+            this.btnBuscar.Location = new System.Drawing.Point(486, 83);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(89, 23);
             this.btnBuscar.TabIndex = 7;
@@ -131,6 +118,7 @@
             // gridRoles
             // 
             this.gridRoles.AllowUserToDeleteRows = false;
+            this.gridRoles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gridRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridRoles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar,
@@ -138,27 +126,31 @@
             this.gridRoles.Location = new System.Drawing.Point(12, 112);
             this.gridRoles.Name = "gridRoles";
             this.gridRoles.ReadOnly = true;
-            this.gridRoles.Size = new System.Drawing.Size(655, 243);
+            this.gridRoles.Size = new System.Drawing.Size(563, 243);
             this.gridRoles.TabIndex = 5;
             this.gridRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRoles_CellContentClick);
             // 
             // Seleccionar
             // 
-            this.Seleccionar.HeaderText = "Select";
+            this.Seleccionar.HeaderText = "Modificar";
             this.Seleccionar.Name = "Seleccionar";
             this.Seleccionar.ReadOnly = true;
-            this.Seleccionar.Text = "Seleccionar";
+            this.Seleccionar.Text = "Modificar";
+            this.Seleccionar.ToolTipText = "Modificar";
+            this.Seleccionar.Width = 56;
             // 
             // Delete
             // 
-            this.Delete.HeaderText = "Delete";
+            this.Delete.HeaderText = "Eliminar";
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             this.Delete.Text = "Eliminar";
+            this.Delete.ToolTipText = "Eliminar";
+            this.Delete.Width = 49;
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(273, 83);
+            this.btnNuevo.Location = new System.Drawing.Point(232, 83);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(89, 23);
             this.btnNuevo.TabIndex = 9;
@@ -170,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 365);
+            this.ClientSize = new System.Drawing.Size(585, 365);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.gpoBoxAlta);
             this.Controls.Add(this.btnBuscar);
@@ -179,6 +171,7 @@
             this.Name = "BusquedaRoles";
             this.Text = "Busqueda de Roles";
             this.Load += new System.EventHandler(this.BusquedaRoles_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BusquedaRoles_FormClosing);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridRoles)).EndInit();
@@ -192,13 +185,12 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridView gridRoles;
-        private System.Windows.Forms.CheckBox ckActiva;
         private System.Windows.Forms.ComboBox cboFunc;
         private System.Windows.Forms.MaskedTextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblFuncion;
+        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.Button btnNuevo;
     }
 }

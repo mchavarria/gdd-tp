@@ -19,7 +19,7 @@ namespace FrbaHotel.ABM_de_Rol
             InitializeComponent();
         }
 
-        public static decimal valorL;
+        public static decimal valorL = 0;
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -27,19 +27,19 @@ namespace FrbaHotel.ABM_de_Rol
             try
             {
 
-                if (valorL > 0){
-                    List<Funcion> funcionesDelRol = sFuncion.GetBySQL("select * from hotel.Rol_Funcion r where r.cod_funcion = "+cboFunc.SelectedValue.ToString()+" and r.cod_rol =" + valorL);
-                    if(funcionesDelRol.Count() == 0){
-                        sRol.Update(rol,decimal.Parse(cboFunc.SelectedValue.ToString()));
-                    }
+                if (valorL > 0)
+                {
+                    sRol.Update(rol);
                 }
                 else
-                    sRol.Save(rol,decimal.Parse(cboFunc.SelectedValue.ToString()));
-
+                {
+                    sRol.Save(rol);
+                }
+                altaFunciones(rol.codigo);
                 MessageBox.Show("Operación exitosa!");
-                ABM_de_Rol.BusquedaRoles.ventana.cargate();
+                if(ABM_de_Rol.BusquedaRoles.ventana != null)
+                    ABM_de_Rol.BusquedaRoles.ventana.cargate();
                 ABM_de_Rol.BusquedaRoles.codSelected = 0;
-                this.Close(); 
             }
 
             catch (Exception ex)
@@ -48,30 +48,60 @@ namespace FrbaHotel.ABM_de_Rol
             }
             finally
             {
+                if (valorL > 0)
+                    this.Close();
+                else
+                    limpiar();
             }
         }
-        
+
+        private void altaFunciones(decimal codRol)
+        {
+            List<Funcion> funciones = sFuncion.GetAll();
+
+            sFuncion.DeleteAllByCodRol(codRol);
+
+            foreach (int indexChecked in ckLstFunciones.CheckedIndices)
+            {
+                string descrip = ((Funcion)ckLstFunciones.Items[indexChecked]).descripcion.ToString();
+
+                foreach (Funcion func in funciones)
+                {
+                    if (descrip == func.descripcion)
+                        sFuncion.SaveCodRol(codRol, func.codigo);
+                }
+            }
+
+        }
+
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            limpiar();
+        }
+
+        private void limpiar()
+        {
             txtNombre.Text = "";
-            cboFunc.Text = "";
-            ckActiva.Checked = false;
+            for (int i = 0; i < ckLstFunciones.Items.Count; i++)
+                ckLstFunciones.SetItemCheckState(i, CheckState.Unchecked);
+            ckActiva.Checked = true;
         }
 
         private void ABMRol_Load(object sender, EventArgs e)
         {
             valorL = ABM_de_Rol.BusquedaRoles.codSelected;
             List<Funcion> funciones = sFuncion.GetAll();
-            cboFunc.DisplayMember = "descripcion";
-            cboFunc.ValueMember = "codigo";
-            cboFunc.DataSource = funciones;
-
+            ckLstFunciones.DataSource = funciones;
+            ckLstFunciones.DisplayMember = "descripcion";
+            ckLstFunciones.ValueMember = "codigo";
+            
             if (valorL > 0)
             {
                 LoadRol(valorL);
             }
         }
         Rol rol = new Rol();
+
         private void LoadRol(decimal codRol)
         {
             List<Rol> roles = sRol.GetBySQL("select * from hotel.Rol r where r.codigo = " + codRol);
@@ -79,11 +109,28 @@ namespace FrbaHotel.ABM_de_Rol
             txtNombre.Text = rol.descripcion;
             ckActiva.Checked = rol.estado;
 
-            //para poder dar de alta otra funcionabilidad
-            List<Funcion> funciones = sFuncion.GetAll();
-            cboFunc.DisplayMember = "descripcion";
-            cboFunc.ValueMember = "codigo";
-            cboFunc.DataSource = funciones;
+            cargarFunciones(codRol);
+        }
+
+        private void cargarFunciones(decimal codRol)
+        {
+
+            List<Funcion> funcionesDelRol = sFuncion.GetRolPorFuncion(int.Parse(codRol.ToString()));
+
+            for (int i = 0; i <= (ckLstFunciones.Items.Count - 1); i++)
+            {
+                string descrip = ((Funcion)ckLstFunciones.Items[i]).descripcion.ToString();
+                var checkear = false;
+
+                foreach (Funcion func in funcionesDelRol)
+                {
+                    if (descrip == func.descripcion) checkear = true;
+                }
+                if (checkear)
+                    ckLstFunciones.SetItemCheckState(i, CheckState.Checked);
+                else
+                    ckLstFunciones.SetItemCheckState(i, CheckState.Unchecked);
+            }
         }
 
         private void BuildRol()
@@ -94,21 +141,21 @@ namespace FrbaHotel.ABM_de_Rol
             rol.estado = ckActiva.Checked;
         }
 
-        private void BtnBorrar_Click(object sender, EventArgs e)
-        {
-            if (cboFunc.Text != "" && valorL > 0) {
-                List<Funcion> funcionesDelRol = sFuncion.GetBySQL("select * from hotel.Rol_Funcion r where r.cod_funcion = " + cboFunc.SelectedValue.ToString() + " and r.cod_rol =" + valorL);
-                if (funcionesDelRol.Count() != 0)
-                {
-                    try{
-                    sRol.GetBySQL("delete hotel.Rol_Funcion f where f.cod_funcion =" + cboFunc.SelectedValue.ToString() + " and f.cod_rol = " +valorL);
-                        }
+        /*  private void BtnBorrar_Click(object sender, EventArgs e)
+          {
+              if (cboFunc.Text != "" && valorL > 0) {
+                  List<Funcion> funcionesDelRol = sFuncion.GetBySQL("select * from hotel.Rol_Funcion r where r.cod_funcion = " + cboFunc.SelectedValue.ToString() + " and r.cod_rol =" + valorL);
+                  if (funcionesDelRol.Count() != 0)
+                  {
+                      try{
+                      sRol.GetBySQL("delete hotel.Rol_Funcion f where f.cod_funcion =" + cboFunc.SelectedValue.ToString() + " and f.cod_rol = " +valorL);
+                          }
 
-                        catch (Exception ex)
-                        {
-                        }
-                }
-            }
-        }
+                          catch (Exception ex)
+                          {
+                          }
+                  }
+              }
+          }*/
     }
 }

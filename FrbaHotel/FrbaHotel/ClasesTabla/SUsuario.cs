@@ -62,5 +62,10 @@ namespace FrbaHotel.ClasesTabla
         {
             userDao.Delete(codigo);
         }
+
+        internal void DeleteAllByCodUser(decimal codUsuario)
+        {
+            userDao.DeleteAllByCodUser(codUsuario);
+        }
     }
 }

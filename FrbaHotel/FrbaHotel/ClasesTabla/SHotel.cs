@@ -20,7 +20,7 @@ namespace FrbaHotel.ClasesTabla
 
             public List<Hotel> GetAllActivos()
             {
-                return hotelDao.GetAllActivos();
+                return hotelDao.GetAllActivosCompleto();
             }
 
             public List<HotelDTO> GetBySQLGRID(string consulta)

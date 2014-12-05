@@ -37,5 +37,15 @@ namespace FrbaHotel.ClasesTabla
         {
             return funcionDao.GetRolPorFuncion(cod_rol);
         }
+
+        public void DeleteAllByCodRol(decimal codRol)
+        {
+            funcionDao.DeleteAllByCodRol(codRol);
+        }
+
+        internal void SaveCodRol(decimal codRol, decimal codFunc)
+        {
+            funcionDao.SaveCodRol(codRol, codFunc);
+        }
     }
 }

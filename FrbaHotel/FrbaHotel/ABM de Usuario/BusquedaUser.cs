@@ -18,18 +18,25 @@ namespace FrbaHotel.ABM_de_Usuario
         }
 
         static public decimal usuarioSelected = 0;
+        static public BusquedaUser ventanaBusqueda;
         SRol SRol = new SRol();
         SUsuario susuario = new SUsuario();
         SPersona sCliente = new SPersona();
 
         private void BusquedaUser_Load(object sender, EventArgs e)
         {
-                
+            ventanaBusqueda = this;
+
             List<Rol> roles = SRol.GetRolAsig();
+            Rol rol = new Rol();
+            rol.descripcion = "Todos";
+            rol.codigo = 0;
+            roles.Add(rol);
             cboRol.DisplayMember = "descripcion";
             cboRol.ValueMember = "codigo";
             cboRol.DataSource = roles;
             cargate();
+            cboRol.SelectedItem = rol;
         }
 
         public void cargate() {
@@ -40,8 +47,9 @@ namespace FrbaHotel.ABM_de_Usuario
         {
             txtMail.Text = "";
             txtUser.Text = "";
-            cboRol.Text = "";
+            cboRol.SelectedValue = 1;
             usuarioSelected = 0;
+            cargate();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -52,24 +60,24 @@ namespace FrbaHotel.ABM_de_Usuario
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtMail.Text != "" || txtUser.Text != "" || cboRol.Text != "")
+            if (txtMail.Text.Trim() != "" || txtUser.Text.Trim() != "" || cboRol.Text.Trim() != "Todos")
             {
                 StringBuilder Valores = new StringBuilder();
                 if (txtMail.Text != "")
-                    Valores.Append("p.mail like '%" + txtMail.Text + "%' ");
+                    Valores.Append(" p.mail like '%" + txtMail.Text + "%' ");
 
-                if ((txtMail.Text != "" && txtUser.Text != "") || (txtMail.Text != "" && cboRol.Text != "")) Valores.Append(" and ");
+                if ((txtMail.Text != "" && txtUser.Text != "") || (txtMail.Text != "" && cboRol.Text != "Todos")) Valores.Append(" and ");
 
-                if (txtUser.Text != "") Valores.Append(" u.user_name like '%" + txtUser.Text + "%'");
+                if (txtUser.Text != "") Valores.Append(" u.user_nombre like '%" + txtUser.Text + "%'");
 
-                if (txtUser.Text != "" && cboRol.Text != "") Valores.Append(" and ");
+                if (txtUser.Text != "" && cboRol.Text != "Todos") Valores.Append(" and ");
 
-                if (cboRol.Text != "") Valores.Append(" rol.cod_rol =" + cboRol.SelectedValue);
+                if (cboRol.Text != "Todos") Valores.Append(" rol.cod_rol =" + ((Rol)cboRol.SelectedItem).codigo);
 
-                gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Usuario_hotel h, hotel.Rol_Usuario rol, hotel.Persona p where p.codigo = u.cod_persona and h.cod_usuario = u.codigo and h.cod_hotel = " + Login.Log.hotel.ToString() + " and " + Valores.ToString());
-                
+                gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Rol_Usuario rol, hotel.Persona p where p.codigo = u.cod_persona and " + Valores.ToString() + " group by u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado");
+
             }
-            else gripUser.DataSource = susuario.GetAll();
+            else cargate();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -96,6 +104,7 @@ namespace FrbaHotel.ABM_de_Usuario
                     cargate();
                     }
                     catch(Exception ex) { }
+                    usuarioSelected = 0;
                 }
         }
 

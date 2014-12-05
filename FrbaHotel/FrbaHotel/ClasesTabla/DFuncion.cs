@@ -17,7 +17,7 @@ namespace FrbaHotel.ClasesTabla
 
             foreach (DataRow f in TableFunc.Rows)
             {
-                Funcion func  = new Funcion();
+                Funcion func = new Funcion();
                 func.codigo = f.Field<decimal>("codigo");
                 func.descripcion = f.Field<string>("descripcion");
                 funciones.Add(func);
@@ -69,6 +69,16 @@ namespace FrbaHotel.ClasesTabla
                 funciones.Add(fun);
             }
             return funciones;
+        }
+
+        internal void DeleteAllByCodRol(decimal codRol)
+        {
+            int ex = entidadBase.EjecutarSQL("delete from hotel.Rol_Funcion where cod_rol =" + codRol);
+        }
+
+        internal void SaveCodRol(decimal codRol, decimal codFunc)
+        {
+            int ex = entidadBase.EjecutarSQL("insert hotel.Rol_Funcion (cod_funcion,cod_rol) values (" + codRol.ToString() + "," + codFunc.ToString() + ")");
         }
     }
 }

@@ -20,15 +20,23 @@ namespace FrbaHotel
         static public FormIni ventanaPrincip;
         static public string rol;
         static public bool loggeado = false;
+        static private bool requiereLoggeo = false;
 
         private void btnAcept_Click(object sender, EventArgs e)
         {
             rol = cboRoles.Text;
 
-            if (!loggeado) { if (rol != "Guest") cboFunciones.Items.Add("Login"); }
+            SFuncion SFuncion = new SFuncion();
+            List<Funcion> funciones = SFuncion.GetRolPorFuncion(int.Parse(cboRoles.SelectedValue.ToString()));
+
+            Funcion funcion = (from f in funciones where f.descripcion == "Login" select f).SingleOrDefault();
+            if (funcion != null) { requiereLoggeo = true; }
+
+            if (!loggeado) { if (requiereLoggeo == true) cboFunciones.Items.Add("Login"); }
             else cargarCBOFunc();
 
-            if (rol == "Guest") {
+            if (rol == "Guest")
+            {
                 loggeado = true;
                 Login.Log.user = 1;
                 cargarCBOFunc();
@@ -41,7 +49,7 @@ namespace FrbaHotel
             cboFunciones.Visible = true;
             lblFunciones.Visible = true;
             btnAceptar.Visible = true;
-         }
+        }
 
         public void cargarCBOFunc()
         {
@@ -49,6 +57,10 @@ namespace FrbaHotel
             cboFunciones.Items.Clear();
             SFuncion SFuncion = new SFuncion();
             List<Funcion> funciones = SFuncion.GetRolPorFuncion(int.Parse(cboRoles.SelectedValue.ToString()));
+
+            Funcion funcion = (from f in funciones where f.descripcion == "Login" select f).SingleOrDefault();
+            if (funcion != null) { funciones.Remove(funcion); requiereLoggeo = true; }
+
             cboFunciones.DisplayMember = "descripcion";
             cboFunciones.ValueMember = "codigo";
             cboFunciones.DataSource = funciones;
@@ -56,68 +68,72 @@ namespace FrbaHotel
 
         private void btnFunc_Click(object sender, EventArgs e)
         {
-            if(cboFunciones.Text != ""){
-            if(cboFunciones.Text != "Login"){
-                int funcionSelected = int.Parse(cboFunciones.SelectedValue.ToString());
+            if (cboFunciones.Text != "")
+            {
+                if (cboFunciones.Text != "Login")
+                {
+                    int funcionSelected = int.Parse(cboFunciones.SelectedValue.ToString());
 
-                /* case de redireccionamiento */
+                    /* case de redireccionamiento */
 
-                switch(funcionSelected){
-                    case 1:
-                        ABM_de_Usuario.BusquedaUser BusquedaUser = new FrbaHotel.ABM_de_Usuario.BusquedaUser();
-                        BusquedaUser.Show();
-                        break;
-                    case 2:
-                        ABM_de_Cliente.BusquedaCliente BusquedaCliente = new FrbaHotel.ABM_de_Cliente.BusquedaCliente();
-                        BusquedaCliente.Show();
-                        break;
-                    case 3:
-                        ABM_Hotel.BusquedaHotel BusquedaHotel = new FrbaHotel.ABM_Hotel.BusquedaHotel();
-                        BusquedaHotel.Show();
-                        break;
-                    case 4:
-                        ABM_de_Habitacion.BusquedaHabitacion BusquedaHab = new FrbaHotel.ABM_de_Habitacion.BusquedaHabitacion();
-                        BusquedaHab.Show();
-                        break;
-                    case 5:
-                        ABM_de_Regimen.BusquedaRegimen BusquedaReg = new FrbaHotel.ABM_de_Regimen.BusquedaRegimen();
-                        BusquedaReg.Show();
-                        break;
-                    case 6:
-                        Generar_Modificar_Reserva.AMReserva AMReserva = new FrbaHotel.Generar_Modificar_Reserva.AMReserva();
-                        AMReserva.Show();
-                        break;
-                    case 7:
-                        Cancelar_Reserva.CancelarReserva CancelarReserva = new FrbaHotel.Cancelar_Reserva.CancelarReserva();
-                        CancelarReserva.Show();
-                        break;
-                    case 8:
-                        Registrar_Estadia.Estadia Estadia = new FrbaHotel.Registrar_Estadia.Estadia();
-                        Estadia.Show();
-                        break;
-                    case 9:
-                        Registrar_Consumible.RegistrarConsumible RegistrarConsum = new FrbaHotel.Registrar_Consumible.RegistrarConsumible();
-                        RegistrarConsum.Show();
-                        break;
-                    case 10:
-                        Registrar_Consumible.Facturar Facturar = new FrbaHotel.Registrar_Consumible.Facturar();
-                        Facturar.Show();
-                        break;
-                    case 11:
-                        Listado_Estadistico.ListadoEstadistico Estadistica = new FrbaHotel.Listado_Estadistico.ListadoEstadistico();
-                        Estadistica.Show();
+                    switch (funcionSelected)
+                    {
+                        case 1:
+                            ABM_de_Usuario.BusquedaUser BusquedaUser = new FrbaHotel.ABM_de_Usuario.BusquedaUser();
+                            BusquedaUser.Show();
+                            break;
+                        case 2:
+                            ABM_de_Cliente.BusquedaCliente BusquedaCliente = new FrbaHotel.ABM_de_Cliente.BusquedaCliente();
+                            BusquedaCliente.Show();
+                            break;
+                        case 3:
+                            ABM_Hotel.BusquedaHotel BusquedaHotel = new FrbaHotel.ABM_Hotel.BusquedaHotel();
+                            BusquedaHotel.Show();
+                            break;
+                        case 4:
+                            ABM_de_Habitacion.BusquedaHabitacion BusquedaHab = new FrbaHotel.ABM_de_Habitacion.BusquedaHabitacion();
+                            BusquedaHab.Show();
+                            break;
+                        case 5:
+                            ABM_de_Regimen.BusquedaRegimen BusquedaReg = new FrbaHotel.ABM_de_Regimen.BusquedaRegimen();
+                            BusquedaReg.Show();
+                            break;
+                        case 6:
+                            Generar_Modificar_Reserva.AMReserva AMReserva = new FrbaHotel.Generar_Modificar_Reserva.AMReserva();
+                            AMReserva.Show();
+                            break;
+                        case 7:
+                            Cancelar_Reserva.CancelarReserva CancelarReserva = new FrbaHotel.Cancelar_Reserva.CancelarReserva();
+                            CancelarReserva.Show();
+                            break;
+                        case 8:
+                            Registrar_Estadia.Estadia Estadia = new FrbaHotel.Registrar_Estadia.Estadia();
+                            Estadia.Show();
+                            break;
+                        case 9:
+                            Registrar_Consumible.RegistrarConsumible RegistrarConsum = new FrbaHotel.Registrar_Consumible.RegistrarConsumible();
+                            RegistrarConsum.Show();
+                            break;
+                        case 10:
+                            Registrar_Consumible.Facturar Facturar = new FrbaHotel.Registrar_Consumible.Facturar();
+                            Facturar.Show();
+                            break;
+                        case 11:
+                            Listado_Estadistico.ListadoEstadistico Estadistica = new FrbaHotel.Listado_Estadistico.ListadoEstadistico();
+                            Estadistica.Show();
 
-                        break;
-                    case 12:
-                        ABM_de_Rol.BusquedaRoles roles = new FrbaHotel.ABM_de_Rol.BusquedaRoles();
-                        roles.Show();
-                        break;
+                            break;
+                        case 12:
+                            ABM_de_Rol.BusquedaRoles roles = new FrbaHotel.ABM_de_Rol.BusquedaRoles();
+                            roles.Show();
+                            break;
+                    }
                 }
-            }
-            else {
-                Login.Log loggearse = new FrbaHotel.Login.Log();
-                loggearse.Show();
-            }
+                else
+                {
+                    Login.Log loggearse = new FrbaHotel.Login.Log();
+                    loggearse.Show();
+                }
             }
         }
 
@@ -153,6 +169,6 @@ namespace FrbaHotel
             cboFunciones.DataSource = null;
             cboFunciones.Items.Clear();
         }
-               
+
     }
 }

@@ -37,9 +37,15 @@ namespace FrbaHotel.ABM_de_Usuario
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
             txtApellido.Text = "";
             txtCalle.Text = "";
-            cboHotel.SelectedValue = 1;
+            for (int i = 0; i < ckLstHoteles.Items.Count; i++)
+                ckLstHoteles.SetItemCheckState(i, CheckState.Unchecked);
             txtMail.Text = "";
             txtNacimiento.Text = "";
             txtNombre.Text = "";
@@ -48,7 +54,8 @@ namespace FrbaHotel.ABM_de_Usuario
             txtPassword.Text = "";
             txtTelefono.Text = "";
             txtUser.Text = "";
-            cboRol.SelectedValue = 1;
+            for (int i = 0; i < ckListRoles.Items.Count; i++)
+                ckListRoles.SetItemCheckState(i, CheckState.Unchecked);
             cboTipoDNI.SelectedValue = 1;
             calendNacimiento.Visible = false;
         }
@@ -120,23 +127,113 @@ namespace FrbaHotel.ABM_de_Usuario
 
             string encriptadaContra = SHA256Encripta(txtPassword.Text);
             usuario.user_nombre = txtUser.Text;
-            usuario.user_password = encriptadaContra;
+            if (valorL == 0)
+                usuario.user_password = encriptadaContra;
+            else if (user.user_password != encriptadaContra) 
+                usuario.user_password = encriptadaContra;
             usuario.logueado = 0;
             usuario.intentos_fallidos = 0;
             usuario.cod_persona = codPer;
             usuario.estado = true;
+            usuario.estado = ckActivo.Checked;
 
             decimal codUsuario;
             if (valorL == 0){
                 codUsuario = sUsuario.Save(usuario);
-                entidadBase.EjecutarSQL("insert hotel.Usuario_hotel (cod_usuario,cod_hotel) values (" + codUsuario.ToString() + "," + cboHotel.SelectedValue.ToString() + ")");
             }
             else {
                 codUsuario = sUsuario.Update(usuario);
-                entidadBase.EjecutarSQL("insert hotel.Usuario_hotel (cod_usuario,cod_hotel) values (" + codUsuario.ToString() + "," + cboHotel.SelectedValue.ToString() + ")");
+            }
+            altaHotelesRol(codUsuario);
+            altaRoles(codUsuario);
+            MessageBox.Show("Operación exitosa!");
+            if (valorL != 0)
+                this.Close();
+            else
+                Limpiar();
+        }
+
+        private void cargarRoles(decimal codUsuario)
+        {
+            SRol sRol = new SRol();
+            List<Rol> roles = sRol.GetRolesUser(codUsuario);
+
+            for (int i = 0; i <= (ckListRoles.Items.Count - 1); i++)
+            {
+                string descr = ((Rol)ckListRoles.Items[i]).descripcion.ToString();
+                var checkear = false;
+
+                foreach (Rol r in roles)
+                {
+                    if (descr == r.descripcion) checkear = true;
+                }
+                if (checkear)
+                    ckListRoles.SetItemCheckState(i, CheckState.Checked);
+                else
+                    ckListRoles.SetItemCheckState(i, CheckState.Unchecked);
+            }
+        }
+
+        private void cargarHoteles(decimal codUsuario)
+        {
+            SHotel sHotel = new SHotel();
+            List<Hotel> hoteles = sHotel.GetBySQL("hotel.SP_GETHOTELESDEUSUARIO " + valorL);
+
+            for (int i = 0; i <= (ckLstHoteles.Items.Count - 1); i++)
+            {
+                string direccion = ((Hotel)ckLstHoteles.Items[i]).direccionCompleta.ToString();
+                var checkear = false;
+
+                foreach (Hotel h in hoteles)
+                {
+                    if (direccion == h.direccionCompleta) checkear = true;
+                }
+                if (checkear)
+                    ckLstHoteles.SetItemCheckState(i, CheckState.Checked);
+                else
+                    ckLstHoteles.SetItemCheckState(i, CheckState.Unchecked);
+            }
+        }
+
+        private void altaHotelesRol(decimal codUsuario)
+        {
+            SHotel sHotel = new SHotel();
+            List<Hotel> hoteles = sHotel.GetAllActivos();
+            List<Hotel> hotelesAlta = new List<Hotel>();
+
+            sUsuario.DeleteAllByCodUser(codUsuario);
+
+            foreach (int indexChecked in ckLstHoteles.CheckedIndices)
+            {
+                string direccion = ((Hotel)ckLstHoteles.Items[indexChecked]).direccionCompleta.ToString();
+
+                foreach (Hotel h in hoteles)
+                {
+                    if (direccion == h.direccionCompleta)
+                        entidadBase.EjecutarSQL("insert hotel.Usuario_hotel (cod_usuario,cod_hotel) values (" + codUsuario.ToString() + "," + h.codigo.ToString() + ")");
+                }
             }
 
-            MessageBox.Show("Operación exitosa!");
+        }
+
+        private void altaRoles(decimal codUsuario)
+        {
+            SRol sRol = new SRol();
+            List<Rol> roles = sRol.GetAllActivos();
+
+            entidadBase.EjecutarSQL("delete hotel.Rol_Usuario where cod_usuario ="+codUsuario);
+
+            foreach (int indexChecked in ckListRoles.CheckedIndices)
+            {
+                string descr = ((Rol)ckListRoles.Items[indexChecked]).descripcion.ToString();
+
+                foreach (Rol r in roles)
+                {
+                    if (descr == r.descripcion)
+                        entidadBase.EjecutarSQL("insert hotel.Rol_Usuario (cod_usuario,cod_rol) values (" + codUsuario.ToString() + "," + r.codigo.ToString() + ")");
+                }
+            }
+
         }
 
         private void btnCalendario_Click(object sender, EventArgs e)
@@ -151,26 +248,30 @@ namespace FrbaHotel.ABM_de_Usuario
 
         private void ABMUser_Load(object sender, EventArgs e)
         {
-            if (ABM_de_Usuario.BusquedaUser.usuarioSelected != 0)
-                cargarFormulario(ABM_de_Usuario.BusquedaUser.usuarioSelected);
-
             SHotel sHotel = new SHotel();
             List<Hotel> hoteles = sHotel.GetAllActivos();
-            cboHotel.DisplayMember = "direccionCompleta";
-            cboHotel.ValueMember = "codigo";
-            cboHotel.DataSource = hoteles;
+            ckLstHoteles.DataSource = hoteles;
+            ckLstHoteles.DisplayMember = "direccionCompleta";
+            ckLstHoteles.ValueMember = "codigo";
+
 
             SRol SRol = new SRol();
             List<Rol> roles = SRol.GetRolAsig();
-            cboRol.DisplayMember = "descripcion";
-            cboRol.ValueMember = "codigo";
-            cboRol.DataSource = roles;
+            ckListRoles.DataSource = roles;
+            ckListRoles.DisplayMember = "descripcion";
+            ckListRoles.ValueMember = "codigo";
+            
 
             STipoDoc stip = new STipoDoc();
             List<TipoDoc> tipos = stip.GetAll();
             cboTipoDNI.DisplayMember = "descripcion";
             cboTipoDNI.ValueMember = "codigo";
             cboTipoDNI.DataSource = tipos;
+
+            if (ABM_de_Usuario.BusquedaUser.usuarioSelected != 0)
+                cargarFormulario(ABM_de_Usuario.BusquedaUser.usuarioSelected);
+            
+            ckActivo.Checked = true;
         }
 
         private void cargarFormulario(decimal codUsuario)
@@ -180,17 +281,9 @@ namespace FrbaHotel.ABM_de_Usuario
             List<Persona> per = sCliente.GetBySQL("hotel.SP_GETPERSONAUsuario " + valorL);
             Persona persona = per.Single();
 
-            SHotel sHotel = new SHotel();
-            List<Hotel> hoteles = sHotel.GetBySQL("hotel.SP_GETHOTELESDEUSUARIO " + valorL);
-            cboHotel.DisplayMember = "direccionCompleta";
-            cboHotel.ValueMember = "codigo";
-            cboHotel.DataSource = hoteles;
+            cargarHoteles(codUsuario);
 
-            SRol sRol = new SRol();
-            List<Rol> roles = sRol.GetRolesUser(valorL);
-            cboRol.DisplayMember = "descripcion";
-            cboRol.ValueMember = "codigo";
-            cboRol.DataSource = roles;
+            cargarRoles(codUsuario);
 
             txtApellido.Text = persona.apellido ;
             txtCalle.Text = persona.nom_calle;
@@ -203,6 +296,7 @@ namespace FrbaHotel.ABM_de_Usuario
             txtTelefono.Text = persona.telefono.ToString();
             txtUser.Text = usuario.user_nombre;
             cboTipoDNI.SelectedValue = persona.codigo_tipo_doc;
+            ckActivo.Checked = usuario.estado;
         }
 
         private bool validar()
@@ -210,7 +304,6 @@ namespace FrbaHotel.ABM_de_Usuario
             if (
             txtApellido.Text.Trim() != "" &&
             txtCalle.Text.Trim() != "" &&
-            cboHotel.Text.Trim() != "" &&
             txtMail.Text.Trim() != "" &&
             txtNacimiento.Text.Trim() != "" &&
             txtNombre.Text.Trim() != "" &&
@@ -219,7 +312,7 @@ namespace FrbaHotel.ABM_de_Usuario
             txtPassword.Text.Trim() != "" &&
             txtTelefono.Text.Trim() != "" &&
             txtUser.Text.Trim() != "" &&
-            cboRol.Text.Trim() != "" &&
+            ckListRoles.SelectedItems.Count != 0 &&
             cboTipoDNI.Text.Trim() != "")
 
                 return true;
@@ -227,6 +320,13 @@ namespace FrbaHotel.ABM_de_Usuario
                 MessageBox.Show("Todos los datos son obligatorios!");
                 return false;
             }
+        }
+
+        private void ABMUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ABM_de_Usuario.BusquedaUser.usuarioSelected = 0;
+            if(ABM_de_Usuario.BusquedaUser.ventanaBusqueda != null)
+                ABM_de_Usuario.BusquedaUser.ventanaBusqueda.cargate();
         }
 
     }

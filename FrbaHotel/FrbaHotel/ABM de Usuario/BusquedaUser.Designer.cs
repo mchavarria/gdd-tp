@@ -38,9 +38,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gripUser = new System.Windows.Forms.DataGridView();
+            this.btnNew = new System.Windows.Forms.Button();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnNew = new System.Windows.Forms.Button();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gripUser)).BeginInit();
             this.SuspendLayout();
@@ -139,6 +139,7 @@
             // gripUser
             // 
             this.gripUser.AllowUserToDeleteRows = false;
+            this.gripUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gripUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gripUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar,
@@ -150,18 +151,6 @@
             this.gripUser.TabIndex = 5;
             this.gripUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Select";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Eliminar";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            // 
             // btnNew
             // 
             this.btnNew.Location = new System.Drawing.Point(256, 109);
@@ -171,6 +160,24 @@
             this.btnNew.Text = "Nuevo";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Modificar";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            this.Seleccionar.Text = "Modificar";
+            this.Seleccionar.ToolTipText = "Modificar";
+            this.Seleccionar.Width = 56;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Eliminar";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Eliminar";
+            this.Delete.ToolTipText = "Eliminar";
+            this.Delete.Width = 49;
             // 
             // BusquedaUser
             // 
@@ -203,9 +210,9 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridView gripUser;
         private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.MaskedTextBox txtMail;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
