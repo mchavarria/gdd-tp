@@ -144,6 +144,11 @@ namespace FrbaHotel.ClasesTabla
         {
             int ex = entidadBase.EjecutarSQL("update hotel.Usuario set estado = 0 where codigo=" + codigo);
         }
+
+        internal void DeleteAllByCodUser(decimal codUsuario)
+        {
+            int ex = entidadBase.EjecutarSQL("delete hotel.Usuario_hotel where cod_usuario =" + codUsuario);
+        }
     }
 }
 

@@ -43,14 +43,14 @@ namespace FrbaHotel.ClasesTabla
             return rolDao.GetBySQL(consulta);
         }
 
-        public decimal Save(Rol rol, decimal codFuncionNEW)
+        public decimal Save(Rol rol)
         {
-            return rolDao.Save(rol, codFuncionNEW);
+            return rolDao.Save(rol);
         }
 
-        public void Update(Rol rol, decimal codFuncionNEW)
+        public void Update(Rol rol)
         {
-            rolDao.Update(rol, codFuncionNEW);
+            rolDao.Update(rol);
         }
 
         public void Delete(decimal codigo)

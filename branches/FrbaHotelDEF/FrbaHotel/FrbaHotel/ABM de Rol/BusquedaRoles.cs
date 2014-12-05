@@ -26,7 +26,6 @@ namespace FrbaHotel.ABM_de_Rol
         {
             txtNombre.Text = "";
             cboFunc.SelectedValue = 1;
-            ckActiva.Checked = false;
             gridRoles.DataSource = sRoles.GetAll();
         }
 
@@ -36,18 +35,15 @@ namespace FrbaHotel.ABM_de_Rol
         
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text != "" || cboFunc.Text != "" || ckActiva.Checked == true){
+            if (txtNombre.Text != "" || cboFunc.Text != "Todas"){
                 
                 StringBuilder Valores = new StringBuilder();
                  if(txtNombre.Text != "")
                      Valores.Append("r.descripcion like '%" + txtNombre.Text + "%'");
-                 if((txtNombre.Text != "" && cboFunc.Text != "") || (txtNombre.Text != "" && ckActiva.Checked == true))Valores.Append(" and ");
+                 if(txtNombre.Text != "" && cboFunc.Text != "Todas")Valores.Append(" and ");
                  
-                 if(cboFunc.Text != "")
-                     Valores.Append("fun.cod_funcion = " + cboFunc.SelectedValue.ToString() + "");
-                 if (cboFunc.Text != "" && ckActiva.Checked == true) Valores.Append(" and ");
-
-                 if (ckActiva.Checked == true) Valores.Append("r.estado = 1");
+                 if(cboFunc.Text != "Todas")
+                     Valores.Append("fun.cod_funcion = " + ((Funcion)cboFunc.SelectedItem).codigo + "");
 
                  gridRoles.DataSource = sRoles.GetBySQL("select r.codigo, r.descripcion, r.estado from hotel.Rol r, hotel.Rol_Funcion fun where fun.cod_rol = r.codigo and " + Valores + "group by r.codigo, r.descripcion, r.estado");
                 
@@ -58,12 +54,19 @@ namespace FrbaHotel.ABM_de_Rol
         private void BusquedaRoles_Load(object sender, EventArgs e)
         {
             ventana = this;
-            gridRoles.DataSource = sRoles.GetAll();
+            cargate();
             SFuncion sFuncion = new SFuncion();
             List<Funcion> funciones = sFuncion.GetAll();
+            Funcion funcion = new Funcion();
+            funcion.descripcion = "Todas";
+            funcion.codigo = 0;
+            funciones.Add(funcion);
+            cboFunc.DataSource = funciones;
             cboFunc.DisplayMember = "descripcion";
             cboFunc.ValueMember = "codigo";
-            cboFunc.DataSource = funciones;
+
+            cboFunc.SelectedItem = funcion;
+
         }
 
         private void gridRoles_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -87,9 +90,10 @@ namespace FrbaHotel.ABM_de_Rol
                     try{
                     sRoles.Delete(codSelected);
                     MessageBox.Show("Operación exitosa!");
-                    gridRoles.DataSource = sRoles.GetAll();
+                    cargate();
                     }
                     catch(Exception ex) { }
+                    codSelected = 0;
                 }
             }
         }
@@ -98,6 +102,11 @@ namespace FrbaHotel.ABM_de_Rol
         {
             ABM_de_Rol.ABMRol seleccionar = new ABMRol();
             seleccionar.Show();
+        }
+
+        private void BusquedaRoles_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ABM_de_Rol.BusquedaRoles.codSelected = 0;
         }
     }
 }

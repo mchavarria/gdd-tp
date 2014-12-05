@@ -38,9 +38,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gridRegimen = new System.Windows.Forms.DataGridView();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridRegimen)).BeginInit();
             this.SuspendLayout();
@@ -142,16 +142,6 @@
             this.gridRegimen.TabIndex = 9;
             this.gridRegimen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Select
-            // 
-            this.Select.HeaderText = "Seleccionar";
-            this.Select.Name = "Select";
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Eliminar";
-            this.Delete.Name = "Delete";
-            // 
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(233, 100);
@@ -161,6 +151,18 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // Select
+            // 
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.Text = "Seleccionar";
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Eliminar";
             // 
             // BusquedaRegimen
             // 
@@ -194,9 +196,9 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridView gridRegimen;
+        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.Button btnNuevo;
 
     }
 }
