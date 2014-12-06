@@ -26,25 +26,24 @@ namespace FrbaHotel.ABM_de_Rol
             BuildRol();
             try
             {
-
-                if (valorL > 0)
-                {
-                    sRol.Update(rol);
+                if(validar()){
+                    if (valorL > 0)
+                    {
+                        sRol.Update(rol);
+                    }
+                    else
+                    {
+                        rol.codigo = sRol.Save(rol);
+                    }
+                    altaFunciones(rol.codigo);
+                    MessageBox.Show("Operación exitosa!");
                 }
-                else
-                {
-                    sRol.Save(rol);
-                }
-                altaFunciones(rol.codigo);
-                MessageBox.Show("Operación exitosa!");
-                if(ABM_de_Rol.BusquedaRoles.ventana != null)
-                    ABM_de_Rol.BusquedaRoles.ventana.cargate();
-                ABM_de_Rol.BusquedaRoles.codSelected = 0;
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error en la operación!");
+                if(valorL == 0 ) limpiar();
             }
             finally
             {
@@ -85,6 +84,8 @@ namespace FrbaHotel.ABM_de_Rol
             for (int i = 0; i < ckLstFunciones.Items.Count; i++)
                 ckLstFunciones.SetItemCheckState(i, CheckState.Unchecked);
             ckActiva.Checked = true;
+            valorL = 0;
+            rol = new Rol();
         }
 
         private void ABMRol_Load(object sender, EventArgs e)
@@ -94,7 +95,7 @@ namespace FrbaHotel.ABM_de_Rol
             ckLstFunciones.DataSource = funciones;
             ckLstFunciones.DisplayMember = "descripcion";
             ckLstFunciones.ValueMember = "codigo";
-            
+
             if (valorL > 0)
             {
                 LoadRol(valorL);
@@ -141,21 +142,19 @@ namespace FrbaHotel.ABM_de_Rol
             rol.estado = ckActiva.Checked;
         }
 
-        /*  private void BtnBorrar_Click(object sender, EventArgs e)
-          {
-              if (cboFunc.Text != "" && valorL > 0) {
-                  List<Funcion> funcionesDelRol = sFuncion.GetBySQL("select * from hotel.Rol_Funcion r where r.cod_funcion = " + cboFunc.SelectedValue.ToString() + " and r.cod_rol =" + valorL);
-                  if (funcionesDelRol.Count() != 0)
-                  {
-                      try{
-                      sRol.GetBySQL("delete hotel.Rol_Funcion f where f.cod_funcion =" + cboFunc.SelectedValue.ToString() + " and f.cod_rol = " +valorL);
-                          }
+        private void ABMRol_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (ABM_de_Rol.BusquedaRoles.ventana != null)
+                ABM_de_Rol.BusquedaRoles.ventana.cargate();
+            ABM_de_Rol.BusquedaRoles.codSelected = 0;
+            valorL = 0;
+        }
 
-                          catch (Exception ex)
-                          {
-                          }
-                  }
-              }
-          }*/
+         private bool validar()
+          {
+              if (txtNombre.Text.Trim() != "") return true;
+              else
+                  return false;
+          }
     }
 }

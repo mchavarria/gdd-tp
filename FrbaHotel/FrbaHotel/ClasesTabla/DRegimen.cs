@@ -42,20 +42,36 @@ namespace FrbaHotel.ClasesTabla
 
         public decimal SaveDTO(Regimen regimen, decimal codHotel)
         {
-            int ex = entidadBase.EjecutarSQL("insert hotel.Regimen_hotel (cod_regimen,cod_hotel,precio_base,estado) values (" + regimen.codigo+ + ','+ codHotel + ",0,0 )");
+            int ex = entidadBase.EjecutarSQL("insert hotel.Regimen_hotel (cod_regimen,cod_hotel,precio_base,estado) values (" + regimen.codigo + ","+ codHotel + ",0,0 )");
             return ex;
         }
 
         public decimal SaveDTO(RegimenDTO regimen)
         {
-            int ex = entidadBase.EjecutarSQL("insert hotel.Regimen_hotel (cod_regimen,cod_hotel,precio_base,estado) values (" + regimen.cod_regimen + ','+ regimen.cod_hotel +',' + regimen.precio_base + ','+ regimen.estado + ")");
+            int estado;
+            if (regimen.estado == true)
+                estado = 1;
+            else
+                estado = 0;
+            var precioBase = regimen.precio_base.ToString().Replace(',', '.');
+            int ex2 = entidadBase.EjecutarSQL("insert hotel.Regimen (descripcion) values ('" + regimen.descripcion + "')");
+            DataTable resultID = entidadBase.TraerDatos("SELECT max(codigo) from hotel.Regimen ");
+            DataRow row = resultID.Rows[0];
+            var codReg = Convert.ToInt32(row[0]);
+            int ex = entidadBase.EjecutarSQL("insert hotel.Regimen_hotel (cod_regimen,cod_hotel,precio_base,estado) values (" + codReg + ','+ regimen.cod_hotel +',' + precioBase + ','+ estado + ")");
             return ex;
         }
 
         public decimal UpdateDTO(RegimenDTO regimen)
         {
-            int ex = entidadBase.EjecutarSQL("update hotel.Regimen_hotel set precio_base = " + regimen.precio_base + ", estado = " + regimen.estado + " where cod_regimen = "+ regimen.cod_regimen + " and cod_hotel = " + regimen.cod_hotel);
-            int ex2 = entidadBase.EjecutarSQL("update hotel.Regimen set descripcion = " + regimen.descripcion + " where codigo = " + regimen.cod_regimen);
+            int estado;
+            if (regimen.estado == true)
+                estado = 1;
+            else
+                estado = 0;
+            var precioBase = regimen.precio_base.ToString().Replace(',', '.');
+            int ex = entidadBase.EjecutarSQL("update hotel.Regimen_hotel set precio_base = " + precioBase + ", estado = " + estado + " where cod_regimen = "+ regimen.cod_regimen + " and cod_hotel = " + regimen.cod_hotel);
+            int ex2 = entidadBase.EjecutarSQL("update hotel.Regimen set descripcion = '" + regimen.descripcion + "' where codigo = " + regimen.cod_regimen);
             return ex;
         }
 

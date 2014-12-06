@@ -26,71 +26,75 @@ namespace FrbaHotel.ABM_de_Regimen
 
             if (validar())
             {
-                if (codReg == 0)
+                BuildRegimen();
+                try
                 {
-                    BuildRegimen();
+
+                    if (codReg > 0)
+                    {
+                        if (reg.estado == false)
+                        { //darle de baja
+                            SHotel sHotel = new SHotel();
+                            var ocupado = sHotel.hotelOcupadoRegimen(reg.cod_hotel, reg.cod_regimen, DateTime.Now);
+                            if (ocupado == false)
+                            {
+                                sRegimen.UpdateDTO(reg);
+                                MessageBox.Show("Operación exitosa!");
+                            }
+                            else if (reg.estado == false)
+                                MessageBox.Show("No puede dar de baja, hay reservas con este tipo de regimen!");
+                        }
+                        else
+                        {
+                            sRegimen.UpdateDTO(reg);
+                            MessageBox.Show("Operación exitosa!");
+                        }
+                    }
+                    else
+                    {
+                        codReg = sRegimen.SaveDTO(reg);
+                        MessageBox.Show("Operación exitosa!");
+                    }
                 }
-                else
+
+                catch (Exception)
                 {
-                    //CARGAR MODIFICACIONES regimenes
-                    BuildRegimen();
+                    MessageBox.Show("Error en la operación!");
                 }
-                ABM_Hotel.BusquedaHotel.ventanaHotel.cargate();
+                finally
+                {
+
+                    if (codReg > 0)
+                        this.Close();
+                    else
+                        limpiar();
+                }
             }
         }
 
         SRegimen sRegimen = new SRegimen();
+        RegimenDTO reg = new RegimenDTO();
 
         private void BuildRegimen()
         {
-            RegimenDTO reg = new RegimenDTO();
-            decimal precioAnterior = 0;
-
             if (codReg != 0)
             {
                 reg = sRegimen.GetByCodDTO(codReg, codhotel);
                 reg.cod_regimen = codReg;
-                precioAnterior = reg.precio_base;
             }
 
             reg.cod_hotel = codhotel;
-            reg.descripcion = cboDescrip.SelectedText;
+            reg.descripcion = cboDescrip.Text;
             reg.estado = ckActivo.Checked;
             reg.precio_base = decimal.Parse(txtPrecio.Text);
 
-            if (codReg == 0)
-            {
-                codReg = sRegimen.SaveDTO(reg);
-            }
-            else
-            {
-                if (reg.estado == false || (precioAnterior != reg.precio_base))
-                { //darle de baja o modificar precio
-                    SHotel sHotel = new SHotel();
-                    var ocupado = sHotel.hotelOcupadoRegimen(reg.cod_hotel, reg.cod_regimen, DateTime.Now);
-                    if (ocupado == false)
-                    {
-                        sRegimen.UpdateDTO(reg);
-                        MessageBox.Show("Operación exitosa!");
-                    }
-                    else if (reg.estado == false)
-                            MessageBox.Show("No puede dar de baja, hay reservas con este tipo de regimen!");
-                    else MessageBox.Show("No puede modificar el precio, exisen reservas con este precio!");
-                }
-                else
-                {
-                    sRegimen.UpdateDTO(reg);
-                    MessageBox.Show("Operación exitosa!");
-                }
-            }
         }
 
         private bool validar()
         {
-            if ( 
-            txtCodigo.Text.Trim() != "" &&
+            if (
             cboDescrip.Text.Trim() != "" &&
-            txtPrecio.Text.Trim() != "" )
+            txtPrecio.Text.Trim() != "")
 
                 return true;
             else
@@ -104,35 +108,39 @@ namespace FrbaHotel.ABM_de_Regimen
         {
             RegimenDTO reg = sRegimen.GetByCodDTO(codReg, codhotel);
 
-            txtCodigo.Text = reg.cod_regimen.ToString();
             cboDescrip.Text = reg.descripcion;
             txtPrecio.Text = reg.precio_base.ToString();
             ckActivo.Checked = reg.estado;
+            if (reg.precio_base != 0)
+                txtPrecio.Enabled = false;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtCodigo.Text = "";
+            limpiar();
+        }
+
+        private void limpiar()
+        {
             cboDescrip.Text = "";
             txtPrecio.Text = "";
             ckActivo.Checked = false;
+            codReg = 0;
         }
 
         private void ABMRegimen_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (ABM_de_Regimen.BusquedaRegimen.ventanabusqreg != null)
+                ABM_de_Regimen.BusquedaRegimen.ventanabusqreg.cargate();
             ABM_de_Regimen.BusquedaRegimen.selectedReg = 0;
+            codReg = 0;
+            codhotel = 0;
         }
 
         private void ABMRegimen_Load(object sender, EventArgs e)
         {
             codReg = ABM_de_Regimen.BusquedaRegimen.selectedReg;
             codhotel = ABM_de_Regimen.BusquedaRegimen.codHotel;
-
-            SRegimen sRegimen = new SRegimen();
-            List<RegimenDTO> regimenes = sRegimen.GetAllHotel(ABM_de_Regimen.BusquedaRegimen.codHotel);
-            cboDescrip.DisplayMember = "descripcion";
-            cboDescrip.ValueMember = "codigo";
-            cboDescrip.DataSource = regimenes;
 
             if (codReg != 0)
                 cargarFormulario();

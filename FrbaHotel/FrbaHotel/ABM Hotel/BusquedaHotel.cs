@@ -25,23 +25,29 @@ namespace FrbaHotel.ABM_Hotel
         {
             if (txtCiudad.Text.Trim() != "" || txtNombre.Text.Trim() != "" || txtPais.Text.Trim() != "" || numUpDnCantEstrellas.Value != 0)
             {
+
                 StringBuilder Valores = new StringBuilder();
                 if (txtCiudad.Text.Trim() != "")
-                    Valores.Append("u.ciudad like '%" + txtCiudad.Text + "%' ");
+                    Valores.Append(" u.ciudad like '%" + txtCiudad.Text + "%' ");
 
-                if (txtCiudad.Text.Trim() != "" && (txtNombre.Text.Trim() != "" || txtPais.Text.Trim() != "" || numUpDnCantEstrellas.Value != 0))
-                    Valores.Append(" and ");
+                if (txtCiudad.Text.Trim() != "" && (txtNombre.Text.Trim() != "" || txtPais.Text.Trim() != "" || numUpDnCantEstrellas.Value != 0)) Valores.Append(" and ");
 
                 if (txtNombre.Text.Trim() != "")
-                    Valores.Append("u.nombre like '%" + txtNombre.Text + "%' ");
+                    Valores.Append(" u.nombre like '%" + txtNombre.Text + "%' ");
 
-                if (txtNombre.Text.Trim() != "" && (txtPais.Text.Trim() != "" || numUpDnCantEstrellas.Value != 0)) Valores.Append(" and ");
+                if (txtNombre.Text.Trim() != "" && (txtPais.Text.Trim() != "" || numUpDnCantEstrellas.Value != 0))
+                     Valores.Append(" and ");
 
-                if (txtPais.Text.Trim() != "") Valores.Append(" u.pais like '%" + txtPais.Text + "%'");
+                if (txtPais.Text.Trim() != "")
+                    Valores.Append(" u.pais like '%" + txtPais.Text + "%' ");
 
-                if (txtPais.Text.Trim() != "" && numUpDnCantEstrellas.Value != 0) Valores.Append(" and u.cant_estrellas = " + numUpDnCantEstrellas.Value);
+                if(txtPais.Text.Trim() != "" && numUpDnCantEstrellas.Value > 0)
+                    Valores.Append(" and ");
 
-                gridHoteles.DataSource = sHotel.GetBySQLGRID("select u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad from hotel.Hotel u left join hotel.Cancelacion_Hotel c on u.codigo = c.cod_hotel where c.fecha_hasta < GETDATE() or c.codigo is null and " + Valores.ToString());
+                if(numUpDnCantEstrellas.Value != 0) Valores.Append(" u.cant_estrellas = " + numUpDnCantEstrellas.Value);
+
+
+                gridHoteles.DataSource = sHotel.GetBySQLGRID("select u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad,u.nombre from hotel.Hotel u left join hotel.Cancelacion_Hotel c on u.codigo = c.cod_hotel where c.fecha_hasta < GETDATE() or c.codigo is null and " + Valores.ToString());
 
             }
             else cargate();
@@ -67,7 +73,19 @@ namespace FrbaHotel.ABM_Hotel
             cargarHotel.Show();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void BusquedaHotel_Load(object sender, EventArgs e)
+        {
+            ventanaHotel = this;
+            cargate();
+        }
+
+        private void BusquedaHotel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ventanaHotel = null;
+            hotelSelected = 0;
+        }
+
+        private void gridHoteles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
@@ -80,8 +98,8 @@ namespace FrbaHotel.ABM_Hotel
                     hotelSelected = decimal.Parse(gridHoteles.Rows[e.RowIndex].Cells[2].Value.ToString());
                     seleccionar.Show();
                 }
-                
-                if(e.ColumnIndex == 1)
+
+                if (e.ColumnIndex == 1)
                 {
                     // Eliminar
                     hotelSelected = decimal.Parse(gridHoteles.Rows[e.RowIndex].Cells[2].Value.ToString());
@@ -89,11 +107,6 @@ namespace FrbaHotel.ABM_Hotel
                     bajar.Show();
                 }
             }
-        }
-
-        private void BusquedaHotel_Load(object sender, EventArgs e)
-        {
-            ventanaHotel = this;
         }
 
     }

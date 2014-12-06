@@ -40,14 +40,14 @@ namespace FrbaHotel.ABM_de_Usuario
         }
 
         public void cargate() {
-            gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Usuario_hotel h, hotel.Persona p where p.codigo = u.cod_persona and h.cod_usuario = u.codigo and h.cod_hotel = " + Login.Log.hotel.ToString());
+            gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Usuario_hotel h, hotel.Persona p where p.codigo = u.cod_persona and h.cod_usuario = u.codigo");
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtMail.Text = "";
             txtUser.Text = "";
-            cboRol.SelectedValue = 1;
+            cboRol.SelectedIndex = cboRol.Items.Count - 1;
             usuarioSelected = 0;
             cargate();
         }
@@ -103,11 +103,17 @@ namespace FrbaHotel.ABM_de_Usuario
                     MessageBox.Show("Operación exitosa!");
                     cargate();
                     }
-                    catch(Exception ex) { }
+                    catch(Exception) { }
                     usuarioSelected = 0;
                 }
+            }
+
         }
 
+        private void BusquedaUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            usuarioSelected = 0;
+            ventanaBusqueda = null;
         }
     }
 }

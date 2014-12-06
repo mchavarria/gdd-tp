@@ -132,6 +132,7 @@
             this.Controls.Add(this.gpoBoxAlta);
             this.Name = "ABMRol";
             this.Text = "ABM Rol";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ABMRol_FormClosing);
             this.Load += new System.EventHandler(this.ABMRol_Load);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();

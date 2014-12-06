@@ -58,6 +58,7 @@ namespace FrbaHotel.ABM_de_Usuario
                 ckListRoles.SetItemCheckState(i, CheckState.Unchecked);
             cboTipoDNI.SelectedValue = 1;
             calendNacimiento.Visible = false;
+            valorL = 0;
         }
 
         SUsuario sUsuario = new SUsuario();
@@ -66,53 +67,125 @@ namespace FrbaHotel.ABM_de_Usuario
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(validar()){
-                if(valorL == 0){
-                Usuario usuario = sUsuario.GetByUser(txtUser.Text);
-                if(usuario != null)
-                    MessageBox.Show("El usuario ya está asignado, elija otro nombre.");
-                else{
-                    List<Persona> clientesMail = sCliente.GetByMail(txtMail.Text);
-                    if(clientesMail.Count != 0)
-                        MessageBox.Show("El mail debe ser único! Ya está registrado.");
-                    else
+            if (validar())
+            {
+                if (valorL == 0)
+                {
+                    bool puedeNew = ValidarNuevo();
+                    if (puedeNew)
                         BuildUsuario();
+
                 }
-                }else{
-                    /*Usuario user = sUsuario.GetByUser(txtUser.Text);
-                    Persona per = sCliente.GetByCod(decimal.Parse(user.cod_persona.ToString()));
-                    if(txtMail.Text != per.mail){
-                        List<Persona> clientesMail = sCliente.GetByMail(txtMail.Text);
-                        if (clientesMail.Count != 0)
-                            MessageBox.Show("El mail debe ser único! Ya está registrado.");
-                    }
-                    else*/
+                else
+                {
+                    bool puede = ValidarModificacion();
+                    if (puede)
                         BuildUsuario();
                 }
             }
         }
 
+        private bool ValidarNuevo()
+        {
+            bool resultado = true;
+            Usuario usuario = sUsuario.GetByUser(txtUser.Text);
+            if (usuario != null)
+            {
+                MessageBox.Show("El usuario ya está asignado, elija otro nombre.");
+                resultado = false;
+            }
+            else
+            {
+                List<Persona> clientesMail = sCliente.GetByMail(txtMail.Text);
+                if (clientesMail.Count != 0)
+                {
+                    MessageBox.Show("El mail debe ser único! Ya está registrado.");
+                    resultado = false;
+                }
+                else
+                    resultado = true;
+            }
+            return resultado;
+        }
+
+        private bool ValidarModificacion()
+        {
+            Usuario usuario = new Usuario();
+            bool resultado = true;
+            Usuario user = sUsuario.GetByCod(valorL);
+            usuario = user;
+
+            Persona per = new Persona();
+
+            usuario.codigo = valorL;
+            per = sCliente.GetByCod(decimal.Parse(user.cod_persona.ToString()));
+
+            if (per.num_doc != decimal.Parse(txtNumDNI.Text))
+            {
+                List<Persona> persona = sCliente.GetByDoc(decimal.Parse(txtNumDNI.Text));
+                if (persona.Count > 0)
+                {
+                    MessageBox.Show("Ya existe otra persona con ese documento!");
+                    resultado = false;
+                }
+                else
+                    resultado = true;
+            }
+            if (resultado == true)
+            {
+                if (per.mail != txtMail.Text)
+                {
+                    List<Persona> persona = sCliente.GetByMail(txtMail.Text);
+                    if (persona.Count > 0)
+                    {
+                        resultado = false;
+                        MessageBox.Show("Ya existe otra persona con ese mail!");
+                    }
+                    else
+                        resultado = true;
+                }
+
+                if (resultado == true)
+                {
+                    if (user.user_nombre != txtUser.Text)
+                    {
+                        Usuario usuarioExiste = sUsuario.GetByUser(txtUser.Text);
+                        if (usuarioExiste != null)
+                        {
+                            resultado = false;
+                            MessageBox.Show("Ya existe otra persona con ese usuario!");
+                        }
+                        else
+                            resultado = true;
+                    }
+                }
+            }
+            return resultado;
+        }
+
         private void BuildUsuario()
         {
             Usuario usuario = new Usuario();
-            
-            Usuario user = sUsuario.GetByUser(txtUser.Text);
+
+            Usuario user = sUsuario.GetByCod(valorL);
             if (user != null)
                 usuario = user;
-            
+
             Persona per = new Persona();
 
-            if (valorL != 0){
+            if (valorL != 0)
+            {
                 usuario.codigo = valorL;
                 per = sCliente.GetByCod(decimal.Parse(user.cod_persona.ToString()));
             }
-                 
+
             per.num_doc = decimal.Parse(txtNumDNI.Text);
             per.nombre = txtNombre.Text;
             per.apellido = txtApellido.Text;
             per.codigo_tipo_doc = int.Parse(cboTipoDNI.SelectedValue.ToString());
             per.mail = txtMail.Text;
-            string tel = txtTelefono.Text.Replace('-',' ').Replace(" ","").Trim().ToString();
+
+            string tel = txtTelefono.Text.Replace('-', ' ').Replace(" ", "").Trim().ToString();
             per.telefono = decimal.Parse(tel);
             per.nom_calle = txtCalle.Text;
             per.num_calle = decimal.Parse(txtNumCalle.Text);
@@ -120,7 +193,7 @@ namespace FrbaHotel.ABM_de_Usuario
             per.estado = true;
 
             decimal codPer;
-            if(valorL == 0)
+            if (valorL == 0)
                 codPer = sCliente.Save(per);
             else
                 codPer = sCliente.Update(per);
@@ -129,7 +202,7 @@ namespace FrbaHotel.ABM_de_Usuario
             usuario.user_nombre = txtUser.Text;
             if (valorL == 0)
                 usuario.user_password = encriptadaContra;
-            else if (user.user_password != encriptadaContra) 
+            else if (user.user_password != txtPassword.Text)
                 usuario.user_password = encriptadaContra;
             usuario.logueado = 0;
             usuario.intentos_fallidos = 0;
@@ -138,10 +211,12 @@ namespace FrbaHotel.ABM_de_Usuario
             usuario.estado = ckActivo.Checked;
 
             decimal codUsuario;
-            if (valorL == 0){
+            if (valorL == 0)
+            {
                 codUsuario = sUsuario.Save(usuario);
             }
-            else {
+            else
+            {
                 codUsuario = sUsuario.Update(usuario);
             }
             altaHotelesRol(codUsuario);
@@ -221,7 +296,7 @@ namespace FrbaHotel.ABM_de_Usuario
             SRol sRol = new SRol();
             List<Rol> roles = sRol.GetAllActivos();
 
-            entidadBase.EjecutarSQL("delete hotel.Rol_Usuario where cod_usuario ="+codUsuario);
+            entidadBase.EjecutarSQL("delete hotel.Rol_Usuario where cod_usuario =" + codUsuario);
 
             foreach (int indexChecked in ckListRoles.CheckedIndices)
             {
@@ -260,17 +335,18 @@ namespace FrbaHotel.ABM_de_Usuario
             ckListRoles.DataSource = roles;
             ckListRoles.DisplayMember = "descripcion";
             ckListRoles.ValueMember = "codigo";
-            
+
 
             STipoDoc stip = new STipoDoc();
             List<TipoDoc> tipos = stip.GetAll();
+            cboTipoDNI.DataSource = tipos;
             cboTipoDNI.DisplayMember = "descripcion";
             cboTipoDNI.ValueMember = "codigo";
-            cboTipoDNI.DataSource = tipos;
+            
 
             if (ABM_de_Usuario.BusquedaUser.usuarioSelected != 0)
                 cargarFormulario(ABM_de_Usuario.BusquedaUser.usuarioSelected);
-            
+
             ckActivo.Checked = true;
         }
 
@@ -285,7 +361,7 @@ namespace FrbaHotel.ABM_de_Usuario
 
             cargarRoles(codUsuario);
 
-            txtApellido.Text = persona.apellido ;
+            txtApellido.Text = persona.apellido;
             txtCalle.Text = persona.nom_calle;
             txtMail.Text = persona.mail;
             txtNacimiento.Text = persona.fecha_nacimiento.ToString();
@@ -316,7 +392,8 @@ namespace FrbaHotel.ABM_de_Usuario
             cboTipoDNI.Text.Trim() != "")
 
                 return true;
-            else{
+            else
+            {
                 MessageBox.Show("Todos los datos son obligatorios!");
                 return false;
             }
@@ -324,8 +401,9 @@ namespace FrbaHotel.ABM_de_Usuario
 
         private void ABMUser_FormClosing(object sender, FormClosingEventArgs e)
         {
+            valorL = 0;
             ABM_de_Usuario.BusquedaUser.usuarioSelected = 0;
-            if(ABM_de_Usuario.BusquedaUser.ventanaBusqueda != null)
+            if (ABM_de_Usuario.BusquedaUser.ventanaBusqueda != null)
                 ABM_de_Usuario.BusquedaUser.ventanaBusqueda.cargate();
         }
 

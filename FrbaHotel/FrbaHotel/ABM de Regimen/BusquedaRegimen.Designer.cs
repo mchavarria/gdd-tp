@@ -32,9 +32,7 @@
             this.txtPrecio = new System.Windows.Forms.MaskedTextBox();
             this.txtDescr = new System.Windows.Forms.MaskedTextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.MaskedTextBox();
             this.lbldescr = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gridRegimen = new System.Windows.Forms.DataGridView();
@@ -50,13 +48,11 @@
             this.gpoBoxAlta.Controls.Add(this.txtPrecio);
             this.gpoBoxAlta.Controls.Add(this.txtDescr);
             this.gpoBoxAlta.Controls.Add(this.lblPrecio);
-            this.gpoBoxAlta.Controls.Add(this.txtCodigo);
             this.gpoBoxAlta.Controls.Add(this.lbldescr);
-            this.gpoBoxAlta.Controls.Add(this.lblCodigo);
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
-            this.gpoBoxAlta.Size = new System.Drawing.Size(552, 82);
+            this.gpoBoxAlta.Size = new System.Drawing.Size(552, 59);
             this.gpoBoxAlta.TabIndex = 12;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Filtros de búsqueda";
@@ -71,7 +67,7 @@
             // 
             // txtDescr
             // 
-            this.txtDescr.Location = new System.Drawing.Point(110, 51);
+            this.txtDescr.Location = new System.Drawing.Point(110, 22);
             this.txtDescr.Name = "txtDescr";
             this.txtDescr.Size = new System.Drawing.Size(144, 23);
             this.txtDescr.TabIndex = 23;
@@ -85,34 +81,18 @@
             this.lblPrecio.TabIndex = 17;
             this.lblPrecio.Text = "Precio base:";
             // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(75, 22);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(179, 23);
-            this.txtCodigo.TabIndex = 13;
-            // 
             // lbldescr
             // 
             this.lbldescr.AutoSize = true;
-            this.lbldescr.Location = new System.Drawing.Point(6, 54);
+            this.lbldescr.Location = new System.Drawing.Point(6, 25);
             this.lbldescr.Name = "lbldescr";
             this.lbldescr.Size = new System.Drawing.Size(98, 17);
             this.lbldescr.TabIndex = 4;
             this.lbldescr.Text = "Descripción:";
             // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(6, 25);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(63, 17);
-            this.lblCodigo.TabIndex = 3;
-            this.lblCodigo.Text = "Código:";
-            // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(465, 100);
+            this.btnBuscar.Location = new System.Drawing.Point(465, 77);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(99, 23);
             this.btnBuscar.TabIndex = 11;
@@ -122,7 +102,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 100);
+            this.btnLimpiar.Location = new System.Drawing.Point(12, 77);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(104, 23);
             this.btnLimpiar.TabIndex = 10;
@@ -132,19 +112,20 @@
             // gridRegimen
             // 
             this.gridRegimen.AllowUserToDeleteRows = false;
+            this.gridRegimen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gridRegimen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridRegimen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select,
             this.Delete});
-            this.gridRegimen.Location = new System.Drawing.Point(12, 129);
+            this.gridRegimen.Location = new System.Drawing.Point(12, 106);
             this.gridRegimen.Name = "gridRegimen";
-            this.gridRegimen.Size = new System.Drawing.Size(552, 316);
+            this.gridRegimen.Size = new System.Drawing.Size(552, 339);
             this.gridRegimen.TabIndex = 9;
             this.gridRegimen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(233, 100);
+            this.btnNuevo.Location = new System.Drawing.Point(234, 77);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(99, 23);
             this.btnNuevo.TabIndex = 13;
@@ -154,15 +135,21 @@
             // 
             // Select
             // 
-            this.Select.HeaderText = "Select";
+            this.Select.HeaderText = "";
             this.Select.Name = "Select";
-            this.Select.Text = "Seleccionar";
+            this.Select.Text = "Modificar";
+            this.Select.ToolTipText = "Modificar";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 21;
             // 
             // Delete
             // 
-            this.Delete.HeaderText = "Delete";
+            this.Delete.HeaderText = "";
             this.Delete.Name = "Delete";
             this.Delete.Text = "Eliminar";
+            this.Delete.ToolTipText = "Eliminar";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 21;
             // 
             // BusquedaRegimen
             // 
@@ -177,6 +164,7 @@
             this.Name = "BusquedaRegimen";
             this.Text = "BusquedaRegimen";
             this.Load += new System.EventHandler(this.BusquedaRegimen_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BusquedaRegimen_FormClosing);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridRegimen)).EndInit();
@@ -190,9 +178,7 @@
         private System.Windows.Forms.MaskedTextBox txtPrecio;
         private System.Windows.Forms.MaskedTextBox txtDescr;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.MaskedTextBox txtCodigo;
         private System.Windows.Forms.Label lbldescr;
-        private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridView gridRegimen;

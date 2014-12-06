@@ -28,7 +28,8 @@ namespace FrbaHotel.ABM_Hotel
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(validar()){
+            if (validar())
+            {
                 CancelacionHotel bajaH = new CancelacionHotel();
 
                 bajaH.cod_hotel = codHotel;
@@ -36,22 +37,27 @@ namespace FrbaHotel.ABM_Hotel
                 bajaH.fecha_hasta = DateTime.Parse(txtFechaHasta.Text.Replace('-', ' ').Replace(" ", "").Trim().ToString());
                 bajaH.motivo = txtMotivo.Text;
 
-                try{
+                try
+                {
                     sHotel.SaveCancelacion(bajaH);
                     MessageBox.Show("Operación exitosa!");
                 }
-                catch (Exception ){
+                catch (Exception)
+                {
                     MessageBox.Show("Error en la operación!");
                 }
             }
+            this.Close();
+            ABM_Hotel.BusquedaHotel.hotelSelected = 0;
         }
 
         private bool validar()
         {
             bool valido = false;
 
-            if (codHotel != 0 && txtFechaDesde.Text.Replace('-', ' ').Replace(" ", "").Trim() != "" && txtFechaHasta.Text.Replace('-', ' ').Replace(" ", "").Trim() != "" && txtMotivo.Text.Trim() != ""){
-                
+            if (codHotel != 0 && txtFechaDesde.Text.Replace('-', ' ').Replace(" ", "").Trim() != "" && txtFechaHasta.Text.Replace('-', ' ').Replace(" ", "").Trim() != "" && txtMotivo.Text.Trim() != "")
+            {
+
                 //no haya gente hospedada para esa fecha
                 bool HayGente = sHotel.hotelOcupado(codHotel, DateTime.Parse(txtFechaDesde.Text.Replace('-', ' ').Replace(" ", "").Trim()), DateTime.Parse(txtFechaHasta.Text.Replace('-', ' ').Replace(" ", "").Trim()));
                 if (HayGente)
@@ -97,6 +103,8 @@ namespace FrbaHotel.ABM_Hotel
         private void BajaHotel_FormClosing(object sender, FormClosingEventArgs e)
         {
             ABM_Hotel.BusquedaHotel.ventanaHotel.cargate();
+            codHotel = 0;
+            ABM_Hotel.BusquedaHotel.hotelSelected = 0;
         }
     }
 }

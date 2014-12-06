@@ -63,9 +63,9 @@ namespace FrbaHotel.ClasesTabla
                 hotelDao.SaveCancelacion(CancHotel);
             }
 
-            public void Update(Hotel hotel)
+            public decimal Update(Hotel hotel)
             {
-                hotelDao.Update(hotel);
+                return hotelDao.Update(hotel);
             }
 
             public void Delete(int codigo)

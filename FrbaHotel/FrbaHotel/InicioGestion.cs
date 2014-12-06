@@ -159,6 +159,7 @@ namespace FrbaHotel
             Login.Log.hotel = 0;
             loggeado = false;
             rol = null;
+            requiereLoggeo = false;
             cboRoles.Enabled = true;
             cboFunciones.Visible = false;
             lblFunciones.Visible = false;

@@ -78,7 +78,7 @@ namespace FrbaHotel.ClasesTabla
 
         internal void SaveCodRol(decimal codRol, decimal codFunc)
         {
-            int ex = entidadBase.EjecutarSQL("insert hotel.Rol_Funcion (cod_funcion,cod_rol) values (" + codRol.ToString() + "," + codFunc.ToString() + ")");
+            int ex = entidadBase.EjecutarSQL("insert hotel.Rol_Funcion (cod_rol,cod_funcion) values (" + codRol.ToString() + "," + codFunc.ToString() + ")");
         }
     }
 }

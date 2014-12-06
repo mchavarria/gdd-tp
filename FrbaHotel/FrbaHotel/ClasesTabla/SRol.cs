@@ -25,7 +25,7 @@ namespace FrbaHotel.ClasesTabla
 
         public List<Rol> GetRolAsig()
         {
-            return rolDao.GetBySQL("select * from hotel.Rol r where r.descripcion <> 'Guest'");
+            return rolDao.GetBySQL("select * from hotel.Rol r where r.descripcion <> 'Guest' and r.estado = 1");
         }
 
         public List<Rol> GetAll()

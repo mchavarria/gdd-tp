@@ -36,9 +36,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gridRoles = new System.Windows.Forms.DataGridView();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridRoles)).BeginInit();
             this.SuspendLayout();
@@ -130,24 +130,6 @@
             this.gridRoles.TabIndex = 5;
             this.gridRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRoles_CellContentClick);
             // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Modificar";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
-            this.Seleccionar.Text = "Modificar";
-            this.Seleccionar.ToolTipText = "Modificar";
-            this.Seleccionar.Width = 56;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Eliminar";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Eliminar";
-            this.Delete.ToolTipText = "Eliminar";
-            this.Delete.Width = 49;
-            // 
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(232, 83);
@@ -157,6 +139,26 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            this.Seleccionar.Text = "Modificar";
+            this.Seleccionar.ToolTipText = "Modificar";
+            this.Seleccionar.UseColumnTextForButtonValue = true;
+            this.Seleccionar.Width = 21;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Eliminar";
+            this.Delete.ToolTipText = "Eliminar";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 21;
             // 
             // BusquedaRoles
             // 

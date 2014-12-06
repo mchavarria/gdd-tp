@@ -30,19 +30,19 @@
         {
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
             this.numUpDnCantEstrellas = new System.Windows.Forms.NumericUpDown();
-            this.txtPais = new System.Windows.Forms.MaskedTextBox();
             this.txtCiudad = new System.Windows.Forms.MaskedTextBox();
             this.txtNombre = new System.Windows.Forms.MaskedTextBox();
-            this.lblPais = new System.Windows.Forms.Label();
             this.lblCiudad = new System.Windows.Forms.Label();
             this.lblCantEstrellas = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.gridHoteles = new System.Windows.Forms.DataGridView();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.lblPais = new System.Windows.Forms.Label();
+            this.txtPais = new System.Windows.Forms.MaskedTextBox();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDnCantEstrellas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridHoteles)).BeginInit();
@@ -78,13 +78,6 @@
             this.numUpDnCantEstrellas.Size = new System.Drawing.Size(120, 23);
             this.numUpDnCantEstrellas.TabIndex = 27;
             // 
-            // txtPais
-            // 
-            this.txtPais.Location = new System.Drawing.Point(63, 60);
-            this.txtPais.Name = "txtPais";
-            this.txtPais.Size = new System.Drawing.Size(160, 23);
-            this.txtPais.TabIndex = 26;
-            // 
             // txtCiudad
             // 
             this.txtCiudad.Location = new System.Drawing.Point(360, 31);
@@ -98,15 +91,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(196, 23);
             this.txtNombre.TabIndex = 23;
-            // 
-            // lblPais
-            // 
-            this.lblPais.AutoSize = true;
-            this.lblPais.Location = new System.Drawing.Point(6, 63);
-            this.lblPais.Name = "lblPais";
-            this.lblPais.Size = new System.Drawing.Size(44, 17);
-            this.lblPais.TabIndex = 18;
-            this.lblPais.Text = "Pais:";
             // 
             // lblCiudad
             // 
@@ -131,9 +115,9 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Location = new System.Drawing.Point(6, 34);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(69, 17);
+            this.lblNombre.Size = new System.Drawing.Size(81, 17);
             this.lblNombre.TabIndex = 4;
-            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Text = "Dirección:";
             // 
             // btnBuscar
             // 
@@ -155,32 +139,6 @@
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // gridHoteles
-            // 
-            this.gridHoteles.AllowUserToDeleteRows = false;
-            this.gridHoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridHoteles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Seleccionar,
-            this.Delete});
-            this.gridHoteles.Location = new System.Drawing.Point(12, 146);
-            this.gridHoteles.Name = "gridHoteles";
-            this.gridHoteles.ReadOnly = true;
-            this.gridHoteles.Size = new System.Drawing.Size(522, 344);
-            this.gridHoteles.TabIndex = 13;
-            this.gridHoteles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Select";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Eliminar";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            // 
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(218, 117);
@@ -191,19 +149,71 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // gridHoteles
+            // 
+            this.gridHoteles.AllowUserToDeleteRows = false;
+            this.gridHoteles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gridHoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridHoteles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Seleccionar,
+            this.Delete});
+            this.gridHoteles.Location = new System.Drawing.Point(12, 146);
+            this.gridHoteles.Name = "gridHoteles";
+            this.gridHoteles.ReadOnly = true;
+            this.gridHoteles.Size = new System.Drawing.Size(522, 346);
+            this.gridHoteles.TabIndex = 18;
+            this.gridHoteles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridHoteles_CellContentClick);
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            this.Seleccionar.Text = "Modificar";
+            this.Seleccionar.ToolTipText = "Modificar";
+            this.Seleccionar.UseColumnTextForButtonValue = true;
+            this.Seleccionar.Width = 21;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Eliminar";
+            this.Delete.ToolTipText = "Eliminar";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 21;
+            // 
+            // lblPais
+            // 
+            this.lblPais.AutoSize = true;
+            this.lblPais.Location = new System.Drawing.Point(6, 63);
+            this.lblPais.Name = "lblPais";
+            this.lblPais.Size = new System.Drawing.Size(44, 17);
+            this.lblPais.TabIndex = 18;
+            this.lblPais.Text = "Pais:";
+            // 
+            // txtPais
+            // 
+            this.txtPais.Location = new System.Drawing.Point(63, 60);
+            this.txtPais.Name = "txtPais";
+            this.txtPais.Size = new System.Drawing.Size(160, 23);
+            this.txtPais.TabIndex = 26;
+            // 
             // BusquedaHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(545, 504);
+            this.Controls.Add(this.gridHoteles);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.gpoBoxAlta);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.gridHoteles);
             this.Name = "BusquedaHotel";
             this.Text = "Busqueda de Hotel";
             this.Load += new System.EventHandler(this.BusquedaHotel_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BusquedaHotel_FormClosing);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDnCantEstrellas)).EndInit();
@@ -216,19 +226,19 @@
 
         private System.Windows.Forms.GroupBox gpoBoxAlta;
         private System.Windows.Forms.NumericUpDown numUpDnCantEstrellas;
-        private System.Windows.Forms.MaskedTextBox txtPais;
         private System.Windows.Forms.MaskedTextBox txtCiudad;
         private System.Windows.Forms.MaskedTextBox txtNombre;
-        private System.Windows.Forms.Label lblPais;
         private System.Windows.Forms.Label lblCiudad;
         private System.Windows.Forms.Label lblCantEstrellas;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView gridHoteles;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.MaskedTextBox txtPais;
+        private System.Windows.Forms.Label lblPais;
 
     }
 }
