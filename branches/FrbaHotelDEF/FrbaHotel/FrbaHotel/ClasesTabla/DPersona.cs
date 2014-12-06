@@ -45,7 +45,7 @@ namespace FrbaHotel.ClasesTabla
 
         public Persona GetByCod(decimal cod)
         {
-            List<Persona> personas = GetBySQL("select * from hotel.Persona p where p.codigo = "+cod);
+            List<Persona> personas = GetBySQL("select * from hotel.Persona p where p.codigo = " + cod);
             Persona per = personas.Take(1).SingleOrDefault();
             return per;
         }
@@ -72,7 +72,7 @@ namespace FrbaHotel.ClasesTabla
                 per.pais = r.Field<string>("pais");
                 per.nacionalidad = r.Field<string>("nacionalidad");
                 per.fecha_nacimiento = r.Field<DateTime>("fecha_nacimiento");
-                per.piso = r.Field < Nullable<decimal>>("piso");
+                per.piso = r.Field<Nullable<decimal>>("piso");
                 per.depto = r.Field<string>("depto");
                 int estado = r.Field<byte>("estado");
                 if (estado == 1) per.estado = true;
@@ -105,7 +105,7 @@ namespace FrbaHotel.ClasesTabla
                 per.pais = r.Field<string>("pais");
                 per.nacionalidad = r.Field<string>("nacionalidad");
                 per.fecha_nacimiento = r.Field<DateTime>("fecha_nacimiento");
-                per.piso = r.Field < Nullable<decimal>>("piso");
+                per.piso = r.Field<Nullable<decimal>>("piso");
                 per.depto = r.Field<string>("depto");
                 int estado = r.Field<byte>("estado");
                 if (estado == 1) per.estado = true;
@@ -140,7 +140,7 @@ namespace FrbaHotel.ClasesTabla
                 Valores.Append("" + 0 + ",");
             else Valores.Append("" + per.piso + ",");
             Valores.Append("'" + per.depto + "',");
-            if(per.estado == true)
+            if (per.estado == true)
                 Valores.Append("" + 1 + "");
             else Valores.Append("" + 0 + "");
             return Valores.ToString();
@@ -170,13 +170,12 @@ namespace FrbaHotel.ClasesTabla
                 per.telefono = r.Field<decimal>("telefono");
                 per.num_calle = r.Field<decimal>("num_calle");
                 per.nom_calle = r.Field<string>("nom_calle");
-                per.num_calle = r.Field<decimal>("num_calle");
                 per.localidad = r.Field<string>("localidad");
                 per.ciudad = r.Field<string>("ciudad");
                 per.pais = r.Field<string>("pais");
                 per.nacionalidad = r.Field<string>("nacionalidad");
                 per.fecha_nacimiento = r.Field<DateTime>("fecha_nacimiento");
-                per.piso = r.Field <Nullable<decimal>>("piso");
+                per.piso = r.Field<Nullable<decimal>>("piso");
                 per.depto = r.Field<string>("depto");
                 int estado = r.Field<byte>("estado");
                 if (estado == 1) per.estado = true;
@@ -189,7 +188,7 @@ namespace FrbaHotel.ClasesTabla
 
         public decimal Save(Persona per)
         {
-            int ex = entidadBase.EjecutarSQL("insert hotel.Persona (nombre,apellido,codigo_tipo_doc,num_doc,mail,telefono,nom_calle,num_calle,localidad,ciudad,pais,nacionalidad,fecha_nacimiento,piso,depto,estado) values (" + ArmarValores(per)+ ")");
+            int ex = entidadBase.EjecutarSQL("insert hotel.Persona (nombre,apellido,codigo_tipo_doc,num_doc,mail,telefono,nom_calle,num_calle,localidad,ciudad,pais,nacionalidad,fecha_nacimiento,piso,depto,estado) values (" + ArmarValores(per) + ")");
             DataTable resultID = entidadBase.TraerDatos("SELECT max(codigo) from hotel.Persona ");
             DataRow row = resultID.Rows[0];
             return Convert.ToInt32(row[0]);
@@ -206,5 +205,11 @@ namespace FrbaHotel.ClasesTabla
             int ex = entidadBase.EjecutarSQL("update hotel.Persona set estado = 0 where codigo =" + codigo);
         }
 
+
+        internal List<Persona> GetByDoc(decimal documento)
+        {
+            List<Persona> persona = GetBySQL("select * from hotel.Persona p where p.num_doc =" + documento.ToString()).ToList();
+            return persona;
+        }
     }
 }

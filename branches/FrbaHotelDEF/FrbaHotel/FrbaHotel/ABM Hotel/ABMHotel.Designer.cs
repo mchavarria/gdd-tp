@@ -235,10 +235,10 @@
             // 
             // txtNumCalle
             // 
-            this.txtNumCalle.Location = new System.Drawing.Point(318, 92);
+            this.txtNumCalle.Location = new System.Drawing.Point(430, 92);
             this.txtNumCalle.Mask = "000009";
             this.txtNumCalle.Name = "txtNumCalle";
-            this.txtNumCalle.Size = new System.Drawing.Size(61, 23);
+            this.txtNumCalle.Size = new System.Drawing.Size(78, 23);
             this.txtNumCalle.TabIndex = 27;
             // 
             // txtPais
@@ -252,7 +252,7 @@
             // 
             this.txtCalle.Location = new System.Drawing.Point(148, 92);
             this.txtCalle.Name = "txtCalle";
-            this.txtCalle.Size = new System.Drawing.Size(167, 23);
+            this.txtCalle.Size = new System.Drawing.Size(276, 23);
             this.txtCalle.TabIndex = 26;
             // 
             // lblCantEstrellas
@@ -268,7 +268,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(389, 37);
-            this.txtTelefono.Mask = "000-000-0000";
+            this.txtTelefono.Mask = "00-0000-0000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(119, 23);
             this.txtTelefono.TabIndex = 25;
@@ -338,6 +338,7 @@
             this.Name = "ABMHotel";
             this.Text = "ABM de Hoteles";
             this.Load += new System.EventHandler(this.ABMHotel_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ABMHotel_FormClosing);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownRecEstrella)).EndInit();

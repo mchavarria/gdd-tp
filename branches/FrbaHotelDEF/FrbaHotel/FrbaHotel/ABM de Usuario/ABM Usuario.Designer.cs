@@ -31,6 +31,9 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.ckListRoles = new System.Windows.Forms.CheckedListBox();
+            this.ckLstHoteles = new System.Windows.Forms.CheckedListBox();
+            this.ckActivo = new System.Windows.Forms.CheckBox();
             this.btnCalendario = new System.Windows.Forms.Button();
             this.calendNacimiento = new System.Windows.Forms.MonthCalendar();
             this.txtNacimiento = new System.Windows.Forms.MaskedTextBox();
@@ -56,9 +59,6 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblRol = new System.Windows.Forms.Label();
-            this.ckActivo = new System.Windows.Forms.CheckBox();
-            this.ckLstHoteles = new System.Windows.Forms.CheckedListBox();
-            this.ckListRoles = new System.Windows.Forms.CheckedListBox();
             this.gpoBoxAlta.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,6 +122,33 @@
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Usuario";
             // 
+            // ckListRoles
+            // 
+            this.ckListRoles.FormattingEnabled = true;
+            this.ckListRoles.Location = new System.Drawing.Point(438, 395);
+            this.ckListRoles.Name = "ckListRoles";
+            this.ckListRoles.Size = new System.Drawing.Size(260, 130);
+            this.ckListRoles.TabIndex = 41;
+            // 
+            // ckLstHoteles
+            // 
+            this.ckLstHoteles.FormattingEnabled = true;
+            this.ckLstHoteles.Location = new System.Drawing.Point(10, 335);
+            this.ckLstHoteles.Name = "ckLstHoteles";
+            this.ckLstHoteles.Size = new System.Drawing.Size(416, 184);
+            this.ckLstHoteles.TabIndex = 40;
+            // 
+            // ckActivo
+            // 
+            this.ckActivo.AutoSize = true;
+            this.ckActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckActivo.Location = new System.Drawing.Point(404, 66);
+            this.ckActivo.Name = "ckActivo";
+            this.ckActivo.Size = new System.Drawing.Size(71, 24);
+            this.ckActivo.TabIndex = 33;
+            this.ckActivo.Text = "Activo";
+            this.ckActivo.UseVisualStyleBackColor = true;
+            // 
             // btnCalendario
             // 
             this.btnCalendario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -170,7 +197,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(438, 163);
-            this.txtTelefono.Mask = "000-000-0000";
+            this.txtTelefono.Mask = "00-0000-0000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(112, 23);
             this.txtTelefono.TabIndex = 25;
@@ -354,33 +381,6 @@
             this.lblRol.TabIndex = 2;
             this.lblRol.Text = "* Roles:";
             // 
-            // ckActivo
-            // 
-            this.ckActivo.AutoSize = true;
-            this.ckActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckActivo.Location = new System.Drawing.Point(404, 66);
-            this.ckActivo.Name = "ckActivo";
-            this.ckActivo.Size = new System.Drawing.Size(71, 24);
-            this.ckActivo.TabIndex = 33;
-            this.ckActivo.Text = "Activo";
-            this.ckActivo.UseVisualStyleBackColor = true;
-            // 
-            // ckLstHoteles
-            // 
-            this.ckLstHoteles.FormattingEnabled = true;
-            this.ckLstHoteles.Location = new System.Drawing.Point(10, 335);
-            this.ckLstHoteles.Name = "ckLstHoteles";
-            this.ckLstHoteles.Size = new System.Drawing.Size(416, 184);
-            this.ckLstHoteles.TabIndex = 40;
-            // 
-            // ckListRoles
-            // 
-            this.ckListRoles.FormattingEnabled = true;
-            this.ckListRoles.Location = new System.Drawing.Point(438, 395);
-            this.ckListRoles.Name = "ckListRoles";
-            this.ckListRoles.Size = new System.Drawing.Size(260, 130);
-            this.ckListRoles.TabIndex = 41;
-            // 
             // ABMUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,8 +391,8 @@
             this.Controls.Add(this.gpoBoxAlta);
             this.Name = "ABMUser";
             this.Text = "ABM Usuario";
-            this.Load += new System.EventHandler(this.ABMUser_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ABMUser_FormClosing);
+            this.Load += new System.EventHandler(this.ABMUser_Load);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             this.ResumeLayout(false);

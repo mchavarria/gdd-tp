@@ -19,7 +19,6 @@ namespace FrbaHotel.ABM_de_Regimen
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtCodigo.Text = "";
             txtDescr.Text = "";
             txtPrecio.Text = "";
             cargate();
@@ -37,23 +36,19 @@ namespace FrbaHotel.ABM_de_Regimen
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtCodigo.Text.Trim() != "" || txtDescr.Text.Trim() != "" || txtPrecio.Text.Trim() != "")
+            if (txtDescr.Text.Trim() != "" || txtPrecio.Text.Trim() != ".")
             {
                 StringBuilder Valores = new StringBuilder();
-                if (txtCodigo.Text.Trim() != "")
-                    Valores.Append("h.cod_regimen like '%" + txtCodigo.Text.Trim() + "%' ");
-
-                if (txtCodigo.Text.Trim() != "" && (txtDescr.Text.Trim() != "" || txtPrecio.Text.Trim() != ""))
-                    Valores.Append(" and ");
 
                 if (txtDescr.Text.Trim() != "")
                     Valores.Append("r.descripcion like '%" + txtDescr.Text + "%' ");
 
-                if (txtDescr.Text.Trim() != "" && txtPrecio.Text.Trim() != "") Valores.Append(" and ");
+                string precioBase = txtPrecio.Text.Trim();
+                if (txtDescr.Text.Trim() != "" && precioBase != ".") Valores.Append(" and ");
 
-                if (txtPrecio.Text.Trim() != "") Valores.Append(" h.precio_base like '%" + txtPrecio.Text + "%'");
+                if (precioBase != ".") Valores.Append(" h.precio_base = " + txtPrecio.Text + "");
 
-                gridRegimen.DataSource = sRegimen.GetBySQLDTO("select h.cod_regimen, r.descripcion, h.cod_hotel, h.precio_base, h.estado from hotel.Regimen r, hotel.Regimen_Hotel h where h.cod_regimen = r.codigo and h.cod_hotel = "+ codHotel + " and " + Valores.ToString());
+                gridRegimen.DataSource = sRegimen.GetBySQLDTO("select h.cod_regimen, r.descripcion, h.cod_hotel, h.precio_base, h.estado from hotel.Regimen r, hotel.Regimen_Hotel h where h.cod_regimen = r.codigo and h.cod_hotel = " + codHotel + " and " + Valores.ToString());
             }
             else cargate();
 
@@ -79,6 +74,8 @@ namespace FrbaHotel.ABM_de_Regimen
                     selectedReg = decimal.Parse(gridRegimen.Rows[e.RowIndex].Cells[2].Value.ToString());
                     sRegimen.Delete(selectedReg, codHotel);
                     MessageBox.Show("Operación exitosa!");
+                    selectedReg = 0;
+                    cargate();
                 }
             }
         }
@@ -94,6 +91,13 @@ namespace FrbaHotel.ABM_de_Regimen
         {
             ABMRegimen ventana = new ABMRegimen();
             ventana.Show();
+        }
+
+        private void BusquedaRegimen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            codHotel = 0;
+            selectedReg = 0;
+            ventanabusqreg = null;
         }
 
     }

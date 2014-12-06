@@ -163,21 +163,23 @@
             // 
             // Seleccionar
             // 
-            this.Seleccionar.HeaderText = "Modificar";
+            this.Seleccionar.HeaderText = "";
             this.Seleccionar.Name = "Seleccionar";
             this.Seleccionar.ReadOnly = true;
             this.Seleccionar.Text = "Modificar";
             this.Seleccionar.ToolTipText = "Modificar";
-            this.Seleccionar.Width = 56;
+            this.Seleccionar.UseColumnTextForButtonValue = true;
+            this.Seleccionar.Width = 21;
             // 
             // Delete
             // 
-            this.Delete.HeaderText = "Eliminar";
+            this.Delete.HeaderText = "";
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             this.Delete.Text = "Eliminar";
             this.Delete.ToolTipText = "Eliminar";
-            this.Delete.Width = 49;
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 21;
             // 
             // BusquedaUser
             // 
@@ -192,6 +194,7 @@
             this.Name = "BusquedaUser";
             this.Text = "Busqueda de Usuarios";
             this.Load += new System.EventHandler(this.BusquedaUser_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BusquedaUser_FormClosing);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gripUser)).EndInit();

@@ -17,37 +17,47 @@ namespace FrbaHotel.ABM_Hotel
             InitializeComponent();
         }
 
+        Hotel hotel = new Hotel();
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (validar())
             {
-                if (codHotel == 0)
+
+                BuildHotel();
+
+                try
                 {
-                    Hotel hotel = sHotel.GetByDireccion(txtCalle + " " + txtNumCalle);
-                    if (hotel != null)
-                        MessageBox.Show("Ya existe un hotel en esa dirección!");
+
+                    if (codHotel > 0)
+                    {
+                        codHotel = sHotel.Update(hotel);
+                    }
                     else
                     {
-                        BuildHotel();
+                        codHotel = sHotel.Save(hotel);
                     }
+                    altaRegimen(codHotel);
+                    MessageBox.Show("Operación exitosa!");
                 }
-                else
+
+                catch (Exception)
                 {
-                    //CARGAR MODIFICACIONES hotel
-                    
-                    Hotel hotel = sHotel.GetByDireccion(txtCalle + " " + txtNumCalle);
-                    if (hotel != null)
-                        MessageBox.Show("Ya existe un hotel en esa dirección!");
-                    else
-                        BuildHotel();
+                    MessageBox.Show("Error en la operación!");
                 }
-                ABM_Hotel.BusquedaHotel.ventanaHotel.cargate();
+                finally
+                {
+
+                    if (codHotel > 0)
+                        this.Close();
+                    else
+                        limpiar();
+                }
             }
         }
 
         private void BuildHotel()
         {
-            Hotel hotel = new Hotel();
 
             if (codHotel != 0)
             {
@@ -65,29 +75,24 @@ namespace FrbaHotel.ABM_Hotel
             hotel.num_calle = decimal.Parse(txtNumCalle.Text);
             hotel.pais = txtPais.Text;
             hotel.administrador = Login.Log.user;
+            hotel.cant_estrellas = numUpDnCantEstrellas.Value;
             hotel.recarga_estrella = numUpDownRecEstrella.Value;
-
-            if (codHotel == 0)
-            {
-                codHotel = sHotel.Save(hotel);
-                altaRegimen(codHotel);
-            }
-            else
-            {
-                sHotel.Update(hotel);//solo se puede dar de altas regimenes, no modifcarlos desde el abm de hotel
-            }
-
-            MessageBox.Show("Operación exitosa!");
         }
 
-        private void altaRegimen(decimal codHotel) 
+        private void altaRegimen(decimal codHotel)
         {
+            //da de alta los checkeados nuevos
+            List<RegimenDTO> regimenesDelHotel = sRegimen.GetAllHotel(codHotel);
             List<Regimen> regimenes = sRegimen.GetAll();
-            List<Regimen> regimenesAlta = new List<Regimen>();
+            foreach (RegimenDTO reg in regimenesDelHotel)
+            {
+                Regimen regimen = (from r in regimenes where r.descripcion == reg.descripcion select r).SingleOrDefault();
+                regimenes.Remove(regimen);
+            }
 
             foreach (int indexChecked in ckLstRegimenes.CheckedIndices)
             {
-                string descrip = ckLstRegimenes.Text[indexChecked].ToString();
+                string descrip = ((Regimen)ckLstRegimenes.Items[indexChecked]).descripcion.ToString();
 
                 foreach (Regimen regimen in regimenes)
                 {
@@ -100,7 +105,7 @@ namespace FrbaHotel.ABM_Hotel
         private bool validar()
         {
             if (
-            txtCiudad.Text.Trim() != "" && 
+            txtCiudad.Text.Trim() != "" &&
             txtCalle.Text.Trim() != "" &&
             txtMail.Text.Trim() != "" &&
             txtFecha.Text.Trim() != "" &&
@@ -110,8 +115,31 @@ namespace FrbaHotel.ABM_Hotel
             txtNombre.Text.Trim() != "" &&
             txtNumCalle.Text.Trim() != "" &&
             txtTelefono.Text.Trim() != "")
+            {
 
-                return true;
+                if (codHotel > 0)
+                {
+                    Hotel hotelCalle = sHotel.GetByDireccion(txtCalle.Text + " " + txtNumCalle.Text);
+                    hotel = sHotel.GetByCod(codHotel);
+                    var direccion = txtCalle.Text + " " + txtNumCalle.Text;
+                    if (direccion != hotel.direccionCompleta)
+                    {
+                        if (hotelCalle != null) { MessageBox.Show("Ya existe un hotel en esa dirección!"); return false; }
+                        else
+                            return true;
+                    }
+                    else
+                        return true;
+                }
+                else {
+                    Hotel hotelCalle = sHotel.GetByDireccion(txtCalle.Text + " " + txtNumCalle.Text);
+                    if (hotelCalle != null){ MessageBox.Show("Ya existe un hotel en esa dirección!"); return false; }
+                    else
+                        return true;
+                }
+
+
+            }
             else
             {
                 MessageBox.Show("Todos los datos son obligatorios!");
@@ -123,6 +151,11 @@ namespace FrbaHotel.ABM_Hotel
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            limpiar();
+        }
+
+        private void limpiar()
+        {
             txtCalle.Text = "";
             txtCiudad.Text = "";
             txtFecha.Text = "";
@@ -131,23 +164,26 @@ namespace FrbaHotel.ABM_Hotel
             txtNumCalle.Text = "";
             txtPais.Text = "";
             txtTelefono.Text = "";
-            ckLstRegimenes.ClearSelected();
+            for (int i = 0; i < ckLstRegimenes.Items.Count; i++)
+                ckLstRegimenes.SetItemCheckState(i, CheckState.Unchecked);
             numUpDnCantEstrellas.Value = 0;
+            codHotel = 0;
+            hotel = null;
         }
 
         private void ABMHotel_Load(object sender, EventArgs e)
         {
             codHotel = ABM_Hotel.BusquedaHotel.hotelSelected;
-
+            numUpDownRecEstrella.Value = 10;//default
             SRegimen sRegimen = new SRegimen();
             List<Regimen> regimenes = sRegimen.GetAll();
+            ckLstRegimenes.DataSource = regimenes;
             ckLstRegimenes.DisplayMember = "descripcion";
             ckLstRegimenes.ValueMember = "codigo";
-            ckLstRegimenes.DataSource = regimenes;
-            
+
             if (codHotel != 0)
                 cargarFormulario();
-            
+
         }
 
         SHotel sHotel = new SHotel();
@@ -176,13 +212,14 @@ namespace FrbaHotel.ABM_Hotel
             Hotel hotel = sHotel.GetByCod(codHotel);
 
             List<RegimenDTO> regimenesHotel = sRegimen.GetAllHotel(hotel.codigo);
-            
+
             for (int i = 0; i <= (ckLstRegimenes.Items.Count - 1); i++)
             {
-                string descrip = ckLstRegimenes.Text[i].ToString();
+                string descrip = ((Regimen)ckLstRegimenes.Items[i]).descripcion.ToString();
                 var checkear = false;
 
-                foreach (RegimenDTO regimen in regimenesHotel) {
+                foreach (RegimenDTO regimen in regimenesHotel)
+                {
                     if (descrip == regimen.descripcion) checkear = true;
                 }
                 if (checkear)
@@ -190,7 +227,7 @@ namespace FrbaHotel.ABM_Hotel
                 else
                     ckLstRegimenes.SetItemCheckState(i, CheckState.Unchecked);
             }
-            ckLstRegimenes.Enabled = false;
+            //ckLstRegimenes.Enabled = false;
         }
 
         private void btnCalendario_Click(object sender, EventArgs e)
@@ -201,6 +238,14 @@ namespace FrbaHotel.ABM_Hotel
         private void calendFecha_DateSelected(object sender, DateRangeEventArgs e)
         {
             txtFecha.Text = e.Start.ToShortDateString();
+        }
+
+        private void ABMHotel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (ABM_Hotel.BusquedaHotel.ventanaHotel != null)
+                ABM_Hotel.BusquedaHotel.ventanaHotel.cargate();
+            ABM_Hotel.BusquedaHotel.hotelSelected = 0;
+            hotel = null;
         }
     }
 }

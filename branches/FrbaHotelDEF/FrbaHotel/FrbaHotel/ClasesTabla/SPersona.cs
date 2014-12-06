@@ -57,5 +57,10 @@ namespace FrbaHotel.ClasesTabla
         {
             perDao.Delete(codigo);
         }
+
+        internal List<Persona> GetByDoc(decimal documento)
+        {
+            return perDao.GetByDoc(documento);
+        }
     }
 }

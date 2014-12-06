@@ -25,7 +25,7 @@ namespace FrbaHotel.ABM_de_Rol
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtNombre.Text = "";
-            cboFunc.SelectedValue = 1;
+            cboFunc.SelectedIndex = cboFunc.Items.Count -1;
             gridRoles.DataSource = sRoles.GetAll();
         }
 
@@ -48,7 +48,7 @@ namespace FrbaHotel.ABM_de_Rol
                  gridRoles.DataSource = sRoles.GetBySQL("select r.codigo, r.descripcion, r.estado from hotel.Rol r, hotel.Rol_Funcion fun where fun.cod_rol = r.codigo and " + Valores + "group by r.codigo, r.descripcion, r.estado");
                 
             }
-            else gridRoles.DataSource = sRoles.GetAll();
+            else cargate();
         }
 
         private void BusquedaRoles_Load(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace FrbaHotel.ABM_de_Rol
                     MessageBox.Show("Operación exitosa!");
                     cargate();
                     }
-                    catch(Exception ex) { }
+                    catch(Exception) { }
                     codSelected = 0;
                 }
             }
@@ -107,6 +107,7 @@ namespace FrbaHotel.ABM_de_Rol
         private void BusquedaRoles_FormClosing(object sender, FormClosingEventArgs e)
         {
             ABM_de_Rol.BusquedaRoles.codSelected = 0;
+            ventana = null;
         }
     }
 }
