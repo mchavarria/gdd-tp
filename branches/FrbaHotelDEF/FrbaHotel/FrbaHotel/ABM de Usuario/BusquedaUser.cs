@@ -19,6 +19,7 @@ namespace FrbaHotel.ABM_de_Usuario
 
         static public decimal usuarioSelected = 0;
         static public BusquedaUser ventanaBusqueda;
+        static public decimal codHotel = 0;
         SRol SRol = new SRol();
         SUsuario susuario = new SUsuario();
         SPersona sCliente = new SPersona();
@@ -26,6 +27,7 @@ namespace FrbaHotel.ABM_de_Usuario
         private void BusquedaUser_Load(object sender, EventArgs e)
         {
             ventanaBusqueda = this;
+            codHotel = Login.Log.hotel;
 
             List<Rol> roles = SRol.GetRolAsig();
             Rol rol = new Rol();
@@ -40,7 +42,7 @@ namespace FrbaHotel.ABM_de_Usuario
         }
 
         public void cargate() {
-            gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Usuario_hotel h, hotel.Persona p where p.codigo = u.cod_persona and h.cod_usuario = u.codigo");
+            gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Usuario_hotel h, hotel.Persona p where p.codigo = u.cod_persona and h.cod_usuario = u.codigo and h.cod_hotel = "+codHotel);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -74,7 +76,7 @@ namespace FrbaHotel.ABM_de_Usuario
 
                 if (cboRol.Text != "Todos") Valores.Append(" rol.cod_rol =" + ((Rol)cboRol.SelectedItem).codigo);
 
-                gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Rol_Usuario rol, hotel.Persona p where p.codigo = u.cod_persona and " + Valores.ToString() + " group by u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado");
+                gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Rol_Usuario rol, hotel.Persona p where p.codigo = u.cod_persona and h.cod_hotel = "+ codHotel + " and " + Valores.ToString() + " group by u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado");
 
             }
             else cargate();

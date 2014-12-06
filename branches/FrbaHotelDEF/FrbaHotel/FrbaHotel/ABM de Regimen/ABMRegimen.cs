@@ -92,11 +92,18 @@ namespace FrbaHotel.ABM_de_Regimen
 
         private bool validar()
         {
-            if (
-            cboDescrip.Text.Trim() != "" &&
-            txtPrecio.Text.Trim() != "")
-
-                return true;
+            if (cboDescrip.Text.Trim() != ""){
+                if (txtPrecio.Text.Trim() != "." || txtPrecio.Text.Trim() != "" || txtPrecio.Text.Trim() != ",")
+                {
+                    try
+                    {
+                        decimal precio = decimal.Parse(txtPrecio.Text.Replace('.', ','));
+                        return true;
+                    }
+                    catch (Exception) { return false; }
+                }
+                else return false;
+            }
             else
             {
                 MessageBox.Show("Todos los datos son obligatorios!");

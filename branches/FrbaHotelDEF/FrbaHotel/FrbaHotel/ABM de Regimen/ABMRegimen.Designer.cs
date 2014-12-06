@@ -31,11 +31,12 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.cboDescrip = new System.Windows.Forms.MaskedTextBox();
             this.ckActivo = new System.Windows.Forms.CheckBox();
             this.txtPrecio = new System.Windows.Forms.MaskedTextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblDescrip = new System.Windows.Forms.Label();
-            this.cboDescrip = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gpoBoxAlta.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +64,7 @@
             // 
             // gpoBoxAlta
             // 
+            this.gpoBoxAlta.Controls.Add(this.label1);
             this.gpoBoxAlta.Controls.Add(this.cboDescrip);
             this.gpoBoxAlta.Controls.Add(this.ckActivo);
             this.gpoBoxAlta.Controls.Add(this.txtPrecio);
@@ -75,6 +77,13 @@
             this.gpoBoxAlta.TabIndex = 13;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Regimen";
+            // 
+            // cboDescrip
+            // 
+            this.cboDescrip.Location = new System.Drawing.Point(122, 32);
+            this.cboDescrip.Name = "cboDescrip";
+            this.cboDescrip.Size = new System.Drawing.Size(197, 23);
+            this.cboDescrip.TabIndex = 29;
             // 
             // ckActivo
             // 
@@ -89,7 +98,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(135, 62);
+            this.txtPrecio.Location = new System.Drawing.Point(122, 61);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(184, 23);
             this.txtPrecio.TabIndex = 26;
@@ -114,12 +123,15 @@
             this.lblDescrip.TabIndex = 15;
             this.lblDescrip.Text = "* Descripción:";
             // 
-            // cboDescrip
+            // label1
             // 
-            this.cboDescrip.Location = new System.Drawing.Point(122, 32);
-            this.cboDescrip.Name = "cboDescrip";
-            this.cboDescrip.Size = new System.Drawing.Size(197, 23);
-            this.cboDescrip.TabIndex = 29;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(310, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "dll.";
             // 
             // ABMRegimen
             // 
@@ -149,5 +161,6 @@
         private System.Windows.Forms.Label lblDescrip;
         private System.Windows.Forms.CheckBox ckActivo;
         private System.Windows.Forms.MaskedTextBox cboDescrip;
+        private System.Windows.Forms.Label label1;
     }
 }
