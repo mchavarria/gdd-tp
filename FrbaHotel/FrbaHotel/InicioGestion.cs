@@ -20,19 +20,19 @@ namespace FrbaHotel
         static public FormIni ventanaPrincip;
         static public string rol;
         static public bool loggeado = false;
-        static private bool requiereLoggeo = false;
+        //static private bool requiereLoggeo = false;
 
         private void btnAcept_Click(object sender, EventArgs e)
         {
             rol = cboRoles.Text;
-
+            /*
             SFuncion SFuncion = new SFuncion();
             List<Funcion> funciones = SFuncion.GetRolPorFuncion(int.Parse(cboRoles.SelectedValue.ToString()));
 
             Funcion funcion = (from f in funciones where f.descripcion == "Login" select f).SingleOrDefault();
             if (funcion != null) { requiereLoggeo = true; }
-
-            if (!loggeado) { if (requiereLoggeo == true) cboFunciones.Items.Add("Login"); }
+            */
+            if (!loggeado) { if (rol != "Guest") cboFunciones.Items.Add("Login"); }
             else cargarCBOFunc();
 
             if (rol == "Guest")
@@ -57,13 +57,14 @@ namespace FrbaHotel
             cboFunciones.Items.Clear();
             SFuncion SFuncion = new SFuncion();
             List<Funcion> funciones = SFuncion.GetRolPorFuncion(int.Parse(cboRoles.SelectedValue.ToString()));
-
+            /*
             Funcion funcion = (from f in funciones where f.descripcion == "Login" select f).SingleOrDefault();
             if (funcion != null) { funciones.Remove(funcion); requiereLoggeo = true; }
-
+            */
+            cboFunciones.DataSource = funciones;
             cboFunciones.DisplayMember = "descripcion";
             cboFunciones.ValueMember = "codigo";
-            cboFunciones.DataSource = funciones;
+            
         }
 
         private void btnFunc_Click(object sender, EventArgs e)
@@ -159,7 +160,7 @@ namespace FrbaHotel
             Login.Log.hotel = 0;
             loggeado = false;
             rol = null;
-            requiereLoggeo = false;
+            //requiereLoggeo = false;
             cboRoles.Enabled = true;
             cboFunciones.Visible = false;
             lblFunciones.Visible = false;

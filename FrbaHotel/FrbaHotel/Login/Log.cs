@@ -22,6 +22,7 @@ namespace FrbaHotel.Login
         static public decimal hotel = 0;
         static public string hotelNombre = null;
         SUsuario sUsuario = new SUsuario();
+        static public bool primeraVez = false;
 
         private void Log_Load(object sender, EventArgs e)
         {
@@ -32,6 +33,7 @@ namespace FrbaHotel.Login
                 ABM_de_Usuario.ABMUser usuarioNuevo = new FrbaHotel.ABM_de_Usuario.ABMUser();
                 usuarioNuevo.Show();
                 usuarioNuevo.Focus();
+                primeraVez = true;
                 MessageBox.Show("No hay usuarios, cargue uno por favor.");
             }
             else if (usuarios.Count() == 1) MessageBox.Show("No hay usuarios, comuniquese con el administrador.");

@@ -32,7 +32,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
             this.ckListRoles = new System.Windows.Forms.CheckedListBox();
-            this.ckLstHoteles = new System.Windows.Forms.CheckedListBox();
             this.ckActivo = new System.Windows.Forms.CheckBox();
             this.btnCalendario = new System.Windows.Forms.Button();
             this.calendNacimiento = new System.Windows.Forms.MonthCalendar();
@@ -45,7 +44,6 @@
             this.txtNumDNI = new System.Windows.Forms.MaskedTextBox();
             this.txtApellido = new System.Windows.Forms.MaskedTextBox();
             this.txtNombre = new System.Windows.Forms.MaskedTextBox();
-            this.Hotel = new System.Windows.Forms.Label();
             this.lblNacido = new System.Windows.Forms.Label();
             this.lblDirecc = new System.Windows.Forms.Label();
             this.lblTel = new System.Windows.Forms.Label();
@@ -87,7 +85,6 @@
             // gpoBoxAlta
             // 
             this.gpoBoxAlta.Controls.Add(this.ckListRoles);
-            this.gpoBoxAlta.Controls.Add(this.ckLstHoteles);
             this.gpoBoxAlta.Controls.Add(this.ckActivo);
             this.gpoBoxAlta.Controls.Add(this.btnCalendario);
             this.gpoBoxAlta.Controls.Add(this.calendNacimiento);
@@ -100,7 +97,6 @@
             this.gpoBoxAlta.Controls.Add(this.txtNumDNI);
             this.gpoBoxAlta.Controls.Add(this.txtApellido);
             this.gpoBoxAlta.Controls.Add(this.txtNombre);
-            this.gpoBoxAlta.Controls.Add(this.Hotel);
             this.gpoBoxAlta.Controls.Add(this.lblNacido);
             this.gpoBoxAlta.Controls.Add(this.lblDirecc);
             this.gpoBoxAlta.Controls.Add(this.lblTel);
@@ -125,18 +121,10 @@
             // ckListRoles
             // 
             this.ckListRoles.FormattingEnabled = true;
-            this.ckListRoles.Location = new System.Drawing.Point(438, 395);
+            this.ckListRoles.Location = new System.Drawing.Point(104, 322);
             this.ckListRoles.Name = "ckListRoles";
-            this.ckListRoles.Size = new System.Drawing.Size(260, 130);
+            this.ckListRoles.Size = new System.Drawing.Size(260, 184);
             this.ckListRoles.TabIndex = 41;
-            // 
-            // ckLstHoteles
-            // 
-            this.ckLstHoteles.FormattingEnabled = true;
-            this.ckLstHoteles.Location = new System.Drawing.Point(10, 335);
-            this.ckLstHoteles.Name = "ckLstHoteles";
-            this.ckLstHoteles.Size = new System.Drawing.Size(416, 184);
-            this.ckLstHoteles.TabIndex = 40;
             // 
             // ckActivo
             // 
@@ -162,7 +150,7 @@
             // 
             // calendNacimiento
             // 
-            this.calendNacimiento.Location = new System.Drawing.Point(438, 201);
+            this.calendNacimiento.Location = new System.Drawing.Point(435, 203);
             this.calendNacimiento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.calendNacimiento.Name = "calendNacimiento";
             this.calendNacimiento.TabIndex = 31;
@@ -245,16 +233,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(247, 23);
             this.txtNombre.TabIndex = 20;
-            // 
-            // Hotel
-            // 
-            this.Hotel.AutoSize = true;
-            this.Hotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hotel.Location = new System.Drawing.Point(6, 312);
-            this.Hotel.Name = "Hotel";
-            this.Hotel.Size = new System.Drawing.Size(78, 20);
-            this.Hotel.TabIndex = 19;
-            this.Hotel.Text = "* Hoteles:";
             // 
             // lblNacido
             // 
@@ -375,7 +353,7 @@
             // 
             this.lblRol.AutoSize = true;
             this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(434, 372);
+            this.lblRol.Location = new System.Drawing.Point(34, 322);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(64, 20);
             this.lblRol.TabIndex = 2;
@@ -385,14 +363,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 596);
+            this.ClientSize = new System.Drawing.Size(739, 574);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.gpoBoxAlta);
             this.Name = "ABMUser";
             this.Text = "ABM Usuario";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ABMUser_FormClosing);
             this.Load += new System.EventHandler(this.ABMUser_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ABMUser_FormClosing);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             this.ResumeLayout(false);
@@ -415,7 +393,6 @@
         private System.Windows.Forms.MaskedTextBox txtNumDNI;
         private System.Windows.Forms.MaskedTextBox txtApellido;
         private System.Windows.Forms.MaskedTextBox txtNombre;
-        private System.Windows.Forms.Label Hotel;
         private System.Windows.Forms.Label lblNacido;
         private System.Windows.Forms.Label lblDirecc;
         private System.Windows.Forms.Label lblTel;
@@ -430,7 +407,6 @@
         private System.Windows.Forms.Button btnCalendario;
         private System.Windows.Forms.MonthCalendar calendNacimiento;
         private System.Windows.Forms.CheckBox ckActivo;
-        private System.Windows.Forms.CheckedListBox ckLstHoteles;
         private System.Windows.Forms.CheckedListBox ckListRoles;
 
     }
