@@ -15,8 +15,12 @@ namespace FrbaHotel
         public FormIni()
         {
             InitializeComponent();
+            var customSetting = System.Configuration.ConfigurationSettings.AppSettings;
+            FechaSistema = DateTime.Parse(customSetting.Get("dia").ToString()+'/'+ customSetting.Get("mes")+'/'+customSetting.Get("anio"));
         }
 
+
+        static public DateTime FechaSistema;
         static public FormIni ventanaPrincip;
         static public string rol;
         static public bool loggeado = false;

@@ -35,7 +35,7 @@ namespace FrbaHotel.ABM_Hotel
                     }
                     else
                     {
-                        codHotel = sHotel.Save(hotel);
+                        codHotel = sHotel.Save(hotel,Login.Log.user);
                     }
                     altaRegimen(codHotel);
                     MessageBox.Show("Operación exitosa!");

@@ -53,9 +53,9 @@ namespace FrbaHotel.ClasesTabla
                 return hotelDao.GetByDireccion(direccion);
             }
         
-            public decimal Save(Hotel hotel)
+            public decimal Save(Hotel hotel, decimal codUser)
             {
-                return hotelDao.Save(hotel);
+                return hotelDao.Save(hotel, codUser);
             }
 
             public void SaveCancelacion(CancelacionHotel CancHotel)
