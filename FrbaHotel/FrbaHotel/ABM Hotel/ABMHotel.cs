@@ -17,14 +17,14 @@ namespace FrbaHotel.ABM_Hotel
             InitializeComponent();
         }
 
-        Hotel hotel = new Hotel();
+        
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (validar())
             {
 
-                BuildHotel();
+                Hotel hotel = BuildHotel();
 
                 try
                 {
@@ -56,8 +56,9 @@ namespace FrbaHotel.ABM_Hotel
             }
         }
 
-        private void BuildHotel()
+        private Hotel BuildHotel()
         {
+            Hotel hotel = new Hotel();
 
             if (codHotel != 0)
             {
@@ -74,9 +75,11 @@ namespace FrbaHotel.ABM_Hotel
             hotel.nom_calle = txtCalle.Text;
             hotel.num_calle = decimal.Parse(txtNumCalle.Text);
             hotel.pais = txtPais.Text;
-            hotel.administrador = Login.Log.user;
+            if (Login.Log.user != 2)
+                hotel.administrador = Login.Log.user;
             hotel.cant_estrellas = numUpDnCantEstrellas.Value;
             hotel.recarga_estrella = numUpDownRecEstrella.Value;
+            return hotel;
         }
 
         private void altaRegimen(decimal codHotel)
@@ -120,7 +123,7 @@ namespace FrbaHotel.ABM_Hotel
                 if (codHotel > 0)
                 {
                     Hotel hotelCalle = sHotel.GetByDireccion(txtCalle.Text + " " + txtNumCalle.Text);
-                    hotel = sHotel.GetByCod(codHotel);
+                    Hotel hotel = sHotel.GetByCod(codHotel);
                     var direccion = txtCalle.Text + " " + txtNumCalle.Text;
                     if (direccion != hotel.direccionCompleta)
                     {
@@ -131,9 +134,10 @@ namespace FrbaHotel.ABM_Hotel
                     else
                         return true;
                 }
-                else {
+                else
+                {
                     Hotel hotelCalle = sHotel.GetByDireccion(txtCalle.Text + " " + txtNumCalle.Text);
-                    if (hotelCalle != null){ MessageBox.Show("Ya existe un hotel en esa dirección!"); return false; }
+                    if (hotelCalle != null) { MessageBox.Show("Ya existe un hotel en esa dirección!"); return false; }
                     else
                         return true;
                 }
@@ -168,7 +172,7 @@ namespace FrbaHotel.ABM_Hotel
                 ckLstRegimenes.SetItemCheckState(i, CheckState.Unchecked);
             numUpDnCantEstrellas.Value = 0;
             codHotel = 0;
-            hotel = null;
+            //hotel = null;
         }
 
         private void ABMHotel_Load(object sender, EventArgs e)
@@ -245,7 +249,7 @@ namespace FrbaHotel.ABM_Hotel
             if (ABM_Hotel.BusquedaHotel.ventanaHotel != null)
                 ABM_Hotel.BusquedaHotel.ventanaHotel.cargate();
             ABM_Hotel.BusquedaHotel.hotelSelected = 0;
-            hotel = null;
+            //hotel = null;
         }
     }
 }

@@ -83,7 +83,8 @@ namespace FrbaHotel.ClasesTabla
                 Valores.Append("'" + hotel.fecha_creacion.ToShortDateString() + "',");
             else
                 Valores.Append("'" + DateTime.Now.ToShortDateString() + "',");
-            Valores.Append("" + hotel.administrador + ",");
+            if (hotel.administrador == null || hotel.administrador == 0) Valores.Append("" + "null" + ",");
+            else Valores.Append("" + hotel.administrador + ",");
             Valores.Append("" + hotel.recarga_estrella + ",");
             Valores.Append("'" + hotel.ciudad + "'");
             return Valores.ToString();
@@ -189,7 +190,11 @@ namespace FrbaHotel.ClasesTabla
 
         public decimal Update(Hotel hotel)
         {
-            int ex = entidadBase.EjecutarSQL("update hotel.Hotel set nombre = '" + hotel.nombre + "', mail = '" + hotel.mail + "', telefono = " + hotel.telefono + ", cant_estrellas =" + hotel.cant_estrellas + ", nom_calle ='" + hotel.nom_calle + "', num_calle = " + hotel.num_calle + ", pais = '" + hotel.pais + "', fecha_creacion = '" + hotel.fecha_creacion + "', administrador = " + hotel.administrador + ", recarga_estrella = " + hotel.recarga_estrella + ", ciudad ='" + hotel.ciudad + "' where codigo =" + hotel.codigo);
+            string admin = "";
+            if (hotel.administrador == null || hotel.administrador == 0)
+                admin = "null";
+            else admin = hotel.administrador.ToString();
+            int ex = entidadBase.EjecutarSQL("update hotel.Hotel set nombre = '" + hotel.nombre + "', mail = '" + hotel.mail + "', telefono = " + hotel.telefono + ", cant_estrellas =" + hotel.cant_estrellas + ", nom_calle ='" + hotel.nom_calle + "', num_calle = " + hotel.num_calle + ", pais = '" + hotel.pais + "', fecha_creacion = '" + hotel.fecha_creacion + "', administrador = " + admin + ", recarga_estrella = " + hotel.recarga_estrella + ", ciudad ='" + hotel.ciudad + "' where codigo =" + hotel.codigo);
             return hotel.codigo;
         }
 

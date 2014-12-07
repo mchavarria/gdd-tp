@@ -11,7 +11,6 @@ namespace FrbaHotel.ClasesTabla
         public string user_nombre { get; set; }
         public decimal logueado { get; set; }
         public decimal intentos_fallidos { get; set; }
-        public string mail { get; set; }
         public bool estado { get; set; }
     }
 }

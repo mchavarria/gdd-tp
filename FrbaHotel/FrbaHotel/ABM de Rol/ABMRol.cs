@@ -109,7 +109,7 @@ namespace FrbaHotel.ABM_de_Rol
             rol = roles.SingleOrDefault();
             txtNombre.Text = rol.descripcion;
             ckActiva.Checked = rol.estado;
-
+            if (ckActiva.Checked == true) ckActiva.Enabled = false;
             cargarFunciones(codRol);
         }
 

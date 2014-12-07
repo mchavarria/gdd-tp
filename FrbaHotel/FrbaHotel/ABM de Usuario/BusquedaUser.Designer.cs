@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
-            this.txtMail = new System.Windows.Forms.MaskedTextBox();
-            this.lblMail = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.MaskedTextBox();
             this.cboRol = new System.Windows.Forms.ComboBox();
             this.lblRol = new System.Windows.Forms.Label();
@@ -38,17 +36,15 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gripUser = new System.Windows.Forms.DataGridView();
-            this.btnNew = new System.Windows.Forms.Button();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnNew = new System.Windows.Forms.Button();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gripUser)).BeginInit();
             this.SuspendLayout();
             // 
             // gpoBoxAlta
             // 
-            this.gpoBoxAlta.Controls.Add(this.txtMail);
-            this.gpoBoxAlta.Controls.Add(this.lblMail);
             this.gpoBoxAlta.Controls.Add(this.txtUser);
             this.gpoBoxAlta.Controls.Add(this.cboRol);
             this.gpoBoxAlta.Controls.Add(this.lblRol);
@@ -56,26 +52,10 @@
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
-            this.gpoBoxAlta.Size = new System.Drawing.Size(620, 91);
+            this.gpoBoxAlta.Size = new System.Drawing.Size(620, 61);
             this.gpoBoxAlta.TabIndex = 8;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Filtros de búsqueda";
-            // 
-            // txtMail
-            // 
-            this.txtMail.Location = new System.Drawing.Point(54, 56);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(223, 23);
-            this.txtMail.TabIndex = 26;
-            // 
-            // lblMail
-            // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(6, 58);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(42, 17);
-            this.lblMail.TabIndex = 18;
-            this.lblMail.Text = "Mail:";
             // 
             // txtUser
             // 
@@ -118,7 +98,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(526, 109);
+            this.btnBuscar.Location = new System.Drawing.Point(526, 79);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(106, 23);
             this.btnBuscar.TabIndex = 7;
@@ -128,7 +108,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 109);
+            this.btnLimpiar.Location = new System.Drawing.Point(12, 79);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(114, 23);
             this.btnLimpiar.TabIndex = 6;
@@ -144,22 +124,12 @@
             this.gripUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar,
             this.Delete});
-            this.gripUser.Location = new System.Drawing.Point(12, 138);
+            this.gripUser.Location = new System.Drawing.Point(12, 108);
             this.gripUser.Name = "gripUser";
             this.gripUser.ReadOnly = true;
-            this.gripUser.Size = new System.Drawing.Size(620, 214);
+            this.gripUser.Size = new System.Drawing.Size(620, 244);
             this.gripUser.TabIndex = 5;
             this.gripUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(256, 109);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(106, 23);
-            this.btnNew.TabIndex = 9;
-            this.btnNew.Text = "Nuevo";
-            this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // Seleccionar
             // 
@@ -180,6 +150,16 @@
             this.Delete.ToolTipText = "Eliminar";
             this.Delete.UseColumnTextForButtonValue = true;
             this.Delete.Width = 21;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(258, 79);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(106, 23);
+            this.btnNew.TabIndex = 9;
+            this.btnNew.Text = "Nuevo";
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // BusquedaUser
             // 
@@ -212,8 +192,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridView gripUser;
-        private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.MaskedTextBox txtMail;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;

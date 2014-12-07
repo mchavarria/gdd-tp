@@ -22,21 +22,12 @@ namespace FrbaHotel.Login
         static public decimal hotel = 0;
         static public string hotelNombre = null;
         SUsuario sUsuario = new SUsuario();
-        static public bool primeraVez = false;
 
         private void Log_Load(object sender, EventArgs e)
         {
-            // si no hay usuarios aparte del default tiene q cargarse el nuevo admin o recep..
-            List<Usuario> usuariosTodos = sUsuario.GetAll();
-            List<Usuario> usuarios = (from u in usuariosTodos where u.estado == true select u).ToList();
-            if(usuarios.Count() == 1 && FormIni.rol == "Administrador") {
-                ABM_de_Usuario.ABMUser usuarioNuevo = new FrbaHotel.ABM_de_Usuario.ABMUser();
-                usuarioNuevo.Show();
-                usuarioNuevo.Focus();
-                primeraVez = true;
-                MessageBox.Show("No hay usuarios, cargue uno por favor.");
-            }
-            else if (usuarios.Count() == 1) MessageBox.Show("No hay usuarios, comuniquese con el administrador.");
+            user = 0;
+            hotel = 0;
+            hotelNombre = null;
         }
 
         public string SHA256Encripta(string input)
@@ -58,8 +49,10 @@ namespace FrbaHotel.Login
         {
             //cambiar variable de inicio loggeado a true y guardar hotel
             //si tiene un solo hotel lo asigna
-            if(validar()){
-                if(user == 0){
+            if (validar())
+            {
+                if (user == 0)
+                {
                     Usuario usuario = sUsuario.GetByUser(txtUsuario.Text);
                     string encriptadaContra = SHA256Encripta(txtContra.Text);
                     if (usuario != null && encriptadaContra == usuario.user_password)
@@ -76,7 +69,8 @@ namespace FrbaHotel.Login
                         cboHotel.ValueMember = "codigo";
                         cboHotel.DataSource = hoteles;
 
-                        if(hoteles.Count == 1){
+                        if (hoteles.Count == 1)
+                        {
                             cboHotel.Visible = true;
                             lblHotel.Visible = true;
                             cboHotel.DisplayMember = "direccionCompleta";
@@ -89,17 +83,21 @@ namespace FrbaHotel.Login
                             this.Close();
                             FormIni.ventanaPrincip.cargarCBOFunc();
                         }
-                        else {
+                        else
+                        {
                             MessageBox.Show("Elija un hotel para poder ingresar.");
                         }
                     }
                     else if (usuario != null)
                     {
                         MessageBox.Show("Contraseña incorrecta.");
-                        if(usuario.intentos_fallidos != 2){
-                            usuario.intentos_fallidos = usuario.intentos_fallidos +1;
+                        if (usuario.intentos_fallidos != 2)
+                        {
+                            usuario.intentos_fallidos = usuario.intentos_fallidos + 1;
                             sUsuario.Update(usuario);
-                        }else{
+                        }
+                        else
+                        {
                             usuario.intentos_fallidos = 0;
                             usuario.logueado = 0;
                             sUsuario.Update(usuario);
@@ -109,7 +107,8 @@ namespace FrbaHotel.Login
                     }
                     else MessageBox.Show("Usuario y Contraseña incorrectos.");
                 }
-                else {
+                else
+                {
                     hotel = decimal.Parse(cboHotel.SelectedValue.ToString());
                     hotelNombre = cboHotel.Text;
                     MessageBox.Show("Operación exitosa!");
@@ -121,14 +120,16 @@ namespace FrbaHotel.Login
 
         private bool validar()
         {
-            if(user == 0){
+            if (user == 0)
+            {
                 if (txtUsuario.Text == "" || txtContra.Text == "")
                 {
                     MessageBox.Show("Debe ingresar los datos obligatorios.");
                     return false;
                 }
                 else return true;
-            }else
+            }
+            else
                 if (((Hotel)cboHotel.SelectedItem).direccionCompleta == "")
                 {
                     MessageBox.Show("Debe elegir el hotel.");

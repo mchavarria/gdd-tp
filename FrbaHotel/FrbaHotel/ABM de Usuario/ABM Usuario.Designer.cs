@@ -63,7 +63,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(618, 559);
+            this.btnGuardar.Location = new System.Drawing.Point(587, 481);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(98, 25);
             this.btnGuardar.TabIndex = 6;
@@ -74,7 +74,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 559);
+            this.btnLimpiar.Location = new System.Drawing.Point(12, 481);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(79, 25);
             this.btnLimpiar.TabIndex = 5;
@@ -113,7 +113,7 @@
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
-            this.gpoBoxAlta.Size = new System.Drawing.Size(704, 541);
+            this.gpoBoxAlta.Size = new System.Drawing.Size(673, 463);
             this.gpoBoxAlta.TabIndex = 4;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Usuario";
@@ -123,7 +123,7 @@
             this.ckListRoles.FormattingEnabled = true;
             this.ckListRoles.Location = new System.Drawing.Point(104, 322);
             this.ckListRoles.Name = "ckListRoles";
-            this.ckListRoles.Size = new System.Drawing.Size(260, 184);
+            this.ckListRoles.Size = new System.Drawing.Size(228, 130);
             this.ckListRoles.TabIndex = 41;
             // 
             // ckActivo
@@ -195,7 +195,7 @@
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.Location = new System.Drawing.Point(404, 134);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(294, 21);
+            this.txtMail.Size = new System.Drawing.Size(258, 21);
             this.txtMail.TabIndex = 24;
             // 
             // cboTipoDNI
@@ -363,7 +363,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 574);
+            this.ClientSize = new System.Drawing.Size(693, 521);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.gpoBoxAlta);

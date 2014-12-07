@@ -44,7 +44,7 @@ namespace FrbaHotel.ClasesTabla
                 usuario.user_nombre = r.Field<string>("user_nombre");
                 usuario.logueado = r.Field<byte>("logueado");
                 usuario.intentos_fallidos = r.Field<int>("intentos_fallidos");
-                usuario.mail = r.Field<string>("mail");
+                //usuario.mail = r.Field<string>("mail");
                 int estado = r.Field<byte>("estado");
                 if (estado == 1) usuario.estado = true;
                 else usuario.estado = false;
@@ -96,7 +96,8 @@ namespace FrbaHotel.ClasesTabla
             Valores.Append("'" + user.user_password + "',");
             Valores.Append("" + user.logueado + ",");
             Valores.Append("" + user.intentos_fallidos + ",");
-            Valores.Append("" + user.cod_persona + ",");
+            if (user.cod_persona == null) Valores.Append("" + "null" + ",");
+            else Valores.Append("" + user.cod_persona + ",");
             if (user.estado == true)
                 Valores.Append("" + 1 + "");
             else Valores.Append("" + 0 + "");

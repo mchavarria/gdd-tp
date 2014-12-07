@@ -36,9 +36,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gridRegimen = new System.Windows.Forms.DataGridView();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridRegimen)).BeginInit();
             this.SuspendLayout();
@@ -108,6 +108,7 @@
             this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // gridRegimen
             // 
@@ -122,16 +123,6 @@
             this.gridRegimen.Size = new System.Drawing.Size(552, 339);
             this.gridRegimen.TabIndex = 9;
             this.gridRegimen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(234, 77);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(99, 23);
-            this.btnNuevo.TabIndex = 13;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // Select
             // 
@@ -150,6 +141,16 @@
             this.Delete.ToolTipText = "Eliminar";
             this.Delete.UseColumnTextForButtonValue = true;
             this.Delete.Width = 21;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(234, 77);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(99, 23);
+            this.btnNuevo.TabIndex = 13;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // BusquedaRegimen
             // 
