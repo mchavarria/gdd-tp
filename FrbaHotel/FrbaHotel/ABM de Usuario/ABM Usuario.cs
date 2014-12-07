@@ -335,6 +335,8 @@ namespace FrbaHotel.ABM_de_Usuario
               ckLstHoteles.ValueMember = "codigo";
 
               */
+            calendNacimiento.MaxDate = FormIni.FechaSistema;
+
             SRol SRol = new SRol();
             List<Rol> roles = SRol.GetRolAsig();
             ckListRoles.DataSource = roles;

@@ -175,9 +175,10 @@ namespace FrbaHotel.ClasesTabla
             return hayGente;
         }
 
-        public decimal Save(Hotel hotel)
+        public decimal Save(Hotel hotel, decimal codUser)
         {
             int ex = entidadBase.EjecutarSQL("insert hotel.Hotel (nombre,mail,telefono,cant_estrellas,nom_calle,num_calle,pais,fecha_creacion,administrador,recarga_estrella,ciudad) values (" + ArmarValores(hotel)+") ");
+            int ex2 = entidadBase.EjecutarSQL("insert hotel.Usuario_hotel (cod_usuario,cod_hotel) values (" + codUser + "," + hotel.codigo + ")");
             DataTable resultID = entidadBase.TraerDatos("SELECT max(codigo) from hotel.Hotel ");
             DataRow row = resultID.Rows[0];
             return Convert.ToInt32(row[0]);

@@ -48,16 +48,15 @@ namespace FrbaHotel.ABM_Hotel
                 if (numUpDnCantEstrellas.Value != 0) Valores.Append(" u.cant_estrellas = " + numUpDnCantEstrellas.Value);
 
 
-                gridHoteles.DataSource = sHotel.GetBySQLGRID("select u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad,u.nombre from hotel.Hotel u, hotel.Cancelacion_Hotel c, hotel.Usuario_Hotel us where ( u.codigo = c.cod_hotel and  (c.fecha_hasta) < GETDATE()) or (u.codigo not in (select can.cod_hotel from hotel.cancelacion_hotel can)) and u.codigo in(SELECT h.codigo  FROM hotel.Hotel h, hotel.Usuario_hotel u  where h.codigo = u.cod_hotel and u.cod_usuario ="+ codUser + ")  and " + Valores.ToString() + " group by u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad,u.nombre,u.fecha_creacion");
-            
-  
-            }
+                gridHoteles.DataSource = sHotel.GetBySQLGRID("select u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad,u.nombre from hotel.Hotel u, hotel.Cancelacion_Hotel c where (( u.codigo = c.cod_hotel and  (c.fecha_hasta) < '" + FormIni.FechaSistema + "' or c.fecha_desde > '" + FormIni.FechaSistema + "') or (u.codigo not in (select can.cod_hotel from hotel.cancelacion_hotel can))) and u.codigo in(SELECT h.codigo  FROM hotel.Hotel h, hotel.Usuario_hotel u  where h.codigo = u.cod_hotel and u.cod_usuario =" + codUser + ")  and " + Valores.ToString() + " group by u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad,u.nombre,u.fecha_creacion");
+          
+          }
             else cargate();
         }
 
         public void cargate()
         {
-            gridHoteles.DataSource = sHotel.GetBySQLGRID("hotel.SP_GETHOTELESACTIVOS " + codUser);
+            gridHoteles.DataSource = sHotel.GetBySQLGRID("hotel.SP_GETHOTELESACTIVOS " + codUser + ", '" + FormIni.FechaSistema.ToShortDateString() + "'" );
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
