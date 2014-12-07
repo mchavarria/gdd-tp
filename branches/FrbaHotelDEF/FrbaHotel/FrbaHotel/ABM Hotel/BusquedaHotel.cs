@@ -17,6 +17,7 @@ namespace FrbaHotel.ABM_Hotel
             InitializeComponent();
         }
 
+        static public decimal codUser = 0;
         static public decimal hotelSelected = 0;
         SHotel sHotel = new SHotel();
         static public ABM_Hotel.BusquedaHotel ventanaHotel;
@@ -36,26 +37,27 @@ namespace FrbaHotel.ABM_Hotel
                     Valores.Append(" u.nombre like '%" + txtNombre.Text + "%' ");
 
                 if (txtNombre.Text.Trim() != "" && (txtPais.Text.Trim() != "" || numUpDnCantEstrellas.Value != 0))
-                     Valores.Append(" and ");
+                    Valores.Append(" and ");
 
                 if (txtPais.Text.Trim() != "")
                     Valores.Append(" u.pais like '%" + txtPais.Text + "%' ");
 
-                if(txtPais.Text.Trim() != "" && numUpDnCantEstrellas.Value > 0)
+                if (txtPais.Text.Trim() != "" && numUpDnCantEstrellas.Value > 0)
                     Valores.Append(" and ");
 
-                if(numUpDnCantEstrellas.Value != 0) Valores.Append(" u.cant_estrellas = " + numUpDnCantEstrellas.Value);
+                if (numUpDnCantEstrellas.Value != 0) Valores.Append(" u.cant_estrellas = " + numUpDnCantEstrellas.Value);
 
 
-                gridHoteles.DataSource = sHotel.GetBySQLGRID("select u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad,u.nombre from hotel.Hotel u left join hotel.Cancelacion_Hotel c on u.codigo = c.cod_hotel where c.fecha_hasta < GETDATE() or c.codigo is null and " + Valores.ToString());
-
+                gridHoteles.DataSource = sHotel.GetBySQLGRID("select u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad,u.nombre from hotel.Hotel u, hotel.Cancelacion_Hotel c, hotel.Usuario_Hotel us where ( u.codigo = c.cod_hotel and  (c.fecha_hasta) < GETDATE()) or (u.codigo not in (select can.cod_hotel from hotel.cancelacion_hotel can)) and u.codigo in(SELECT h.codigo  FROM hotel.Hotel h, hotel.Usuario_hotel u  where h.codigo = u.cod_hotel and u.cod_usuario ="+ codUser + ")  and " + Valores.ToString() + " group by u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad,u.nombre,u.fecha_creacion");
+            
+  
             }
             else cargate();
         }
 
         public void cargate()
         {
-            gridHoteles.DataSource = sHotel.GetBySQLGRID("hotel.SP_GETHOTELESACTIVOS");
+            gridHoteles.DataSource = sHotel.GetBySQLGRID("hotel.SP_GETHOTELESACTIVOS " + codUser);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -76,6 +78,7 @@ namespace FrbaHotel.ABM_Hotel
         private void BusquedaHotel_Load(object sender, EventArgs e)
         {
             ventanaHotel = this;
+            codUser = Login.Log.user;
             cargate();
         }
 

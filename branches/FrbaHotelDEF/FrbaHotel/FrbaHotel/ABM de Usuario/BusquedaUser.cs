@@ -42,12 +42,11 @@ namespace FrbaHotel.ABM_de_Usuario
         }
 
         public void cargate() {
-            gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Usuario_hotel h, hotel.Persona p where p.codigo = u.cod_persona and h.cod_usuario = u.codigo and h.cod_hotel = "+codHotel);
+            gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,u.estado from hotel.Usuario u, hotel.Usuario_hotel h where h.cod_usuario = u.codigo and u.codigo <> 2 and h.cod_hotel = " + codHotel);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtMail.Text = "";
             txtUser.Text = "";
             cboRol.SelectedIndex = cboRol.Items.Count - 1;
             usuarioSelected = 0;
@@ -62,13 +61,9 @@ namespace FrbaHotel.ABM_de_Usuario
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtMail.Text.Trim() != "" || txtUser.Text.Trim() != "" || cboRol.Text.Trim() != "Todos")
+            if (txtUser.Text.Trim() != "" || cboRol.Text.Trim() != "Todos")
             {
                 StringBuilder Valores = new StringBuilder();
-                if (txtMail.Text != "")
-                    Valores.Append(" p.mail like '%" + txtMail.Text + "%' ");
-
-                if ((txtMail.Text != "" && txtUser.Text != "") || (txtMail.Text != "" && cboRol.Text != "Todos")) Valores.Append(" and ");
 
                 if (txtUser.Text != "") Valores.Append(" u.user_nombre like '%" + txtUser.Text + "%'");
 
@@ -76,7 +71,7 @@ namespace FrbaHotel.ABM_de_Usuario
 
                 if (cboRol.Text != "Todos") Valores.Append(" rol.cod_rol =" + ((Rol)cboRol.SelectedItem).codigo);
 
-                gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado from hotel.Usuario u, hotel.Rol_Usuario rol, hotel.Persona p where p.codigo = u.cod_persona and h.cod_hotel = "+ codHotel + " and " + Valores.ToString() + " group by u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,p.mail,u.estado");
+                gripUser.DataSource = susuario.GetBySQLGRID("select u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,u.estado from hotel.Usuario u, hotel.Usuario_hotel h where h.cod_usuario = u.codigo and u.codigo <> 2 and h.cod_hotel = " + codHotel + " and " + Valores.ToString() + " group by u.codigo, u.user_nombre,u.logueado,u.intentos_fallidos,u.estado");
 
             }
             else cargate();
@@ -117,5 +112,6 @@ namespace FrbaHotel.ABM_de_Usuario
             usuarioSelected = 0;
             ventanaBusqueda = null;
         }
+
     }
 }

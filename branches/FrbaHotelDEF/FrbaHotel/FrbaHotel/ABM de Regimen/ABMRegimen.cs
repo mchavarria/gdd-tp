@@ -92,7 +92,8 @@ namespace FrbaHotel.ABM_de_Regimen
 
         private bool validar()
         {
-            if (cboDescrip.Text.Trim() != ""){
+            if (cboDescrip.Text.Trim() != "")
+            {
                 if (txtPrecio.Text.Trim() != "." || txtPrecio.Text.Trim() != "" || txtPrecio.Text.Trim() != ",")
                 {
                     try
@@ -100,7 +101,11 @@ namespace FrbaHotel.ABM_de_Regimen
                         decimal precio = decimal.Parse(txtPrecio.Text.Replace('.', ','));
                         return true;
                     }
-                    catch (Exception) { return false; }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("El formato ingresado como precio base es incorrecto!");
+                        return false;
+                    }
                 }
                 else return false;
             }
@@ -120,6 +125,8 @@ namespace FrbaHotel.ABM_de_Regimen
             ckActivo.Checked = reg.estado;
             if (reg.precio_base != 0)
                 txtPrecio.Enabled = false;
+            if (ckActivo.Checked == true)
+                ckActivo.Enabled = false;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

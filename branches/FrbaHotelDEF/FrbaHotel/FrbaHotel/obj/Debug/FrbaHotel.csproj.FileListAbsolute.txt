@@ -29,3 +29,34 @@ F:\Repo GDD DEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Estadia.Estadi
 F:\Repo GDD DEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.csproj.GenerateResource.Cache
 F:\Repo GDD DEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.exe
 F:\Repo GDD DEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.pdb
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.exe.config
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.exe
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.pdb
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.exe
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.pdb
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\ResolveAssemblyReference.cache
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Cliente.ABMCliente.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Cliente.BusquedaCliente.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Habitacion.FormAltaHabitacion.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Habitacion.BusquedaHabitacion.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Regimen.ABMRegimen.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Regimen.BusquedaRegimen.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Rol.ABMRol.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Rol.BusquedaRoles.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Usuario.ABMUser.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Usuario.BusquedaUser.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_Hotel.ABMHotel.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_Hotel.BajaHotel.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_Hotel.BusquedaHotel.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Cancelar_Reserva.CancelarReserva.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Generar_Modificar_Reserva.AMReserva.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Generar_Modificar_Reserva.BusquedaReserva.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.FormIni.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Listado_Estadistico.ListadoEstadistico.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Login.Log.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Properties.Resources.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Consumible.Facturar.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Consumible.RegistrarConsumible.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Consumible.Tarjeta.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Estadia.Estadia.resources
+G:\FrbaHotelDEF\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.csproj.GenerateResource.Cache
