@@ -151,6 +151,7 @@
             // calendNacimiento
             // 
             this.calendNacimiento.Location = new System.Drawing.Point(435, 203);
+            this.calendNacimiento.MaxDate = new System.DateTime(2014, 12, 7, 0, 0, 0, 0);
             this.calendNacimiento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.calendNacimiento.Name = "calendNacimiento";
             this.calendNacimiento.TabIndex = 31;

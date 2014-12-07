@@ -46,38 +46,54 @@ namespace FrbaHotel.ABM_Hotel
                 {
                     MessageBox.Show("Error en la operación!");
                 }
+                this.Close();
+                ABM_Hotel.BusquedaHotel.hotelSelected = 0;
             }
-            this.Close();
-            ABM_Hotel.BusquedaHotel.hotelSelected = 0;
+            else
+                limpiar();
         }
 
         private bool validar()
         {
             bool valido = false;
-
+            
             if (codHotel != 0 && txtFechaDesde.Text.Replace('-', ' ').Replace(" ", "").Trim() != "" && txtFechaHasta.Text.Replace('-', ' ').Replace(" ", "").Trim() != "" && txtMotivo.Text.Trim() != "")
             {
-
-                //no haya gente hospedada para esa fecha
-                bool HayGente = sHotel.hotelOcupado(codHotel, DateTime.Parse(txtFechaDesde.Text.Replace('-', ' ').Replace(" ", "").Trim()), DateTime.Parse(txtFechaHasta.Text.Replace('-', ' ').Replace(" ", "").Trim()));
-                if (HayGente)
+                var fechaDesd= DateTime.Parse(txtFechaDesde.Text.Replace('-', ' ').Replace(" ", "").Trim());
+                var fechaHasta = DateTime.Parse(txtFechaHasta.Text.Replace('-', ' ').Replace(" ", "").Trim());
+                if (fechaDesd < fechaHasta)
                 {
-                    MessageBox.Show("No puede dar de baja el hotel en esa fecha, se encuentra reservado!");
+                    //no haya gente hospedada para esa fecha
+                    bool HayGente = sHotel.hotelOcupado(codHotel, DateTime.Parse(txtFechaDesde.Text.Replace('-', ' ').Replace(" ", "").Trim()), DateTime.Parse(txtFechaHasta.Text.Replace('-', ' ').Replace(" ", "").Trim()));
+                    if (HayGente)
+                    {
+                        MessageBox.Show("No puede dar de baja el hotel en esa fecha, se encuentra reservado!");
+                    }
+                    else
+                        valido = true;
                 }
                 else
-                    valido = true;
+                {
+                    MessageBox.Show("La fecha de inicio de baja debe ser anterior a la fecha final!");
+                    valido = false;
+                }
             }
 
             return valido;
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private void limpiar()
         {
             txtFechaDesde.Text = "";
             txtFechaHasta.Text = "";
             txtMotivo.Text = "";
             calendHasta.Visible = false;
             calendFechaDesde.Visible = false;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
 
         private void btnFechaHasta_Click(object sender, EventArgs e)
