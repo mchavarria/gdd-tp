@@ -35,7 +35,7 @@ namespace FrbaHotel.ABM_de_Regimen
                         if (reg.estado == false)
                         { //darle de baja
                             SHotel sHotel = new SHotel();
-                            var ocupado = sHotel.hotelOcupadoRegimen(reg.cod_hotel, reg.cod_regimen, DateTime.Now);
+                            var ocupado = sHotel.hotelOcupadoRegimen(reg.cod_hotel, reg.cod_regimen, FormIni.FechaSistema);
                             if (ocupado == false)
                             {
                                 sRegimen.UpdateDTO(reg);

@@ -82,7 +82,7 @@ namespace FrbaHotel.ClasesTabla
             if (hotel.fecha_creacion != null)
                 Valores.Append("'" + hotel.fecha_creacion.ToShortDateString() + "',");
             else
-                Valores.Append("'" + DateTime.Now.ToShortDateString() + "',");
+                Valores.Append("'" + FormIni.FechaSistema.ToShortDateString() + "',");
             if (hotel.administrador == null || hotel.administrador == 0) Valores.Append("" + "null" + ",");
             else Valores.Append("" + hotel.administrador + ",");
             Valores.Append("" + hotel.recarga_estrella + ",");

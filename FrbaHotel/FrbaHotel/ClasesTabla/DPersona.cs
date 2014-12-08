@@ -135,7 +135,7 @@ namespace FrbaHotel.ClasesTabla
             if (per.fecha_nacimiento != null)
                 Valores.Append("'" + per.fecha_nacimiento.ToShortDateString() + "',");
             else
-                Valores.Append("'" + DateTime.Now.ToShortDateString() + "',");
+                Valores.Append("'" + FormIni.FechaSistema.ToShortDateString() + "',");
             if (per.piso == null)
                 Valores.Append("" + 0 + ",");
             else Valores.Append("" + per.piso + ",");
