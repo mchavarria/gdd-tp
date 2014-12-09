@@ -1,0 +1,68 @@
+F:\CompartidaVirtual\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.exe
+F:\CompartidaVirtual\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.pdb
+F:\CompartidaVirtual\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\ResolveAssemblyReference.cache
+F:\CompartidaVirtual\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Properties.Resources.resources
+F:\CompartidaVirtual\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.csproj.GenerateResource.Cache
+F:\CompartidaVirtual\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.exe
+F:\CompartidaVirtual\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.pdb
+F:\CompartidaVirtual\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.exe.config
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.exe.config
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.exe
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.pdb
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.exe
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.pdb
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\ResolveAssemblyReference.cache
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Habitacion.FormAltaHabitacion.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Properties.Resources.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.csproj.GenerateResource.Cache
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Cliente.ABMCliente.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Cliente.BusquedaCliente.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Habitacion.BusquedaHabitacion.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Regimen.ABMRegimen.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Regimen.BusquedaRegimen.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Rol.ABMRol.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Rol.BusquedaRoles.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Usuario.ABMUser.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Usuario.BusquedaUser.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_Hotel.ABMHotel.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_Hotel.BusquedaHotel.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.FormIni.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Login.Log.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Cancelar_Reserva.CancelarReserva.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Generar_Modificar_Reserva.AMReserva.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Listado_Estadistico.ListadoEstadistico.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Consumible.Facturar.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Consumible.RegistrarConsumible.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Estadia.Estadia.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Generar_Modificar_Reserva.BusquedaReserva.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Consumible.Tarjeta.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.exe.config
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.exe
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.pdb
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.exe
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.pdb
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Cliente.ABMCliente.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Cliente.BusquedaCliente.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Habitacion.FormAltaHabitacion.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Habitacion.BusquedaHabitacion.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Regimen.ABMRegimen.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Regimen.BusquedaRegimen.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Rol.ABMRol.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Rol.BusquedaRoles.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Usuario.ABMUser.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_de_Usuario.BusquedaUser.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_Hotel.ABMHotel.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.ABM_Hotel.BusquedaHotel.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Cancelar_Reserva.CancelarReserva.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Generar_Modificar_Reserva.AMReserva.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Generar_Modificar_Reserva.BusquedaReserva.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.FormIni.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Listado_Estadistico.ListadoEstadistico.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Login.Log.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Properties.Resources.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Consumible.Facturar.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Consumible.RegistrarConsumible.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Consumible.Tarjeta.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Registrar_Estadia.Estadia.resources
+C:\Documents and Settings\Migue\Escritorio\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.csproj.GenerateResource.Cache
