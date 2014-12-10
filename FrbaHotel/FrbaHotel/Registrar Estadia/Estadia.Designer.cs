@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnChOut = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
-            this.btnCompletarDatos = new System.Windows.Forms.Button();
+            this.btnPersonas = new System.Windows.Forms.Button();
+            this.GridPersonas = new System.Windows.Forms.DataGridView();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNumReserva = new System.Windows.Forms.MaskedTextBox();
-            this.ckDisponible = new System.Windows.Forms.CheckBox();
             this.lblNumRes = new System.Windows.Forms.Label();
-            this.calendarioHasta = new System.Windows.Forms.MonthCalendar();
-            this.btnCalendarioHasta = new System.Windows.Forms.Button();
-            this.lblHasta = new System.Windows.Forms.Label();
-            this.txtHasta = new System.Windows.Forms.MaskedTextBox();
-            this.calendarioDesde = new System.Windows.Forms.MonthCalendar();
-            this.btnCalendarioDesde = new System.Windows.Forms.Button();
-            this.txtDesde = new System.Windows.Forms.MaskedTextBox();
-            this.lblDesde = new System.Windows.Forms.Label();
+            this.btnChIn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.gpoBoxAlta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridPersonas)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnGuardar
+            // btnChOut
             // 
-            this.btnGuardar.Enabled = false;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(490, 314);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(99, 25);
-            this.btnGuardar.TabIndex = 12;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnChOut.Enabled = false;
+            this.btnChOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChOut.Location = new System.Drawing.Point(490, 314);
+            this.btnChOut.Name = "btnChOut";
+            this.btnChOut.Size = new System.Drawing.Size(99, 25);
+            this.btnChOut.TabIndex = 12;
+            this.btnChOut.Text = "Egreso";
+            this.btnChOut.UseVisualStyleBackColor = true;
+            this.btnChOut.Click += new System.EventHandler(this.btnChOut_Click);
             // 
             // btnLimpiar
             // 
@@ -66,21 +65,17 @@
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // gpoBoxAlta
             // 
-            this.gpoBoxAlta.Controls.Add(this.btnCompletarDatos);
+            this.gpoBoxAlta.Controls.Add(this.lblCantidad);
+            this.gpoBoxAlta.Controls.Add(this.label1);
+            this.gpoBoxAlta.Controls.Add(this.btnPersonas);
+            this.gpoBoxAlta.Controls.Add(this.GridPersonas);
+            this.gpoBoxAlta.Controls.Add(this.btnBuscar);
             this.gpoBoxAlta.Controls.Add(this.txtNumReserva);
-            this.gpoBoxAlta.Controls.Add(this.ckDisponible);
             this.gpoBoxAlta.Controls.Add(this.lblNumRes);
-            this.gpoBoxAlta.Controls.Add(this.calendarioHasta);
-            this.gpoBoxAlta.Controls.Add(this.btnCalendarioHasta);
-            this.gpoBoxAlta.Controls.Add(this.lblHasta);
-            this.gpoBoxAlta.Controls.Add(this.txtHasta);
-            this.gpoBoxAlta.Controls.Add(this.calendarioDesde);
-            this.gpoBoxAlta.Controls.Add(this.btnCalendarioDesde);
-            this.gpoBoxAlta.Controls.Add(this.txtDesde);
-            this.gpoBoxAlta.Controls.Add(this.lblDesde);
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
@@ -89,37 +84,57 @@
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Check In - Out";
             // 
-            // btnCompletarDatos
+            // btnPersonas
             // 
-            this.btnCompletarDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompletarDatos.Location = new System.Drawing.Point(357, 22);
-            this.btnCompletarDatos.Name = "btnCompletarDatos";
-            this.btnCompletarDatos.Size = new System.Drawing.Size(153, 51);
-            this.btnCompletarDatos.TabIndex = 13;
-            this.btnCompletarDatos.Text = "Completar Datos Cliente";
-            this.btnCompletarDatos.UseVisualStyleBackColor = true;
-            this.btnCompletarDatos.Visible = false;
+            this.btnPersonas.Enabled = false;
+            this.btnPersonas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPersonas.Location = new System.Drawing.Point(224, 260);
+            this.btnPersonas.Name = "btnPersonas";
+            this.btnPersonas.Size = new System.Drawing.Size(186, 25);
+            this.btnPersonas.TabIndex = 14;
+            this.btnPersonas.Text = "Cargar Datos / Actualizar";
+            this.btnPersonas.UseVisualStyleBackColor = true;
+            this.btnPersonas.Click += new System.EventHandler(this.btnPersonas_Click);
+            // 
+            // GridPersonas
+            // 
+            this.GridPersonas.AllowUserToAddRows = false;
+            this.GridPersonas.AllowUserToDeleteRows = false;
+            this.GridPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Seleccionar});
+            this.GridPersonas.Location = new System.Drawing.Point(14, 97);
+            this.GridPersonas.MultiSelect = false;
+            this.GridPersonas.Name = "GridPersonas";
+            this.GridPersonas.ReadOnly = true;
+            this.GridPersonas.Size = new System.Drawing.Size(472, 153);
+            this.GridPersonas.TabIndex = 51;
+            this.GridPersonas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridPersonas_CellContentClick);
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Informacion";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(269, 40);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(99, 25);
+            this.btnBuscar.TabIndex = 13;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtNumReserva
             // 
-            this.txtNumReserva.Enabled = false;
             this.txtNumReserva.Location = new System.Drawing.Point(144, 40);
             this.txtNumReserva.Mask = "99999999";
             this.txtNumReserva.Name = "txtNumReserva";
             this.txtNumReserva.Size = new System.Drawing.Size(95, 23);
             this.txtNumReserva.TabIndex = 50;
-            // 
-            // ckDisponible
-            // 
-            this.ckDisponible.AutoSize = true;
-            this.ckDisponible.Enabled = false;
-            this.ckDisponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckDisponible.Location = new System.Drawing.Point(245, 40);
-            this.ckDisponible.Name = "ckDisponible";
-            this.ckDisponible.Size = new System.Drawing.Size(106, 22);
-            this.ckDisponible.TabIndex = 47;
-            this.ckDisponible.Text = "Disponible";
-            this.ckDisponible.UseVisualStyleBackColor = true;
             // 
             // lblNumRes
             // 
@@ -131,118 +146,69 @@
             this.lblNumRes.TabIndex = 41;
             this.lblNumRes.Text = "Núm. de reserva:";
             // 
-            // calendarioHasta
+            // btnChIn
             // 
-            this.calendarioHasta.Location = new System.Drawing.Point(341, 114);
-            this.calendarioHasta.Name = "calendarioHasta";
-            this.calendarioHasta.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(1816, 11, 8, 0, 0, 0, 0), new System.DateTime(1816, 11, 14, 0, 0, 0, 0));
-            this.calendarioHasta.TabIndex = 38;
-            this.calendarioHasta.Visible = false;
-            this.calendarioHasta.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendarioHasta_DateSelected);
+            this.btnChIn.Enabled = false;
+            this.btnChIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChIn.Location = new System.Drawing.Point(385, 314);
+            this.btnChIn.Name = "btnChIn";
+            this.btnChIn.Size = new System.Drawing.Size(99, 25);
+            this.btnChIn.TabIndex = 13;
+            this.btnChIn.Text = "Ingreso";
+            this.btnChIn.UseVisualStyleBackColor = true;
+            this.btnChIn.Click += new System.EventHandler(this.btnChIn_Click);
             // 
-            // btnCalendarioHasta
+            // label1
             // 
-            this.btnCalendarioHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalendarioHasta.Location = new System.Drawing.Point(235, 113);
-            this.btnCalendarioHasta.Name = "btnCalendarioHasta";
-            this.btnCalendarioHasta.Size = new System.Drawing.Size(94, 25);
-            this.btnCalendarioHasta.TabIndex = 37;
-            this.btnCalendarioHasta.Text = "Seleccionar";
-            this.btnCalendarioHasta.UseVisualStyleBackColor = true;
-            this.btnCalendarioHasta.Click += new System.EventHandler(this.btnCalendarioHasta_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 261);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 20);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Faltan cargar pasajeros:";
             // 
-            // lblHasta
+            // lblCantidad
             // 
-            this.lblHasta.AutoSize = true;
-            this.lblHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHasta.Location = new System.Drawing.Point(10, 114);
-            this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(102, 20);
-            this.lblHasta.TabIndex = 36;
-            this.lblHasta.Text = "Fecha hasta:";
-            // 
-            // txtHasta
-            // 
-            this.txtHasta.Enabled = false;
-            this.txtHasta.Location = new System.Drawing.Point(136, 114);
-            this.txtHasta.Mask = "00/00/0000";
-            this.txtHasta.Name = "txtHasta";
-            this.txtHasta.Size = new System.Drawing.Size(93, 23);
-            this.txtHasta.TabIndex = 35;
-            this.txtHasta.ValidatingType = typeof(System.DateTime);
-            // 
-            // calendarioDesde
-            // 
-            this.calendarioDesde.Location = new System.Drawing.Point(341, 73);
-            this.calendarioDesde.Name = "calendarioDesde";
-            this.calendarioDesde.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(1816, 11, 8, 0, 0, 0, 0), new System.DateTime(1816, 11, 14, 0, 0, 0, 0));
-            this.calendarioDesde.TabIndex = 34;
-            this.calendarioDesde.Visible = false;
-            this.calendarioDesde.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendarioDesde_DateSelected);
-            // 
-            // btnCalendarioDesde
-            // 
-            this.btnCalendarioDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalendarioDesde.Location = new System.Drawing.Point(235, 73);
-            this.btnCalendarioDesde.Name = "btnCalendarioDesde";
-            this.btnCalendarioDesde.Size = new System.Drawing.Size(94, 25);
-            this.btnCalendarioDesde.TabIndex = 33;
-            this.btnCalendarioDesde.Text = "Seleccionar";
-            this.btnCalendarioDesde.UseVisualStyleBackColor = true;
-            this.btnCalendarioDesde.Click += new System.EventHandler(this.btnCalendarioDesde_Click);
-            // 
-            // txtDesde
-            // 
-            this.txtDesde.Enabled = false;
-            this.txtDesde.Location = new System.Drawing.Point(136, 74);
-            this.txtDesde.Mask = "00/00/0000";
-            this.txtDesde.Name = "txtDesde";
-            this.txtDesde.Size = new System.Drawing.Size(93, 23);
-            this.txtDesde.TabIndex = 32;
-            this.txtDesde.ValidatingType = typeof(System.DateTime);
-            // 
-            // lblDesde
-            // 
-            this.lblDesde.AutoSize = true;
-            this.lblDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesde.Location = new System.Drawing.Point(10, 74);
-            this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(106, 20);
-            this.lblDesde.TabIndex = 14;
-            this.lblDesde.Text = "Fecha desde:";
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(188, 261);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(18, 20);
+            this.lblCantidad.TabIndex = 53;
+            this.lblCantidad.Text = "0";
             // 
             // Estadia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 350);
-            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnChIn);
+            this.Controls.Add(this.btnChOut);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.gpoBoxAlta);
             this.Name = "Estadia";
             this.Text = "Estadia";
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridPersonas)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnChOut;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox gpoBoxAlta;
-        private System.Windows.Forms.CheckBox ckDisponible;
         private System.Windows.Forms.Label lblNumRes;
-        private System.Windows.Forms.MonthCalendar calendarioHasta;
-        private System.Windows.Forms.Button btnCalendarioHasta;
-        private System.Windows.Forms.Label lblHasta;
-        private System.Windows.Forms.MaskedTextBox txtHasta;
-        private System.Windows.Forms.MonthCalendar calendarioDesde;
-        private System.Windows.Forms.Button btnCalendarioDesde;
-        private System.Windows.Forms.MaskedTextBox txtDesde;
-        private System.Windows.Forms.Label lblDesde;
-        private System.Windows.Forms.Button btnCompletarDatos;
         private System.Windows.Forms.MaskedTextBox txtNumReserva;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.DataGridView GridPersonas;
+        private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
+        private System.Windows.Forms.Button btnChIn;
+        private System.Windows.Forms.Button btnPersonas;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCantidad;
     }
 }

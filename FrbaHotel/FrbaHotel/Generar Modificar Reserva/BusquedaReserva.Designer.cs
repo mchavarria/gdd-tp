@@ -37,27 +37,25 @@
             this.lblDNI = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.gridPersonas = new System.Windows.Forms.DataGridView();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
-            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblApell = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.BtnConfirmar = new System.Windows.Forms.Button();
-            this.lblNumRes = new System.Windows.Forms.Label();
-            this.txtNumeroReserva = new System.Windows.Forms.MaskedTextBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblApell = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
+            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
+            this.txtMailSel = new System.Windows.Forms.MaskedTextBox();
+            this.txtDniSel = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTipoSel = new System.Windows.Forms.MaskedTextBox();
+            this.gridPersonas = new System.Windows.Forms.DataGridView();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gpoBoxAlta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPersonas)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPersonas)).BeginInit();
             this.SuspendLayout();
             // 
             // gpoBoxAlta
@@ -140,6 +138,7 @@
             this.btnBuscar.TabIndex = 15;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
@@ -149,149 +148,7 @@
             this.btnLimpiar.TabIndex = 14;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // gridPersonas
-            // 
-            this.gridPersonas.AllowUserToDeleteRows = false;
-            this.gridPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Seleccionar,
-            this.Delete});
-            this.gridPersonas.Location = new System.Drawing.Point(12, 132);
-            this.gridPersonas.Name = "gridPersonas";
-            this.gridPersonas.ReadOnly = true;
-            this.gridPersonas.Size = new System.Drawing.Size(614, 155);
-            this.gridPersonas.TabIndex = 13;
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Select";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Eliminar";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(253, 103);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(106, 23);
-            this.btnNuevo.TabIndex = 17;
-            this.btnNuevo.Text = "Nuevo Cliente";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
-            this.groupBox1.Controls.Add(this.maskedTextBox2);
-            this.groupBox1.Controls.Add(this.txtApellido);
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.lblApell);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.lblNombre);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 293);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(614, 99);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cliente seleccionado";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Enabled = false;
-            this.maskedTextBox1.Location = new System.Drawing.Point(513, 60);
-            this.maskedTextBox1.Mask = "999999990";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(88, 23);
-            this.maskedTextBox1.TabIndex = 27;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Enabled = false;
-            this.maskedTextBox2.Location = new System.Drawing.Point(63, 60);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(160, 23);
-            this.maskedTextBox2.TabIndex = 26;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Enabled = false;
-            this.txtApellido.Location = new System.Drawing.Point(360, 31);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(241, 23);
-            this.txtApellido.TabIndex = 24;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Enabled = false;
-            this.txtNombre.Location = new System.Drawing.Point(81, 31);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(196, 23);
-            this.txtNombre.TabIndex = 23;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 17);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Mail:";
-            // 
-            // lblApell
-            // 
-            this.lblApell.AutoSize = true;
-            this.lblApell.Location = new System.Drawing.Point(283, 34);
-            this.lblApell.Name = "lblApell";
-            this.lblApell.Size = new System.Drawing.Size(71, 17);
-            this.lblApell.TabIndex = 17;
-            this.lblApell.Text = "Apellido:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(435, 59);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(72, 24);
-            this.comboBox1.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Tipo y núm de documento:";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(6, 34);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(69, 17);
-            this.lblNombre.TabIndex = 4;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(12, 398);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(124, 23);
-            this.btnModificar.TabIndex = 19;
-            this.btnModificar.Text = "Modificar Cliente";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // BtnConfirmar
             // 
@@ -302,36 +159,160 @@
             this.BtnConfirmar.TabIndex = 20;
             this.BtnConfirmar.Text = "Confirmar";
             this.BtnConfirmar.UseVisualStyleBackColor = true;
+            this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
-            // lblNumRes
+            // btnModificar
             // 
-            this.lblNumRes.AutoSize = true;
-            this.lblNumRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumRes.Location = new System.Drawing.Point(166, 405);
-            this.lblNumRes.Name = "lblNumRes";
-            this.lblNumRes.Size = new System.Drawing.Size(157, 18);
-            this.lblNumRes.TabIndex = 28;
-            this.lblNumRes.Text = "Número de reserva:";
-            this.lblNumRes.Visible = false;
+            this.btnModificar.Location = new System.Drawing.Point(12, 408);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(124, 23);
+            this.btnModificar.TabIndex = 19;
+            this.btnModificar.Text = "Modificar Cliente";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // txtNumeroReserva
+            // lblNombre
             // 
-            this.txtNumeroReserva.Enabled = false;
-            this.txtNumeroReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroReserva.Location = new System.Drawing.Point(345, 402);
-            this.txtNumeroReserva.Mask = "999999999";
-            this.txtNumeroReserva.Name = "txtNumeroReserva";
-            this.txtNumeroReserva.Size = new System.Drawing.Size(87, 24);
-            this.txtNumeroReserva.TabIndex = 28;
-            this.txtNumeroReserva.Visible = false;
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(6, 34);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(69, 17);
+            this.lblNombre.TabIndex = 4;
+            this.lblNombre.Text = "Nombre:";
             // 
-            // BuscarCliente
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(220, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(200, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Tipo y núm de documento:";
+            // 
+            // lblApell
+            // 
+            this.lblApell.AutoSize = true;
+            this.lblApell.Location = new System.Drawing.Point(283, 34);
+            this.lblApell.Name = "lblApell";
+            this.lblApell.Size = new System.Drawing.Size(71, 17);
+            this.lblApell.TabIndex = 17;
+            this.lblApell.Text = "Apellido:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 17);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Mail:";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Enabled = false;
+            this.txtNombre.Location = new System.Drawing.Point(81, 31);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(196, 23);
+            this.txtNombre.TabIndex = 23;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Enabled = false;
+            this.txtApellido.Location = new System.Drawing.Point(360, 31);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(241, 23);
+            this.txtApellido.TabIndex = 24;
+            // 
+            // txtMailSel
+            // 
+            this.txtMailSel.Enabled = false;
+            this.txtMailSel.Location = new System.Drawing.Point(54, 60);
+            this.txtMailSel.Name = "txtMailSel";
+            this.txtMailSel.Size = new System.Drawing.Size(160, 23);
+            this.txtMailSel.TabIndex = 26;
+            // 
+            // txtDniSel
+            // 
+            this.txtDniSel.Enabled = false;
+            this.txtDniSel.Location = new System.Drawing.Point(513, 60);
+            this.txtDniSel.Mask = "999999990";
+            this.txtDniSel.Name = "txtDniSel";
+            this.txtDniSel.Size = new System.Drawing.Size(88, 23);
+            this.txtDniSel.TabIndex = 27;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtTipoSel);
+            this.groupBox1.Controls.Add(this.txtDniSel);
+            this.groupBox1.Controls.Add(this.txtMailSel);
+            this.groupBox1.Controls.Add(this.txtApellido);
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblApell);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lblNombre);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 293);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(614, 99);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cliente seleccionado";
+            // 
+            // txtTipoSel
+            // 
+            this.txtTipoSel.Enabled = false;
+            this.txtTipoSel.Location = new System.Drawing.Point(415, 60);
+            this.txtTipoSel.Name = "txtTipoSel";
+            this.txtTipoSel.Size = new System.Drawing.Size(83, 23);
+            this.txtTipoSel.TabIndex = 28;
+            // 
+            // gridPersonas
+            // 
+            this.gridPersonas.AllowUserToDeleteRows = false;
+            this.gridPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Seleccionar});
+            this.gridPersonas.Location = new System.Drawing.Point(12, 132);
+            this.gridPersonas.Name = "gridPersonas";
+            this.gridPersonas.ReadOnly = true;
+            this.gridPersonas.Size = new System.Drawing.Size(614, 155);
+            this.gridPersonas.TabIndex = 13;
+            this.gridPersonas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPersonas_CellContentClick);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(253, 103);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(106, 23);
+            this.btnNuevo.TabIndex = 17;
+            this.btnNuevo.Text = "Nuevo Cliente";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(358, 398);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(131, 33);
+            this.btnCancelar.TabIndex = 29;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Select";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            // 
+            // BusquedaReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 447);
-            this.Controls.Add(this.txtNumeroReserva);
-            this.Controls.Add(this.lblNumRes);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.BtnConfirmar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.groupBox1);
@@ -340,15 +321,15 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.gridPersonas);
-            this.Name = "BuscarCliente";
+            this.Name = "BusquedaReserva";
             this.Text = "Busqueda para Reserva";
+            this.Load += new System.EventHandler(this.BusquedaReserva_Load);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPersonas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPersonas)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -356,30 +337,28 @@
 
         private System.Windows.Forms.GroupBox gpoBoxAlta;
         private System.Windows.Forms.MaskedTextBox txtDNI;
-        private System.Windows.Forms.MaskedTextBox txtMail;
         private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.ComboBox cboTipo;
-        private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.DataGridView gridPersonas;
-        private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.MaskedTextBox txtInconsist;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox txtApellido;
-        private System.Windows.Forms.MaskedTextBox txtNombre;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblApell;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button BtnConfirmar;
-        private System.Windows.Forms.Label lblNumRes;
-        private System.Windows.Forms.MaskedTextBox txtNumeroReserva;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblApell;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox txtNombre;
+        private System.Windows.Forms.MaskedTextBox txtApellido;
+        private System.Windows.Forms.MaskedTextBox txtMailSel;
+        private System.Windows.Forms.MaskedTextBox txtDniSel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView gridPersonas;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.MaskedTextBox txtInconsist;
+        private System.Windows.Forms.MaskedTextBox txtMail;
+        private System.Windows.Forms.ComboBox cboTipo;
+        private System.Windows.Forms.Label lblDNI;
+        private System.Windows.Forms.MaskedTextBox txtTipoSel;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
     }
 }
