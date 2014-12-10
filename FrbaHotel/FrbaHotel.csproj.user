@@ -9,9 +9,9 @@
     </UpdateUrlHistory>
     <BootstrapperUrlHistory>
     </BootstrapperUrlHistory>
-    <FallbackCulture>en-US</FallbackCulture>
-    <VerifyUploadedFiles>false</VerifyUploadedFiles>
     <ErrorReportUrlHistory>
     </ErrorReportUrlHistory>
+    <FallbackCulture>es-ES</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
 </Project>

@@ -1,24 +1,53 @@
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.exe.config
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.exe
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.pdb
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\ResolveAssemblyReference.cache
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Inicial.resources
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Login.LoginForm.resources
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Properties.Resources.resources
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.csproj.GenerateResource.Cache
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.exe
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.pdb
-C:\TP_Gestion\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Rol.Alta_Rol.resources
-C:\gdd-tp\FrbaHotel\bin\Release\FrbaHotel.exe.config
-C:\gdd-tp\FrbaHotel\bin\Release\FrbaHotel.exe
-C:\gdd-tp\FrbaHotel\bin\Release\FrbaHotel.pdb
-C:\gdd-tp\FrbaHotel\obj\Release\ResolveAssemblyReference.cache
-C:\gdd-tp\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Rol.Alta_Rol.resources
-C:\gdd-tp\FrbaHotel\obj\Release\FrbaHotel.Inicial.resources
-C:\gdd-tp\FrbaHotel\obj\Release\FrbaHotel.Login.LoginForm.resources
-C:\gdd-tp\FrbaHotel\obj\Release\FrbaHotel.Properties.Resources.resources
-C:\gdd-tp\FrbaHotel\obj\Release\FrbaHotel.csproj.GenerateResource.Cache
-C:\gdd-tp\FrbaHotel\obj\Release\FrbaHotel.exe
-C:\gdd-tp\FrbaHotel\obj\Release\FrbaHotel.pdb
-C:\gdd-tp\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Rol.Editar_Rol.resources
-C:\gdd-tp\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Rol.Editar_Rol_Form.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.exe.config
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.exe
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.pdb
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\ResolveAssemblyReference.cache
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Cliente.ABMCliente.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Cliente.BusquedaCliente.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Habitacion.FormAltaHabitacion.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Habitacion.BusquedaHabitacion.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Regimen.ABMRegimen.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Regimen.BusquedaRegimen.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Rol.ABMRol.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Rol.BusquedaRoles.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Usuario.ABMUser.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Usuario.BusquedaUser.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_Hotel.ABMHotel.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_Hotel.BusquedaHotel.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.FormIni.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Listado_Estadistico.Form1.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Login.Log.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Properties.Resources.resources
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.csproj.GenerateResource.Cache
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.exe
+F:\TP GDD\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.pdb
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\ResolveAssemblyReference.cache
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Cliente.ABMCliente.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Cliente.BusquedaCliente.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Habitacion.FormAltaHabitacion.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Habitacion.BusquedaHabitacion.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Regimen.ABMRegimen.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Regimen.BusquedaRegimen.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Rol.ABMRol.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Rol.BusquedaRoles.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Usuario.ABMUser.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_de_Usuario.BusquedaUser.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_Hotel.ABMHotel.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.ABM_Hotel.BusquedaHotel.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Cancelar_Reserva.CancelarReserva.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Generar_Modificar_Reserva.AMReserva.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Generar_Modificar_Reserva.BusquedaReserva.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.FormIni.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Listado_Estadistico.ListadoEstadistico.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Login.Log.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Properties.Resources.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Registrar_Consumible.Facturar.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Registrar_Consumible.RegistrarConsumible.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Registrar_Consumible.Tarjeta.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.Registrar_Estadia.Estadia.resources
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.csproj.GenerateResource.Cache
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.exe
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.exe.config
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.exe
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\bin\Release\FrbaHotel.pdb
+C:\gdd-tp-caro\FrbaHotel\FrbaHotel\obj\Release\FrbaHotel.pdb
