@@ -18,7 +18,7 @@ namespace FrbaHotel.Registrar_Estadia
         SEstadia sEstadia = new ClasesTabla.SEstadia();
         Reserva reserva = null;
         ClasesTabla.Estadia estadia = null;
-        DateTime fechaHoy = DateTime.Today;
+        DateTime fechaHoy = FormIni.FechaSistema;
         List<Persona> personasReserva = new List<Persona>();
         //lo devuelve desde la busqueda del cliente
         public static string user_selected = null;

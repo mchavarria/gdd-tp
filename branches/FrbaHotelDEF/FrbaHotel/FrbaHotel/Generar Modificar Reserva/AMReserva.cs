@@ -46,13 +46,22 @@ namespace FrbaHotel.Generar_Modificar_Reserva
         //Valores iniciales
         private void AMReserva_Load(object sender, EventArgs e)
         {
-            txtFechaCarga.Text = DateTime.Today.ToShortDateString();
-            calendarioDesde.MinDate = DateTime.Today;
+            txtFechaCarga.Text = FormIni.FechaSistema.ToShortDateString();
+            calendarioDesde.MinDate = FormIni.FechaSistema;
 
-            List<Hotel> hoteles = sHotel.GetAllActivos();
-            cboHotel.DisplayMember = "direccionCompleta";
-            cboHotel.ValueMember = "codigo";
-            cboHotel.DataSource = hoteles;
+            if (Login.Log.user == 1)
+            {
+                List<Hotel> hoteles = sHotel.GetAllActivos();
+                cboHotel.DisplayMember = "direccionCompleta";
+                cboHotel.ValueMember = "codigo";
+                cboHotel.DataSource = hoteles;
+            }
+            else {
+                List<Hotel> hoteles = sHotel.GetBySQL("hotel.SP_GETHOTELESDEUSUARIO " + Login.Log.user);
+                cboHotel.DisplayMember = "direccionCompleta";
+                cboHotel.ValueMember = "codigo";
+                cboHotel.DataSource = hoteles;
+            }
 
             nmUpDnCantHuesp.Value = 0;
             nmUpDnCantHuesp.Enabled = false;
