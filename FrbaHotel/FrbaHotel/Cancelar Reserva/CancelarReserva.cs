@@ -29,7 +29,7 @@ namespace FrbaHotel.Cancelar_Reserva
                     if (reserva.cod_estado == 1 || reserva.cod_estado == 2)
                     {
                         sReserva.cancelarReserva(reserva);
-                        sReserva.auditarReserva(reserva, DateTime.Today.ToShortDateString(), txtareaMotivo.Text);
+                        sReserva.auditarReserva(reserva, FormIni.FechaSistema.ToShortDateString(), txtareaMotivo.Text);
                         MessageBox.Show("La reserva ha sido cancelada correctamente");
                         resetear();
                     }
@@ -54,7 +54,7 @@ namespace FrbaHotel.Cancelar_Reserva
 
         private void CancelarReserva_Load(object sender, EventArgs e)
         {
-            txtFechaCancela.Text = DateTime.Today.ToShortDateString();
+            txtFechaCancela.Text = FormIni.FechaSistema.ToShortDateString();
             txtareaMotivo.Text = "";
             txtNumeroReserva.Text = "";
         }
