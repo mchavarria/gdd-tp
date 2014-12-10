@@ -28,5 +28,10 @@ namespace FrbaHotel.ClasesTabla
             return tipoDao.GetBySQL(consulta);
         }
 
+        public TipoDoc getByCod(decimal codigo)
+        {
+            return tipoDao.GetByCod(codigo);
+        }
+
     }
 }

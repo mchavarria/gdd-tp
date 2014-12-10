@@ -153,8 +153,14 @@
       <DependentUpon>CancelarReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="ClasesTabla\CancelacionHotel.cs" />
+    <Compile Include="ClasesTabla\DEstadia.cs" />
+    <Compile Include="ClasesTabla\DHabitacion.cs" />
     <Compile Include="ClasesTabla\DRegimen.cs" />
+    <Compile Include="ClasesTabla\DReserva.cs" />
+    <Compile Include="ClasesTabla\DTipoHab.cs" />
+    <Compile Include="ClasesTabla\Estadia.cs" />
     <Compile Include="ClasesTabla\Habitacion.cs" />
+    <Compile Include="ClasesTabla\HabitacionDTO.cs" />
     <Compile Include="ClasesTabla\HotelDTO.cs" />
     <Compile Include="ClasesTabla\Persona.cs" />
     <Compile Include="ClasesTabla\DPersona.cs" />
@@ -165,19 +171,25 @@
     <Compile Include="ClasesTabla\DUsuario.cs" />
     <Compile Include="ClasesTabla\Funcion.cs" />
     <Compile Include="ClasesTabla\Hotel.cs" />
+    <Compile Include="ClasesTabla\PublicUserClass.cs" />
     <Compile Include="ClasesTabla\Regimen.cs" />
     <Compile Include="ClasesTabla\RegimenDTO.cs" />
     <Compile Include="ClasesTabla\Reserva.cs" />
     <Compile Include="ClasesTabla\Rol.cs" />
     <Compile Include="ClasesTabla\RolDTO.cs" />
+    <Compile Include="ClasesTabla\SEstadia.cs" />
+    <Compile Include="ClasesTabla\SHabitacion.cs" />
     <Compile Include="ClasesTabla\SPersona.cs" />
     <Compile Include="ClasesTabla\SFuncion.cs" />
     <Compile Include="ClasesTabla\SHotel.cs" />
     <Compile Include="ClasesTabla\SRegimen.cs" />
+    <Compile Include="ClasesTabla\SReserva.cs" />
     <Compile Include="ClasesTabla\SRol.cs" />
     <Compile Include="ClasesTabla\STipoDoc.cs" />
+    <Compile Include="ClasesTabla\STipoHab.cs" />
     <Compile Include="ClasesTabla\SUsuario.cs" />
     <Compile Include="ClasesTabla\TipoDoc.cs" />
+    <Compile Include="ClasesTabla\TipoHab.cs" />
     <Compile Include="ClasesTabla\Usuario.cs" />
     <Compile Include="ClasesTabla\UsuarioDTO.cs" />
     <Compile Include="EntidadBase.cs" />

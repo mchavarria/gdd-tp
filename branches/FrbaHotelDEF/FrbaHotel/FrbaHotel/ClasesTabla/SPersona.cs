@@ -18,6 +18,11 @@ namespace FrbaHotel.ClasesTabla
             }
         }
 
+        public Persona getByCodigo(string codigo)
+        {
+            return perDao.getByCodigo(codigo);
+        }
+
         public List<Persona> GetByMail(string mail)
         {
             return perDao.GetByMail(mail);

@@ -50,6 +50,41 @@ namespace FrbaHotel.ClasesTabla
             return per;
         }
 
+        public Persona getByCodigo(string codigo)
+        {
+            DataTable resultID = entidadBase.TraerDatos("SELECT * from hotel.Persona where codigo = " + codigo);
+            DataRow row = resultID.Rows[0];
+            Persona persona = parsearDatos(row);
+            return persona;
+
+        }
+
+        public Persona parsearDatos(DataRow r)
+        {
+            FrbaHotel.ClasesTabla.Persona per = new FrbaHotel.ClasesTabla.Persona();
+            per.codigo = r.Field<decimal>("codigo");
+            per.nombre = r.Field<string>("nombre");
+            per.apellido = r.Field<string>("apellido");
+            per.codigo_tipo_doc = r.Field<decimal>("codigo_tipo_doc");
+            per.num_doc = r.Field<decimal>("num_doc");
+            per.mail = r.Field<string>("mail");
+            per.telefono = r.Field<Nullable<decimal>>("telefono");
+            per.nom_calle = r.Field<string>("nom_calle");
+            per.num_calle = r.Field<decimal>("num_calle");
+            per.localidad = r.Field<string>("localidad");
+            per.ciudad = r.Field<string>("ciudad");
+            per.pais = r.Field<string>("pais");
+            per.nacionalidad = r.Field<string>("nacionalidad");
+            per.fecha_nacimiento = r.Field<DateTime>("fecha_nacimiento");
+            per.piso = r.Field<Nullable<decimal>>("piso");
+            per.depto = r.Field<string>("depto");
+            int estado = r.Field<byte>("estado");
+            if (estado == 1) per.estado = true;
+            else per.estado = false;
+
+            return per;
+        }
+
         public List<Persona> GetAllClientes()
         {
             DataTable us = entidadBase.TraerDatos("select * from hotel.Persona p where p.estado = 1 and p.codigo is not in (select u.cod_persona from hotel.Usuario)");
