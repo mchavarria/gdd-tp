@@ -31,18 +31,18 @@
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
             this.txtDNI = new System.Windows.Forms.MaskedTextBox();
             this.txtMail = new System.Windows.Forms.MaskedTextBox();
+            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
+            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
             this.lblMail = new System.Windows.Forms.Label();
+            this.lblApell = new System.Windows.Forms.Label();
             this.cboTipo = new System.Windows.Forms.ComboBox();
             this.lblDNI = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gridClientes = new System.Windows.Forms.DataGridView();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lblApell = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +81,20 @@
             this.txtMail.Size = new System.Drawing.Size(160, 23);
             this.txtMail.TabIndex = 26;
             // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(360, 31);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(241, 23);
+            this.txtApellido.TabIndex = 24;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(81, 31);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(196, 23);
+            this.txtNombre.TabIndex = 23;
+            // 
             // lblMail
             // 
             this.lblMail.AutoSize = true;
@@ -89,6 +103,15 @@
             this.lblMail.Size = new System.Drawing.Size(42, 17);
             this.lblMail.TabIndex = 18;
             this.lblMail.Text = "Mail:";
+            // 
+            // lblApell
+            // 
+            this.lblApell.AutoSize = true;
+            this.lblApell.Location = new System.Drawing.Point(283, 34);
+            this.lblApell.Name = "lblApell";
+            this.lblApell.Size = new System.Drawing.Size(71, 17);
+            this.lblApell.TabIndex = 17;
+            this.lblApell.Text = "Apellido:";
             // 
             // cboTipo
             // 
@@ -109,6 +132,15 @@
             this.lblDNI.Size = new System.Drawing.Size(200, 17);
             this.lblDNI.TabIndex = 6;
             this.lblDNI.Text = "Tipo y núm de documento:";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(6, 34);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(69, 17);
+            this.lblNombre.TabIndex = 4;
+            this.lblNombre.Text = "Nombre:";
             // 
             // btnBuscar
             // 
@@ -156,38 +188,6 @@
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             // 
-            // lblApell
-            // 
-            this.lblApell.AutoSize = true;
-            this.lblApell.Location = new System.Drawing.Point(283, 34);
-            this.lblApell.Name = "lblApell";
-            this.lblApell.Size = new System.Drawing.Size(71, 17);
-            this.lblApell.TabIndex = 17;
-            this.lblApell.Text = "Apellido:";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(360, 31);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(241, 23);
-            this.txtApellido.TabIndex = 24;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(6, 34);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(69, 17);
-            this.lblNombre.TabIndex = 4;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(81, 31);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(196, 23);
-            this.txtNombre.TabIndex = 23;
-            // 
             // BusquedaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,17 +212,17 @@
         private System.Windows.Forms.GroupBox gpoBoxAlta;
         private System.Windows.Forms.MaskedTextBox txtDNI;
         private System.Windows.Forms.MaskedTextBox txtMail;
+        private System.Windows.Forms.MaskedTextBox txtApellido;
+        private System.Windows.Forms.MaskedTextBox txtNombre;
         private System.Windows.Forms.Label lblMail;
+        private System.Windows.Forms.Label lblApell;
         private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.Label lblDNI;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridView gridClientes;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.MaskedTextBox txtApellido;
-        private System.Windows.Forms.MaskedTextBox txtNombre;
-        private System.Windows.Forms.Label lblApell;
-        private System.Windows.Forms.Label lblNombre;
     }
 }

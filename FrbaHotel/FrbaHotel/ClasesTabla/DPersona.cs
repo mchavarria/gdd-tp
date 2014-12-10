@@ -117,6 +117,18 @@ namespace FrbaHotel.ClasesTabla
             return personas;
         }
 
+        public List<Persona> GetByMailToValidate(string mail, string codigo)
+        {
+            DataTable us = entidadBase.TraerDatos("select * from hotel.Persona where mail = '" + mail + "' AND codigo != " + codigo);
+            List<Persona> personas = new List<Persona>();
+
+            foreach (DataRow r in us.Rows)
+            {
+                FrbaHotel.ClasesTabla.Persona per = parsearDatos(r);
+                personas.Add(per);
+            }
+            return personas;
+        }
 
         public List<Persona> GetAllActivos()
         {

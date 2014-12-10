@@ -28,6 +28,76 @@ namespace FrbaHotel.ClasesTabla
             return perDao.GetByMail(mail);
         }
 
+        public List<Persona> GetByGrilla(string nombre, string apellido, string tipoDni, string dni, string email)
+        {
+            return perDao.GetBySQL(ordernarItemsParaConsulta(nombre, apellido, tipoDni, dni, email));
+        }
+
+        public string ordernarItemsParaConsulta(string nombre, string apellido, string tipoDni, string dni, string email)
+        {
+            StringBuilder consulta = new StringBuilder();
+            bool inicial = true;
+            consulta.Append("SELECT * FROM hotel.Persona ");
+            string sqlWhere = " p WHERE ";
+
+            if (nombre != "")
+            {
+                if (!inicial)
+                    consulta.Append(" AND ");
+                else
+                {
+                    inicial = false;
+                    consulta.Append(sqlWhere);
+                }
+                consulta.Append("p.nombre LIKE '%" + nombre + "%'");
+            }
+            if (apellido != "")
+            {
+                if (!inicial)
+                    consulta.Append(" AND ");
+                else
+                {
+                    inicial = false;
+                    consulta.Append(sqlWhere);
+                }
+                consulta.Append("p.apellido LIKE '%" + apellido + "%'");
+            }
+            if (tipoDni != "")
+            {
+                if (!inicial)
+                    consulta.Append(" AND ");
+                else
+                {
+                    inicial = false;
+                    consulta.Append(sqlWhere);
+                }
+                consulta.Append("p.codigo_tipo_doc = " + tipoDni);
+            }
+            if (dni != "")
+            {
+                if (!inicial)
+                    consulta.Append(" AND ");
+                else
+                {
+                    inicial = false;
+                    consulta.Append(sqlWhere);
+                }
+                consulta.Append("p.num_doc = " + dni);
+            }
+            if (email != "")
+            {
+                if (!inicial)
+                    consulta.Append(" AND ");
+                else
+                {
+                    inicial = false;
+                    consulta.Append(sqlWhere);
+                }
+                consulta.Append("p.mail LIKE '%" + email + "%'");
+            }
+            return consulta.ToString();
+        }
+
         public Persona GetByCod(decimal cod)
         {
             return perDao.GetByCod(cod);
@@ -66,6 +136,11 @@ namespace FrbaHotel.ClasesTabla
         internal List<Persona> GetByDoc(decimal documento)
         {
             return perDao.GetByDoc(documento);
+        }
+
+        public List<Persona> GetByMailToValidate(string mail, string codigo)
+        {
+            return perDao.GetByMailToValidate(mail, codigo);
         }
     }
 }

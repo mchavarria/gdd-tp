@@ -81,5 +81,25 @@ namespace FrbaHotel
             }
             return "";
         }
+
+        public object EjecutarFuncionEscalarSQL(string sql)
+        {
+            object resultado;
+            Conectar();
+
+            miCommand = miSqlConnect.CreateCommand();
+            miCommand.CommandText = sql;
+
+            try
+            {
+                resultado = miCommand.ExecuteScalar();
+            }
+            catch
+            {
+                throw new Exception("No se pudo ejecutar la Accion");
+            }
+            return resultado;
+
+        }
     }
 }

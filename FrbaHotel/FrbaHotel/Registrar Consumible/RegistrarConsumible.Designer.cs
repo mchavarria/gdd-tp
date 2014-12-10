@@ -31,24 +31,20 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
-            this.txtAvisoHab = new System.Windows.Forms.RichTextBox();
-            this.gridConsumos = new System.Windows.Forms.DataGridView();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nmUDnHab = new System.Windows.Forms.NumericUpDown();
+            this.consumosgrid = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.consumiblecbx = new System.Windows.Forms.ComboBox();
+            this.cantidadtxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.numUpDnCantidad = new System.Windows.Forms.NumericUpDown();
-            this.cboConsumibles = new System.Windows.Forms.ComboBox();
-            this.txtMonto = new System.Windows.Forms.MaskedTextBox();
-            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
-            this.lblHab = new System.Windows.Forms.Label();
-            this.lblMail = new System.Windows.Forms.Label();
-            this.lblConsu = new System.Windows.Forms.Label();
-            this.lblMonto = new System.Windows.Forms.Label();
-            this.lblNumRese = new System.Windows.Forms.Label();
+            this.codigoReservatxt = new System.Windows.Forms.TextBox();
             this.gpoBoxAlta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridConsumos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmUDnHab)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDnCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consumosgrid)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -60,6 +56,7 @@
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnLimpiar
             // 
@@ -70,161 +67,120 @@
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // gpoBoxAlta
             // 
-            this.gpoBoxAlta.Controls.Add(this.txtAvisoHab);
-            this.gpoBoxAlta.Controls.Add(this.gridConsumos);
-            this.gpoBoxAlta.Controls.Add(this.nmUDnHab);
+            this.gpoBoxAlta.Controls.Add(this.consumosgrid);
+            this.gpoBoxAlta.Controls.Add(this.button1);
+            this.gpoBoxAlta.Controls.Add(this.consumiblecbx);
+            this.gpoBoxAlta.Controls.Add(this.cantidadtxt);
+            this.gpoBoxAlta.Controls.Add(this.label3);
+            this.gpoBoxAlta.Controls.Add(this.label2);
             this.gpoBoxAlta.Controls.Add(this.label1);
-            this.gpoBoxAlta.Controls.Add(this.numUpDnCantidad);
-            this.gpoBoxAlta.Controls.Add(this.cboConsumibles);
-            this.gpoBoxAlta.Controls.Add(this.txtMonto);
-            this.gpoBoxAlta.Controls.Add(this.txtNombre);
-            this.gpoBoxAlta.Controls.Add(this.lblHab);
-            this.gpoBoxAlta.Controls.Add(this.lblMail);
-            this.gpoBoxAlta.Controls.Add(this.lblConsu);
-            this.gpoBoxAlta.Controls.Add(this.lblMonto);
-            this.gpoBoxAlta.Controls.Add(this.lblNumRese);
+            this.gpoBoxAlta.Controls.Add(this.codigoReservatxt);
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
             this.gpoBoxAlta.Size = new System.Drawing.Size(492, 396);
             this.gpoBoxAlta.TabIndex = 10;
             this.gpoBoxAlta.TabStop = false;
-            this.gpoBoxAlta.Text = "Consumible";
+            this.gpoBoxAlta.Text = "Registrar Consumible";
             // 
-            // txtAvisoHab
+            // consumosgrid
             // 
-            this.txtAvisoHab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAvisoHab.Location = new System.Drawing.Point(14, 315);
-            this.txtAvisoHab.Name = "txtAvisoHab";
-            this.txtAvisoHab.Size = new System.Drawing.Size(449, 43);
-            this.txtAvisoHab.TabIndex = 39;
-            this.txtAvisoHab.Text = "Existen varias habitaciónes con ese número, por favor comuniquese con el administ" +
-                "rador.";
-            this.txtAvisoHab.Visible = false;
+            this.consumosgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.consumosgrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Producto,
+            this.Cantidad,
+            this.Precio});
+            this.consumosgrid.Location = new System.Drawing.Point(9, 171);
+            this.consumosgrid.Name = "consumosgrid";
+            this.consumosgrid.Size = new System.Drawing.Size(477, 201);
+            this.consumosgrid.TabIndex = 7;
             // 
-            // gridConsumos
+            // Codigo
             // 
-            this.gridConsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridConsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Seleccionar});
-            this.gridConsumos.Location = new System.Drawing.Point(14, 97);
-            this.gridConsumos.Name = "gridConsumos";
-            this.gridConsumos.ReadOnly = true;
-            this.gridConsumos.Size = new System.Drawing.Size(449, 212);
-            this.gridConsumos.TabIndex = 38;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
-            // Seleccionar
+            // Producto
             // 
-            this.Seleccionar.HeaderText = "Select";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
             // 
-            // nmUDnHab
+            // Cantidad
             // 
-            this.nmUDnHab.Location = new System.Drawing.Point(412, 40);
-            this.nmUDnHab.Name = "nmUDnHab";
-            this.nmUDnHab.Size = new System.Drawing.Size(51, 23);
-            this.nmUDnHab.TabIndex = 37;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(394, 125);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // consumiblecbx
+            // 
+            this.consumiblecbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.consumiblecbx.FormattingEnabled = true;
+            this.consumiblecbx.Location = new System.Drawing.Point(162, 51);
+            this.consumiblecbx.Name = "consumiblecbx";
+            this.consumiblecbx.Size = new System.Drawing.Size(225, 24);
+            this.consumiblecbx.TabIndex = 5;
+            // 
+            // cantidadtxt
+            // 
+            this.cantidadtxt.Location = new System.Drawing.Point(162, 81);
+            this.cantidadtxt.Name = "cantidadtxt";
+            this.cantidadtxt.Size = new System.Drawing.Size(100, 23);
+            this.cantidadtxt.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(6, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 23);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "* Cantidad";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(6, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 23);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "* Consumible";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(228, 364);
+            this.label1.Location = new System.Drawing.Point(6, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 20);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "dll.";
+            this.label1.Size = new System.Drawing.Size(149, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "* Codigo reserva";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // numUpDnCantidad
+            // codigoReservatxt
             // 
-            this.numUpDnCantidad.Location = new System.Drawing.Point(399, 68);
-            this.numUpDnCantidad.Name = "numUpDnCantidad";
-            this.numUpDnCantidad.Size = new System.Drawing.Size(64, 23);
-            this.numUpDnCantidad.TabIndex = 35;
-            // 
-            // cboConsumibles
-            // 
-            this.cboConsumibles.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.cboConsumibles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboConsumibles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboConsumibles.FormattingEnabled = true;
-            this.cboConsumibles.Items.AddRange(new object[] {
-            "Exterior",
-            "Interior"});
-            this.cboConsumibles.Location = new System.Drawing.Point(118, 67);
-            this.cboConsumibles.Name = "cboConsumibles";
-            this.cboConsumibles.Size = new System.Drawing.Size(183, 24);
-            this.cboConsumibles.TabIndex = 23;
-            // 
-            // txtMonto
-            // 
-            this.txtMonto.Enabled = false;
-            this.txtMonto.Location = new System.Drawing.Point(76, 364);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(144, 23);
-            this.txtMonto.TabIndex = 21;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(157, 37);
-            this.txtNombre.Mask = "999999999";
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(87, 23);
-            this.txtNombre.TabIndex = 20;
-            // 
-            // lblHab
-            // 
-            this.lblHab.AutoSize = true;
-            this.lblHab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHab.Location = new System.Drawing.Point(250, 40);
-            this.lblHab.Name = "lblHab";
-            this.lblHab.Size = new System.Drawing.Size(156, 20);
-            this.lblHab.TabIndex = 17;
-            this.lblHab.Text = "* Número habitación:";
-            // 
-            // lblMail
-            // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMail.Location = new System.Drawing.Point(307, 67);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(87, 20);
-            this.lblMail.TabIndex = 15;
-            this.lblMail.Text = "* Cantidad:";
-            // 
-            // lblConsu
-            // 
-            this.lblConsu.AutoSize = true;
-            this.lblConsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConsu.Location = new System.Drawing.Point(6, 67);
-            this.lblConsu.Name = "lblConsu";
-            this.lblConsu.Size = new System.Drawing.Size(106, 20);
-            this.lblConsu.TabIndex = 14;
-            this.lblConsu.Text = "* Consumible:";
-            // 
-            // lblMonto
-            // 
-            this.lblMonto.AutoSize = true;
-            this.lblMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonto.Location = new System.Drawing.Point(12, 364);
-            this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(58, 20);
-            this.lblMonto.TabIndex = 13;
-            this.lblMonto.Text = "Monto:";
-            // 
-            // lblNumRese
-            // 
-            this.lblNumRese.AutoSize = true;
-            this.lblNumRese.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumRese.Location = new System.Drawing.Point(6, 37);
-            this.lblNumRese.Name = "lblNumRese";
-            this.lblNumRese.Size = new System.Drawing.Size(145, 20);
-            this.lblNumRese.TabIndex = 3;
-            this.lblNumRese.Text = "* Núm. de Reserva:";
+            this.codigoReservatxt.Location = new System.Drawing.Point(162, 22);
+            this.codigoReservatxt.Name = "codigoReservatxt";
+            this.codigoReservatxt.Size = new System.Drawing.Size(121, 23);
+            this.codigoReservatxt.TabIndex = 0;
             // 
             // RegistrarConsumible
             // 
@@ -236,11 +192,10 @@
             this.Controls.Add(this.gpoBoxAlta);
             this.Name = "RegistrarConsumible";
             this.Text = "Consumible";
+            this.Load += new System.EventHandler(this.RegistrarConsumible_Load);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridConsumos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmUDnHab)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDnCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consumosgrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,19 +205,17 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox gpoBoxAlta;
-        private System.Windows.Forms.ComboBox cboConsumibles;
-        private System.Windows.Forms.MaskedTextBox txtMonto;
-        private System.Windows.Forms.MaskedTextBox txtNombre;
-        private System.Windows.Forms.Label lblHab;
-        private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.Label lblConsu;
-        private System.Windows.Forms.Label lblMonto;
-        private System.Windows.Forms.Label lblNumRese;
-        private System.Windows.Forms.NumericUpDown numUpDnCantidad;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView gridConsumos;
-        private System.Windows.Forms.NumericUpDown nmUDnHab;
-        private System.Windows.Forms.RichTextBox txtAvisoHab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Seleccionar;
+        private System.Windows.Forms.TextBox codigoReservatxt;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox consumiblecbx;
+        private System.Windows.Forms.TextBox cantidadtxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView consumosgrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
     }
 }

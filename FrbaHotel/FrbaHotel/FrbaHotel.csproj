@@ -153,6 +153,8 @@
       <DependentUpon>CancelarReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="ClasesTabla\CancelacionHotel.cs" />
+    <Compile Include="ClasesTabla\Consumible.cs" />
+    <Compile Include="ClasesTabla\DConsumible.cs" />
     <Compile Include="ClasesTabla\DEstadia.cs" />
     <Compile Include="ClasesTabla\DHabitacion.cs" />
     <Compile Include="ClasesTabla\DRegimen.cs" />
@@ -162,6 +164,8 @@
     <Compile Include="ClasesTabla\Habitacion.cs" />
     <Compile Include="ClasesTabla\HabitacionDTO.cs" />
     <Compile Include="ClasesTabla\HotelDTO.cs" />
+    <Compile Include="ClasesTabla\ItemFactura.cs" />
+    <Compile Include="ClasesTabla\MetodoPago.cs" />
     <Compile Include="ClasesTabla\Persona.cs" />
     <Compile Include="ClasesTabla\DPersona.cs" />
     <Compile Include="ClasesTabla\DFuncion.cs" />
@@ -177,7 +181,9 @@
     <Compile Include="ClasesTabla\Reserva.cs" />
     <Compile Include="ClasesTabla\Rol.cs" />
     <Compile Include="ClasesTabla\RolDTO.cs" />
+    <Compile Include="ClasesTabla\SConsumible.cs" />
     <Compile Include="ClasesTabla\SEstadia.cs" />
+    <Compile Include="ClasesTabla\SFactura.cs" />
     <Compile Include="ClasesTabla\SHabitacion.cs" />
     <Compile Include="ClasesTabla\SPersona.cs" />
     <Compile Include="ClasesTabla\SFuncion.cs" />

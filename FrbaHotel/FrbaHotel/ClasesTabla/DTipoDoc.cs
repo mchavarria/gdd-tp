@@ -25,6 +25,25 @@ namespace FrbaHotel.ClasesTabla
             return tipos;
         }
 
+        public List<TipoDoc> GetAllWithNull()
+        {
+            DataTable table = entidadBase.TraerDatos("select * from hotel.Tipo_Doc");
+            List<TipoDoc> tipos = new List<TipoDoc>();
+            TipoDoc tipo = new TipoDoc();
+            tipo.codigo = 0;
+            tipo.descripcion = "seleccione...";
+            tipos.Add(tipo);
+
+            foreach (DataRow r in table.Rows)
+            {
+                TipoDoc tip = new TipoDoc();
+                tip.codigo = r.Field<decimal>("codigo");
+                tip.descripcion = r.Field<string>("descripcion");
+                tipos.Add(tip);
+            }
+            return tipos;
+        }
+
         public TipoDoc GetByCod(decimal codigo)
         {
             List<TipoDoc> tipos = GetAll();

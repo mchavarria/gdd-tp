@@ -12,12 +12,14 @@ namespace FrbaHotel.ABM_de_Cliente
 {
     public partial class BusquedaCliente : Form
     {
+        SPersona sPersona = new SPersona();
+        STipoDoc sTipoDNI = new STipoDoc();
+        public static string usrSelected = null;
+
         public BusquedaCliente()
         {
             InitializeComponent();
         }
-        ABM_de_Cliente.BusquedaCliente ventanaBusqCliente;
-        SPersona sPersona = new SPersona();
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -26,36 +28,40 @@ namespace FrbaHotel.ABM_de_Cliente
             txtMail.Text = "";
             txtNombre.Text = "";
             cboTipo.ResetText();
+            gridClientes.DataSource = null;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            string tipoDni = "";
+            if (int.Parse(cboTipo.SelectedValue.ToString()) != 0)
+                tipoDni = cboTipo.SelectedValue.ToString();
 
+            List<Persona> personas = sPersona.GetByGrilla(txtNombre.Text, txtApellido.Text, tipoDni, txtDNI.Text, txtMail.Text);
+            gridClientes.DataSource = personas;
         }
 
         private void BusquedaCliente_Load(object sender, EventArgs e)
         {
-            ventanaBusqCliente = this;
-            STipoDoc stip = new STipoDoc();
-            List<TipoDoc> tipos = stip.GetAll();
             cboTipo.DisplayMember = "descripcion";
             cboTipo.ValueMember = "codigo";
-            cboTipo.DataSource = tipos;
-
-
-        }
-
-        public void cargate()
-        {
-            gridClientes.DataSource = sPersona.GetAllClientes();
-
+            cboTipo.DataSource = sTipoDNI.GetAllWithNull();
         }
 
         private void gridClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var senderGrid = (DataGridView)sender;
 
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    //Selecciona el id del usuario
+                    usrSelected = gridClientes.Rows[e.RowIndex].Cells[2].Value.ToString();
+                }
+            }
+            ABMCliente vistaCliente = new ABMCliente();
+            vistaCliente.Show();
         }
-
-
     }
 }
