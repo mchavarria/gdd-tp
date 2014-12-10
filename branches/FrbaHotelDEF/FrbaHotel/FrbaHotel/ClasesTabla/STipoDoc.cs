@@ -23,6 +23,11 @@ namespace FrbaHotel.ClasesTabla
             return tipoDao.GetAll();
         }
 
+        public List<TipoDoc> GetAllWithNull()
+        {
+            return tipoDao.GetAllWithNull();
+        }
+
         public List<TipoDoc> GetBySQL(string consulta)
         {
             return tipoDao.GetBySQL(consulta);

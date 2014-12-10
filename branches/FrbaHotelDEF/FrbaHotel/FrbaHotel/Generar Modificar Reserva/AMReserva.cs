@@ -49,18 +49,19 @@ namespace FrbaHotel.Generar_Modificar_Reserva
             txtFechaCarga.Text = FormIni.FechaSistema.ToShortDateString();
             calendarioDesde.MinDate = FormIni.FechaSistema;
 
-            if (Login.Log.user == 1)
+            if (Login.Log.hotel == 0)
             {
                 List<Hotel> hoteles = sHotel.GetAllActivos();
                 cboHotel.DisplayMember = "direccionCompleta";
                 cboHotel.ValueMember = "codigo";
                 cboHotel.DataSource = hoteles;
             }
-            else {
-                List<Hotel> hoteles = sHotel.GetBySQL("hotel.SP_GETHOTELESDEUSUARIO " + Login.Log.user);
+            else
+            {
+                List<Hotel> hotelLoggeado = sHotel.GetBySQL("select * from hotel.Hotel h where h.codigo = " + Login.Log.hotel).ToList();
                 cboHotel.DisplayMember = "direccionCompleta";
                 cboHotel.ValueMember = "codigo";
-                cboHotel.DataSource = hoteles;
+                cboHotel.DataSource = hotelLoggeado;
             }
 
             nmUpDnCantHuesp.Value = 0;
