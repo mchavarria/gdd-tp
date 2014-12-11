@@ -153,6 +153,7 @@
       <DependentUpon>CancelarReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="ClasesTabla\CancelacionHotel.cs" />
+    <Compile Include="ClasesTabla\ClientesEstadistica.cs" />
     <Compile Include="ClasesTabla\Consumible.cs" />
     <Compile Include="ClasesTabla\DConsumible.cs" />
     <Compile Include="ClasesTabla\DEstadia.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="ClasesTabla\Estadia.cs" />
     <Compile Include="ClasesTabla\Habitacion.cs" />
     <Compile Include="ClasesTabla\HabitacionDTO.cs" />
+    <Compile Include="ClasesTabla\HabitacionEstadistica.cs" />
     <Compile Include="ClasesTabla\HabitacionTable.cs" />
     <Compile Include="ClasesTabla\HotelDTO.cs" />
     <Compile Include="ClasesTabla\HotelEstadistica.cs" />

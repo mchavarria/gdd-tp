@@ -25,18 +25,18 @@ namespace FrbaHotel.Listado_Estadistico
                     case "Hoteles con mayor cant. reservas canceladas":
                         gridEstadistica.DataSource = sEstadistica.EstadisticaTopHotelReservaCancelada(cboTrimestre.Text,int.Parse(txtAño.Text));
                         break;
-                   /* case "Hoteles con mayor cant. consumibles facturados":
-                        gridEstadistica.DataSource = 
+                   case "Hoteles con mayor cant. consumibles facturados":
+                        gridEstadistica.DataSource = sEstadistica.EstadisticaTopHotelConsumibleFacturado(cboTrimestre.Text,int.Parse(txtAño.Text));
                         break;
                     case "Hoteles con mayor cant. días fuera de servicio":
-                        gridEstadistica.DataSource = 
+                        gridEstadistica.DataSource = sEstadistica.EstadisticaTopHotelDiasOut(cboTrimestre.Text,int.Parse(txtAño.Text));
                         break;
                     case "Habitaciones con mayor cant. de días y veces ocupadas":
-                        gridEstadistica.DataSource = 
+                        gridEstadistica.DataSource = sEstadistica.EstadisticaTopHabitacionVecesOcupadas(cboTrimestre.Text,int.Parse(txtAño.Text));
                         break;
                     case "Cliente con mayor cant. de puntos":
-                        gridEstadistica.DataSource = 
-                        break;*/
+                        gridEstadistica.DataSource = sEstadistica.EstadisticaTopClientes(cboTrimestre.Text,int.Parse(txtAño.Text));
+                        break;
                 }
              }
         }
@@ -46,14 +46,18 @@ namespace FrbaHotel.Listado_Estadistico
             if (txtAño.Text != "" && cboTrimestre.Text != "" && cboTop5.Text != "")
                 return true;
             else
+            {
+                MessageBox.Show("Todos los datos son obligatorios para filtrar.");
                 return false;
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtAño.Text = "";
-            cboTop5.Text = "";
-            cboTrimestre.Text = "";
+            cboTop5.SelectedIndex = 1;
+            cboTrimestre.SelectedIndex = 1;
+            gridEstadistica.DataSource = null;
         }
     }
 }

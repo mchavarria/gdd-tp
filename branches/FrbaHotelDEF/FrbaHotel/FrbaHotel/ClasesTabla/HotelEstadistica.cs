@@ -12,6 +12,6 @@ namespace FrbaHotel.ClasesTabla
         public decimal num_calle { get; set; }
         public string pais { get; set; }
         public string ciudad { get; set; }
-        public int cantReservaCanceladas { get; set; }
+        public int cantidad { get; set; }
     }
 }
