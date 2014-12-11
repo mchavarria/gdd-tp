@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.lblVariosUsers = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.MaskedTextBox();
             this.txtMail = new System.Windows.Forms.MaskedTextBox();
             this.txtApellido = new System.Windows.Forms.MaskedTextBox();
@@ -41,14 +42,15 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gridClientes = new System.Windows.Forms.DataGridView();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // gpoBoxAlta
             // 
+            this.gpoBoxAlta.Controls.Add(this.lblVariosUsers);
             this.gpoBoxAlta.Controls.Add(this.txtDNI);
             this.gpoBoxAlta.Controls.Add(this.txtMail);
             this.gpoBoxAlta.Controls.Add(this.txtApellido);
@@ -61,10 +63,20 @@
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
-            this.gpoBoxAlta.Size = new System.Drawing.Size(614, 99);
+            this.gpoBoxAlta.Size = new System.Drawing.Size(614, 126);
             this.gpoBoxAlta.TabIndex = 12;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Filtros de búsqueda";
+            // 
+            // lblVariosUsers
+            // 
+            this.lblVariosUsers.AutoSize = true;
+            this.lblVariosUsers.Location = new System.Drawing.Point(23, 95);
+            this.lblVariosUsers.Name = "lblVariosUsers";
+            this.lblVariosUsers.Size = new System.Drawing.Size(519, 17);
+            this.lblVariosUsers.TabIndex = 28;
+            this.lblVariosUsers.Text = "Existen varios clientes con los datos ingresados. Por favor valide uno.";
+            this.lblVariosUsers.Visible = false;
             // 
             // txtDNI
             // 
@@ -144,7 +156,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(520, 117);
+            this.btnBuscar.Location = new System.Drawing.Point(520, 144);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(106, 23);
             this.btnBuscar.TabIndex = 11;
@@ -154,7 +166,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 117);
+            this.btnLimpiar.Location = new System.Drawing.Point(12, 144);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(114, 23);
             this.btnLimpiar.TabIndex = 10;
@@ -167,14 +179,23 @@
             this.gridClientes.AllowUserToDeleteRows = false;
             this.gridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Seleccionar,
-            this.Delete});
-            this.gridClientes.Location = new System.Drawing.Point(12, 146);
+            this.Seleccionar});
+            this.gridClientes.Location = new System.Drawing.Point(12, 173);
             this.gridClientes.Name = "gridClientes";
             this.gridClientes.ReadOnly = true;
             this.gridClientes.Size = new System.Drawing.Size(614, 344);
             this.gridClientes.TabIndex = 9;
             this.gridClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridClientes_CellContentClick);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(244, 144);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(106, 23);
+            this.btnNuevo.TabIndex = 18;
+            this.btnNuevo.Text = "Nuevo Cliente";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // Seleccionar
             // 
@@ -182,17 +203,12 @@
             this.Seleccionar.Name = "Seleccionar";
             this.Seleccionar.ReadOnly = true;
             // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Eliminar";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            // 
             // BusquedaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 505);
+            this.ClientSize = new System.Drawing.Size(645, 529);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.gpoBoxAlta);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnLimpiar);
@@ -222,7 +238,8 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridView gridClientes;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Label lblVariosUsers;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
