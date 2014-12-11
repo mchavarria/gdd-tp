@@ -171,7 +171,7 @@
             // 
             // calendarioDesde
             // 
-            this.calendarioDesde.Location = new System.Drawing.Point(354, 64);
+            this.calendarioDesde.Location = new System.Drawing.Point(341, 61);
             this.calendarioDesde.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
             this.calendarioDesde.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.calendarioDesde.Name = "calendarioDesde";
@@ -297,11 +297,11 @@
             // 
             this.lblHotel.AutoSize = true;
             this.lblHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHotel.Location = new System.Drawing.Point(6, 74);
+            this.lblHotel.Location = new System.Drawing.Point(0, 74);
             this.lblHotel.Name = "lblHotel";
-            this.lblHotel.Size = new System.Drawing.Size(51, 20);
+            this.lblHotel.Size = new System.Drawing.Size(61, 20);
             this.lblHotel.TabIndex = 42;
-            this.lblHotel.Text = "Hotel:";
+            this.lblHotel.Text = "* Hotel:";
             // 
             // lblValor
             // 
@@ -337,7 +337,7 @@
             // nmUpDnCantHuesp
             // 
             this.nmUpDnCantHuesp.Enabled = false;
-            this.nmUpDnCantHuesp.Location = new System.Drawing.Point(148, 117);
+            this.nmUpDnCantHuesp.Location = new System.Drawing.Point(158, 117);
             this.nmUpDnCantHuesp.Maximum = new decimal(new int[] {
             10,
             0,
@@ -365,9 +365,9 @@
             this.lblHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHasta.Location = new System.Drawing.Point(626, 32);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(102, 20);
+            this.lblHasta.Size = new System.Drawing.Size(112, 20);
             this.lblHasta.TabIndex = 36;
-            this.lblHasta.Text = "Fecha hasta:";
+            this.lblHasta.Text = "* Fecha hasta:";
             // 
             // txtHasta
             // 
@@ -428,11 +428,11 @@
             // 
             this.Regimen.AutoSize = true;
             this.Regimen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Regimen.Location = new System.Drawing.Point(443, 74);
+            this.Regimen.Location = new System.Drawing.Point(433, 74);
             this.Regimen.Name = "Regimen";
-            this.Regimen.Size = new System.Drawing.Size(77, 20);
+            this.Regimen.Size = new System.Drawing.Size(87, 20);
             this.Regimen.TabIndex = 19;
-            this.Regimen.Text = "Regimen:";
+            this.Regimen.Text = "* Regimen:";
             // 
             // lblFechaCarga
             // 
@@ -448,11 +448,11 @@
             // 
             this.lblDesde.AutoSize = true;
             this.lblDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesde.Location = new System.Drawing.Point(277, 35);
+            this.lblDesde.Location = new System.Drawing.Point(267, 33);
             this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(106, 20);
+            this.lblDesde.Size = new System.Drawing.Size(116, 20);
             this.lblDesde.TabIndex = 14;
-            this.lblDesde.Text = "Fecha desde:";
+            this.lblDesde.Text = "* Fecha desde:";
             // 
             // lblCantHuespedes
             // 
@@ -460,9 +460,9 @@
             this.lblCantHuespedes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantHuespedes.Location = new System.Drawing.Point(5, 116);
             this.lblCantHuespedes.Name = "lblCantHuespedes";
-            this.lblCantHuespedes.Size = new System.Drawing.Size(137, 20);
+            this.lblCantHuespedes.Size = new System.Drawing.Size(147, 20);
             this.lblCantHuespedes.TabIndex = 2;
-            this.lblCantHuespedes.Text = "Cant. Huespedes:";
+            this.lblCantHuespedes.Text = "* Cant. Huespedes:";
             // 
             // txtNumeroReserva
             // 

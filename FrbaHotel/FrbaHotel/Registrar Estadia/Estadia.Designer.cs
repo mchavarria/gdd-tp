@@ -31,6 +31,8 @@
             this.btnChOut = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnPersonas = new System.Windows.Forms.Button();
             this.GridPersonas = new System.Windows.Forms.DataGridView();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -38,8 +40,6 @@
             this.txtNumReserva = new System.Windows.Forms.MaskedTextBox();
             this.lblNumRes = new System.Windows.Forms.Label();
             this.btnChIn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridPersonas)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +83,26 @@
             this.gpoBoxAlta.TabIndex = 10;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Check In - Out";
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(188, 261);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(18, 20);
+            this.lblCantidad.TabIndex = 53;
+            this.lblCantidad.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 261);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 20);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Faltan cargar pasajeros:";
             // 
             // btnPersonas
             // 
@@ -130,7 +150,7 @@
             // 
             // txtNumReserva
             // 
-            this.txtNumReserva.Location = new System.Drawing.Point(144, 40);
+            this.txtNumReserva.Location = new System.Drawing.Point(154, 40);
             this.txtNumReserva.Mask = "99999999";
             this.txtNumReserva.Name = "txtNumReserva";
             this.txtNumReserva.Size = new System.Drawing.Size(95, 23);
@@ -142,9 +162,9 @@
             this.lblNumRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumRes.Location = new System.Drawing.Point(10, 40);
             this.lblNumRes.Name = "lblNumRes";
-            this.lblNumRes.Size = new System.Drawing.Size(128, 20);
+            this.lblNumRes.Size = new System.Drawing.Size(138, 20);
             this.lblNumRes.TabIndex = 41;
-            this.lblNumRes.Text = "Núm. de reserva:";
+            this.lblNumRes.Text = "* Núm. de reserva:";
             // 
             // btnChIn
             // 
@@ -157,26 +177,6 @@
             this.btnChIn.Text = "Ingreso";
             this.btnChIn.UseVisualStyleBackColor = true;
             this.btnChIn.Click += new System.EventHandler(this.btnChIn_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 261);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 20);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "Faltan cargar pasajeros:";
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(188, 261);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(18, 20);
-            this.lblCantidad.TabIndex = 53;
-            this.lblCantidad.Text = "0";
             // 
             // Estadia
             // 

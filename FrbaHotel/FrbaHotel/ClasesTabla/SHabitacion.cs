@@ -52,5 +52,35 @@ namespace FrbaHotel.ClasesTabla
         {
             return habitacion.getTipoHabitacionByDescripcion(descripcion);
         }
+
+        public void Delete(decimal codHab)
+        {
+            habitacion.Delete(codHab);
+        }
+
+        public void Update(HabitacionTable hab)
+        {
+            habitacion.Update(hab);
+        }
+
+        public decimal Save(HabitacionTable hab)
+        {
+            return habitacion.Save(hab);
+        }
+
+        public List<Habitacion> GetHabitacionesHotel(decimal codHotel)
+        {
+            return habitacion.GetHabitacionesHotel(codHotel);
+        }
+
+        public List<Habitacion> GetBySQLGrid(string consulta)
+        {
+            return habitacion.GetBySQLGrid(consulta);
+        }
+
+        public List<HabitacionTable> GetBySQL(string consulta)
+        {
+            return habitacion.GetBySQL(consulta);
+        }
     }
 }

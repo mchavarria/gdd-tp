@@ -83,5 +83,93 @@ namespace FrbaHotel.ClasesTabla
             return Convert.ToString(row[0]);
         }
 
+        public void Delete(decimal codHab)
+        {
+            int ex = entidadBase.EjecutarSQL("update hotel.Habitacion set estado = 0 where codigo=" + codHab);
+        }
+
+        public List<Habitacion> GetHabitacionesHotel(decimal codHotel)
+        {
+            DataTable table = entidadBase.TraerDatos("hotel.GETHabitacionesHotel " + codHotel);
+            List<Habitacion> habitaciones = new List<Habitacion>();
+
+            foreach (DataRow r in table.Rows)
+            {
+                Habitacion habitacion = new Habitacion();
+                habitacion.codigo = r.Field<decimal>("codigo");
+                habitacion.numero = r.Field<decimal>("numero");
+                habitacion.descripcion = r.Field<string>("descripcion");
+                int estado = r.Field<byte>("estado");
+                if (estado == 1) habitacion.estado = true;
+                else habitacion.estado = false;
+                habitacion.piso = r.Field<decimal>("piso");
+                habitacion.TipoHab = r.Field<string>("TipoHab");
+                habitacion.ubicacion_frente = r.Field<string>("ubicacion_frente");
+                habitaciones.Add(habitacion);
+            }
+            return habitaciones;
+        }
+
+        public List<Habitacion> GetBySQLGrid(string consulta)
+        {
+            DataTable table = entidadBase.TraerDatos(consulta);
+            List<Habitacion> habitaciones = new List<Habitacion>();
+
+            foreach (DataRow r in table.Rows)
+            {
+                Habitacion habitacion = new Habitacion();
+                habitacion.codigo = r.Field<decimal>("codigo");
+                habitacion.numero = r.Field<decimal>("numero");
+                habitacion.descripcion = r.Field<string>("descripcion");
+                int estado = r.Field<byte>("estado");
+                if (estado == 1) habitacion.estado = true;
+                else habitacion.estado = false;
+                habitacion.piso = r.Field<decimal>("piso");
+                habitacion.TipoHab = r.Field<string>("TipoHab");
+                habitacion.ubicacion_frente = r.Field<string>("ubicacion_frente");
+                habitaciones.Add(habitacion);
+            }
+            return habitaciones;
+        }
+
+        public List<HabitacionTable> GetBySQL(string consulta)
+        {
+            DataTable table = entidadBase.TraerDatos(consulta);
+            List<HabitacionTable> habitaciones = new List<HabitacionTable>();
+
+            foreach (DataRow r in table.Rows)
+            {
+                HabitacionTable habitacion = new HabitacionTable();
+                habitacion.codigo = r.Field<decimal>("codigo");
+                habitacion.numero = r.Field<decimal>("numero");
+                habitacion.descripcion = r.Field<string>("descripcion");
+                int estado = r.Field<byte>("estado");
+                if (estado == 1) habitacion.estado = true;
+                else habitacion.estado = false;
+                habitacion.piso = r.Field<decimal>("piso");
+                habitacion.cod_hotel = r.Field<decimal>("cod_hotel");
+                habitacion.cod_tipo_habitacion = r.Field<decimal>("cod_tipo_habitacion");
+                habitacion.ubicacion_frente = r.Field<string>("ubicacion_frente");
+                habitaciones.Add(habitacion);
+            }
+            return habitaciones;
+        }
+
+        public decimal Save(HabitacionTable hab)
+        {
+            decimal estado = 0;
+            if (hab.estado == true)
+                estado = 1;
+            else estado = 0;
+            int ex = entidadBase.EjecutarSQL("insert hotel.Habitacion (cod_hotel,cod_tipo_habitacion,descripcion,estado,numero,piso,ubicacion_frente) values (" + hab.cod_hotel + "," + hab.cod_tipo_habitacion + ",'" + hab.descripcion + "'," + estado + "," + hab.numero + "," + hab.piso + ",'" + hab.ubicacion_frente + "')");
+            DataTable resultID = entidadBase.TraerDatos("SELECT max(codigo) from hotel.Habitacion ");
+            DataRow row = resultID.Rows[0];
+            return Convert.ToInt32(row[0]);
+        }
+
+        public void Update(HabitacionTable hab)
+        {
+            int ex = entidadBase.EjecutarSQL("update hotel.Habitacion set numero = " + hab.numero + ", piso = " + hab.piso + ",ubicacion_frente = '" + hab.ubicacion_frente + "', descripcion = '" + hab.descripcion + "'  where codigo=" + hab.codigo);
+        }
     }
 }

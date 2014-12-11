@@ -528,7 +528,7 @@ namespace FrbaHotel.Generar_Modificar_Reserva
             user_selected = reserva.cod_usuario_carga.ToString();
 
             //Cantidad de Huespedes
-            cantidad = reserva.cant_huespedes;
+            cantidad = (decimal)reserva.cant_huespedes;
             nmUpDnCantHuesp.Value = cantidad;
             nmUpDnCantHuesp.Enabled = false;
             btnVerif.Enabled = false;

@@ -12,7 +12,7 @@ namespace FrbaHotel.ClasesTabla
         public DateTime fecha_desde { get; set; }
         public DateTime fecha_hasta { get; set; }
         public DateTime fecha_creacion { get; set; }
-        public decimal cant_huespedes { get; set; }
+        public decimal? cant_huespedes { get; set; }
         public decimal cod_tipo_regimen { get; set; }
         public decimal cod_estado { get; set; }
         public decimal cod_usuario_carga { get; set; }

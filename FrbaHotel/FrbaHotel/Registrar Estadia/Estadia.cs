@@ -212,7 +212,7 @@ namespace FrbaHotel.Registrar_Estadia
 
         private void actualizarLabel()
         {
-            personasAcargar = (reserva.cant_huespedes - personasReserva.Count());
+            personasAcargar = ((decimal)reserva.cant_huespedes - personasReserva.Count());
             lblCantidad.Text = personasAcargar.ToString();
         }
 

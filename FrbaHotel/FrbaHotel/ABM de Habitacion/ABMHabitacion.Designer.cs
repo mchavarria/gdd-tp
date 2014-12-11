@@ -71,7 +71,7 @@
             // 
             this.lblUbicacion.AutoSize = true;
             this.lblUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUbicacion.Location = new System.Drawing.Point(6, 63);
+            this.lblUbicacion.Location = new System.Drawing.Point(6, 67);
             this.lblUbicacion.Name = "lblUbicacion";
             this.lblUbicacion.Size = new System.Drawing.Size(83, 20);
             this.lblUbicacion.TabIndex = 2;
@@ -173,7 +173,7 @@
             // upDnPiso
             // 
             this.upDnPiso.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.upDnPiso.Location = new System.Drawing.Point(240, 34);
+            this.upDnPiso.Location = new System.Drawing.Point(240, 30);
             this.upDnPiso.Name = "upDnPiso";
             this.upDnPiso.Size = new System.Drawing.Size(84, 23);
             this.upDnPiso.TabIndex = 9;
@@ -198,6 +198,7 @@
             this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // FormAltaHabitacion
             // 
@@ -210,6 +211,7 @@
             this.Name = "FormAltaHabitacion";
             this.Text = "ABM Habitación";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAltaHabitacion_FormClosing);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpNumHab)).EndInit();

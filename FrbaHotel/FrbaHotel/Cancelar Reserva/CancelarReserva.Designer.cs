@@ -89,7 +89,7 @@
             // txtNumeroReserva
             // 
             this.txtNumeroReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroReserva.Location = new System.Drawing.Point(174, 28);
+            this.txtNumeroReserva.Location = new System.Drawing.Point(184, 28);
             this.txtNumeroReserva.Mask = "999999999";
             this.txtNumeroReserva.Name = "txtNumeroReserva";
             this.txtNumeroReserva.Size = new System.Drawing.Size(87, 24);
@@ -101,9 +101,9 @@
             this.lblNumRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumRes.Location = new System.Drawing.Point(11, 31);
             this.lblNumRes.Name = "lblNumRes";
-            this.lblNumRes.Size = new System.Drawing.Size(157, 18);
+            this.lblNumRes.Size = new System.Drawing.Size(169, 18);
             this.lblNumRes.TabIndex = 50;
-            this.lblNumRes.Text = "Número de reserva:";
+            this.lblNumRes.Text = "* Número de reserva:";
             // 
             // lblMot
             // 
@@ -131,9 +131,9 @@
             this.lblFechaCanc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaCanc.Location = new System.Drawing.Point(10, 62);
             this.lblFechaCanc.Name = "lblFechaCanc";
-            this.lblFechaCanc.Size = new System.Drawing.Size(168, 20);
+            this.lblFechaCanc.Size = new System.Drawing.Size(178, 20);
             this.lblFechaCanc.TabIndex = 18;
-            this.lblFechaCanc.Text = "Fecha de cancelación:";
+            this.lblFechaCanc.Text = "* Fecha de cancelación:";
             // 
             // CancelarReserva
             // 

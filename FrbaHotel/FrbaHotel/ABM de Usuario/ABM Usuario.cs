@@ -337,12 +337,38 @@ namespace FrbaHotel.ABM_de_Usuario
               */
             calendNacimiento.MaxDate = FormIni.FechaSistema;
 
-            SRol SRol = new SRol();
-            List<Rol> roles = SRol.GetRolAsig();
-            ckListRoles.DataSource = roles;
-            ckListRoles.DisplayMember = "descripcion";
-            ckListRoles.ValueMember = "codigo";
+            if (Login.Log.hotel != 0)
+            {
+                SHotel sHotel = new SHotel();
+                Hotel hotel = sHotel.GetByCod(Login.Log.hotel);
+                if (hotel.administrador != 0 || hotel.administrador != null)
+                {
 
+                    SRol SRol = new SRol();
+                    List<Rol> roles = SRol.GetRolAsig();
+                    Rol rolAdmin = (from r in roles where r.descripcion == "Administrador" select r).SingleOrDefault();
+                    roles.Remove(rolAdmin);
+                    ckListRoles.DataSource = roles;
+                    ckListRoles.DisplayMember = "descripcion";
+                    ckListRoles.ValueMember = "codigo";
+                }
+                else {
+                    SRol SRol = new SRol();
+                    List<Rol> roles = SRol.GetRolAsig();
+                    ckListRoles.DataSource = roles;
+                    ckListRoles.DisplayMember = "descripcion";
+                    ckListRoles.ValueMember = "codigo";
+                }
+            }
+            else
+            {
+                SRol SRol = new SRol();
+                List<Rol> roles = SRol.GetRolAsig();
+                ckListRoles.DataSource = roles;
+                ckListRoles.DisplayMember = "descripcion";
+                ckListRoles.ValueMember = "codigo";
+
+            }
 
             STipoDoc stip = new STipoDoc();
             List<TipoDoc> tipos = stip.GetAll();
