@@ -65,6 +65,8 @@ namespace FrbaHotel.Registrar_Consumible
                 row.Cells[1].Value = ((Consumible)consumiblecbx.SelectedItem).descripcion;
                 row.Cells[2].Value = decimal.Parse(cantidadtxt.Text);
                 row.Cells[3].Value = ((Consumible)consumiblecbx.SelectedItem).precio;
+                row.Cells[4].Value = "eliminar";
+
                 consumosgrid.Rows.Add(row);
 
                 codigoReservatxt.ReadOnly = true;
@@ -85,6 +87,15 @@ namespace FrbaHotel.Registrar_Consumible
                 return false;
             }
 
+            for (int x = 0; x < consumosgrid.Rows.Count - 1; x++)
+            {
+                if (((Consumible)consumiblecbx.SelectedItem).codigo.ToString() == consumosgrid.Rows[x].Cells[0].Value.ToString())
+                {
+                    MessageBox.Show("Ya hay un consumible cargado con ese codigo");
+                    return false;
+                }
+            }
+
             return true;
         }
 
@@ -97,6 +108,14 @@ namespace FrbaHotel.Registrar_Consumible
             for (int x = 0; x < consumosgrid.Rows.Count - 1; x++)
             {
                 consumosgrid.Rows.RemoveAt(x);
+            }
+        }
+
+        private void consumosgrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (consumosgrid.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                consumosgrid.Rows.RemoveAt(e.RowIndex);
             }
         }
     }

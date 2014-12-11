@@ -32,10 +32,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
             this.consumosgrid = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.consumiblecbx = new System.Windows.Forms.ComboBox();
             this.cantidadtxt = new System.Windows.Forms.TextBox();
@@ -43,6 +39,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.codigoReservatxt = new System.Windows.Forms.TextBox();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gpoBoxAlta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.consumosgrid)).BeginInit();
             this.SuspendLayout();
@@ -94,33 +95,13 @@
             this.Codigo,
             this.Producto,
             this.Cantidad,
-            this.Precio});
+            this.Precio,
+            this.Eliminar});
             this.consumosgrid.Location = new System.Drawing.Point(9, 171);
             this.consumosgrid.Name = "consumosgrid";
             this.consumosgrid.Size = new System.Drawing.Size(477, 201);
             this.consumosgrid.TabIndex = 7;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
+            this.consumosgrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.consumosgrid_CellContentClick);
             // 
             // button1
             // 
@@ -182,6 +163,39 @@
             this.codigoReservatxt.Size = new System.Drawing.Size(121, 23);
             this.codigoReservatxt.TabIndex = 0;
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 80;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cantidad.Width = 80;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 80;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Width = 80;
+            // 
             // RegistrarConsumible
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,5 +231,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }

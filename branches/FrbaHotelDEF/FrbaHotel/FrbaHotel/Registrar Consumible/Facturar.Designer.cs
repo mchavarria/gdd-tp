@@ -31,6 +31,9 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.tarjetabtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gridItems = new System.Windows.Forms.DataGridView();
             this.cargarReservabtn = new System.Windows.Forms.Button();
             this.fechatxt = new System.Windows.Forms.TextBox();
             this.numFacttxt = new System.Windows.Forms.TextBox();
@@ -44,12 +47,9 @@
             this.lblMet = new System.Windows.Forms.Label();
             this.lblMontoTot = new System.Windows.Forms.Label();
             this.lblNumRese = new System.Windows.Forms.Label();
-            this.gridItems = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tarjetabtn = new System.Windows.Forms.Button();
             this.gpoBoxAlta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridConsumos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridConsumos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -100,6 +100,36 @@
             this.gpoBoxAlta.TabIndex = 13;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Factura";
+            // 
+            // tarjetabtn
+            // 
+            this.tarjetabtn.Enabled = false;
+            this.tarjetabtn.Location = new System.Drawing.Point(360, 77);
+            this.tarjetabtn.Name = "tarjetabtn";
+            this.tarjetabtn.Size = new System.Drawing.Size(160, 23);
+            this.tarjetabtn.TabIndex = 50;
+            this.tarjetabtn.Text = "Cargar Tarjeta";
+            this.tarjetabtn.UseVisualStyleBackColor = true;
+            this.tarjetabtn.Click += new System.EventHandler(this.tarjetabtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 169);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "Items:";
+            // 
+            // gridItems
+            // 
+            this.gridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridItems.Location = new System.Drawing.Point(14, 192);
+            this.gridItems.Name = "gridItems";
+            this.gridItems.ReadOnly = true;
+            this.gridItems.Size = new System.Drawing.Size(517, 91);
+            this.gridItems.TabIndex = 48;
             // 
             // cargarReservabtn
             // 
@@ -223,35 +253,6 @@
             this.lblNumRese.TabIndex = 3;
             this.lblNumRese.Text = "* Núm. de Reserva:";
             // 
-            // gridItems
-            // 
-            this.gridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridItems.Location = new System.Drawing.Point(14, 192);
-            this.gridItems.Name = "gridItems";
-            this.gridItems.Size = new System.Drawing.Size(517, 91);
-            this.gridItems.TabIndex = 48;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 169);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "Items:";
-            // 
-            // tarjetabtn
-            // 
-            this.tarjetabtn.Enabled = false;
-            this.tarjetabtn.Location = new System.Drawing.Point(360, 77);
-            this.tarjetabtn.Name = "tarjetabtn";
-            this.tarjetabtn.Size = new System.Drawing.Size(160, 23);
-            this.tarjetabtn.TabIndex = 50;
-            this.tarjetabtn.Text = "Cargar Tarjeta";
-            this.tarjetabtn.UseVisualStyleBackColor = true;
-            this.tarjetabtn.Click += new System.EventHandler(this.tarjetabtn_Click);
-            // 
             // Facturar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,8 +266,8 @@
             this.Load += new System.EventHandler(this.Facturar_Load);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridConsumos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridConsumos)).EndInit();
             this.ResumeLayout(false);
 
         }
