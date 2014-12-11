@@ -214,7 +214,7 @@ namespace FrbaHotel.ClasesTabla
                 per.codigo_tipo_doc = r.Field<decimal>("codigo_tipo_doc");
                 per.num_doc = r.Field<decimal>("num_doc");
                 per.mail = r.Field<string>("mail");
-                per.telefono = r.Field<decimal>("telefono");
+                per.telefono = r.Field<decimal?>("telefono");
                 per.num_calle = r.Field<decimal>("num_calle");
                 per.nom_calle = r.Field<string>("nom_calle");
                 per.localidad = r.Field<string>("localidad");
@@ -257,6 +257,11 @@ namespace FrbaHotel.ClasesTabla
         {
             List<Persona> persona = GetBySQL("select * from hotel.Persona p where p.num_doc =" + documento.ToString()).ToList();
             return persona;
+        }
+
+        public void updateEstado(string num, decimal estado)
+        {
+            int ex = entidadBase.EjecutarSQL("update hotel.Persona set estado = " + estado +" where codigo =" + num);
         }
     }
 }

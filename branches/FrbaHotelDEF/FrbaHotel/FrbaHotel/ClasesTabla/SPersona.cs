@@ -142,5 +142,15 @@ namespace FrbaHotel.ClasesTabla
         {
             return perDao.GetByMailToValidate(mail, codigo);
         }
+
+        public void deshabilitarCliente(string num)
+        {
+            perDao.updateEstado(num, 0);
+        }
+
+        public void habilitarCliente(string num)
+        {
+            perDao.updateEstado(num, 1);
+        }
     }
 }
