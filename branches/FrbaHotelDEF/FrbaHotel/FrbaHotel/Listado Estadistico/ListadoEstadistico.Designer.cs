@@ -37,9 +37,9 @@
             this.lblTrimestre = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridEstadistica = new System.Windows.Forms.DataGridView();
             this.gpoBoxAlta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridEstadistica)).BeginInit();
             this.SuspendLayout();
             // 
             // gpoBoxAlta
@@ -56,7 +56,7 @@
             this.gpoBoxAlta.Size = new System.Drawing.Size(614, 69);
             this.gpoBoxAlta.TabIndex = 16;
             this.gpoBoxAlta.TabStop = false;
-            this.gpoBoxAlta.Text = "Filtros de búsqueda";
+            this.gpoBoxAlta.Text = "Filtros obligatorios";
             // 
             // cboTrimestre
             // 
@@ -64,6 +64,11 @@
             this.cboTrimestre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTrimestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTrimestre.FormattingEnabled = true;
+            this.cboTrimestre.Items.AddRange(new object[] {
+            "Primero",
+            "Segundo",
+            "Tercero",
+            "Cuarto"});
             this.cboTrimestre.Location = new System.Drawing.Point(220, 32);
             this.cboTrimestre.Name = "cboTrimestre";
             this.cboTrimestre.Size = new System.Drawing.Size(72, 24);
@@ -92,6 +97,12 @@
             this.cboTop5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTop5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTop5.FormattingEnabled = true;
+            this.cboTop5.Items.AddRange(new object[] {
+            "Hoteles con mayor cant. reservas canceladas",
+            "Hoteles con mayor cant. consumibles facturados",
+            "Hoteles con mayor cant. días fuera de servicio",
+            "Habitaciones con mayor cant. de días y veces ocupadas",
+            "Cliente con mayor cant. de puntos"});
             this.cboTop5.Location = new System.Drawing.Point(384, 32);
             this.cboTop5.Name = "cboTop5";
             this.cboTop5.Size = new System.Drawing.Size(224, 24);
@@ -133,14 +144,15 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // gridEstadistica
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 116);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(614, 458);
-            this.dataGridView1.TabIndex = 13;
+            this.gridEstadistica.AllowUserToDeleteRows = false;
+            this.gridEstadistica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridEstadistica.Location = new System.Drawing.Point(12, 116);
+            this.gridEstadistica.Name = "gridEstadistica";
+            this.gridEstadistica.ReadOnly = true;
+            this.gridEstadistica.Size = new System.Drawing.Size(614, 458);
+            this.gridEstadistica.TabIndex = 13;
             // 
             // ListadoEstadistico
             // 
@@ -150,12 +162,12 @@
             this.Controls.Add(this.gpoBoxAlta);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridEstadistica);
             this.Name = "ListadoEstadistico";
             this.Text = "Listado Estadístico";
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridEstadistica)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,7 +183,7 @@
         private System.Windows.Forms.Label lblTrimestre;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridEstadistica;
 
     }
 }

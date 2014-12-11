@@ -118,7 +118,7 @@ namespace FrbaHotel.ClasesTabla
             Reserva reserva = new Reserva();
             reserva.codigo = reglon.Field<decimal>("codigo");
             //Verificas los nulos
-            reserva.cant_huespedes = reglon.Field<decimal>("cant_huespedes");
+            reserva.cant_huespedes = reglon.Field<Nullable<decimal>>("cant_huespedes");
             reserva.cant_noches = reglon.Field<decimal>("cant_noches");
             reserva.cod_estado = reglon.Field<decimal>("cod_estado");
             reserva.cod_hotel = reglon.Field<decimal>("cod_hotel");
