@@ -46,6 +46,7 @@ namespace FrbaHotel.ABM_de_Cliente
             txtPais.Text = "";
             txtTelefono.Text = "";
             txtCiudad.Text = "";
+            btnHabDeshab.Visible = false;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -192,6 +193,31 @@ namespace FrbaHotel.ABM_de_Cliente
             txtTelefono.Text = perVentana.telefono.ToString();
             txtCiudad.Text = perVentana.ciudad;
             cboTipoDNI.SelectedValue = perVentana.codigo_tipo_doc;
+            btnHabDeshab.Visible = true;
+            if (perVentana.estado)
+                btnHabDeshab.Text = "Deshabilitar";
+            else
+                btnHabDeshab.Text = "Habilitar";
+        }
+
+        private void btnHabDeshab_Click(object sender, EventArgs e)
+        {
+            if (perVentana.estado)
+                deshabilitarUsuario();
+            else
+                habilitarUsuario();
+        }
+
+        private void deshabilitarUsuario()
+        {
+            sPersona.deshabilitarCliente(perVentana.codigo.ToString());
+            this.Hide();
+        }
+
+        private void habilitarUsuario()
+        {
+            sPersona.habilitarCliente(perVentana.codigo.ToString());
+            this.Hide();
         }
     }
 }

@@ -31,6 +31,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblCiudad = new System.Windows.Forms.Label();
             this.txtCiudad = new System.Windows.Forms.MaskedTextBox();
             this.txtNacionalidad = new System.Windows.Forms.MaskedTextBox();
@@ -57,15 +58,15 @@
             this.lblTipoDoc = new System.Windows.Forms.Label();
             this.lblApe = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnHabDeshab = new System.Windows.Forms.Button();
             this.gpoBoxAlta.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(536, 386);
+            this.btnGuardar.Location = new System.Drawing.Point(393, 387);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(98, 25);
             this.btnGuardar.TabIndex = 9;
@@ -120,6 +121,16 @@
             this.gpoBoxAlta.TabIndex = 7;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Cliente nuevo";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 20);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "* Campos Obligatorios";
             // 
             // lblCiudad
             // 
@@ -355,32 +366,34 @@
             this.lblNombre.TabIndex = 3;
             this.lblNombre.Text = "* Nombre:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 20);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "* Campos Obligatorios";
-            // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(432, 386);
+            this.btnCancelar.Location = new System.Drawing.Point(495, 387);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(98, 25);
+            this.btnCancelar.Size = new System.Drawing.Size(137, 25);
             this.btnCancelar.TabIndex = 10;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Cancelar / Cerrar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnHabDeshab
+            // 
+            this.btnHabDeshab.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHabDeshab.Location = new System.Drawing.Point(287, 387);
+            this.btnHabDeshab.Name = "btnHabDeshab";
+            this.btnHabDeshab.Size = new System.Drawing.Size(100, 25);
+            this.btnHabDeshab.TabIndex = 11;
+            this.btnHabDeshab.UseVisualStyleBackColor = true;
+            this.btnHabDeshab.Visible = false;
+            this.btnHabDeshab.Click += new System.EventHandler(this.btnHabDeshab_Click);
             // 
             // ABMCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 424);
+            this.Controls.Add(this.btnHabDeshab);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
@@ -427,5 +440,6 @@
         private System.Windows.Forms.MaskedTextBox txtCiudad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnHabDeshab;
     }
 }

@@ -39,6 +39,8 @@ namespace FrbaHotel.ABM_de_Cliente
 
             List<Persona> personas = sPersona.GetByGrilla(txtNombre.Text, txtApellido.Text, tipoDni, txtDNI.Text, txtMail.Text);
             gridClientes.DataSource = personas;
+            if (personas.Count() > 1)
+                lblVariosUsers.Visible = true;
         }
 
         private void BusquedaCliente_Load(object sender, EventArgs e)
@@ -57,11 +59,18 @@ namespace FrbaHotel.ABM_de_Cliente
                 if (e.ColumnIndex == 0)
                 {
                     //Selecciona el id del usuario
-                    usrSelected = gridClientes.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    usrSelected = gridClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
                 }
             }
             ABMCliente vistaCliente = new ABMCliente();
             vistaCliente.Show();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            ABMCliente cliente = new ABMCliente();
+            this.Hide();
+            cliente.Show();
         }
     }
 }
