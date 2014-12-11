@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.gpoBoxAlta = new System.Windows.Forms.GroupBox();
-            this.txtInconsist = new System.Windows.Forms.MaskedTextBox();
             this.txtDNI = new System.Windows.Forms.MaskedTextBox();
             this.txtMail = new System.Windows.Forms.MaskedTextBox();
             this.lblMail = new System.Windows.Forms.Label();
@@ -50,9 +49,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTipoSel = new System.Windows.Forms.MaskedTextBox();
             this.gridPersonas = new System.Windows.Forms.DataGridView();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lblVariosUsers = new System.Windows.Forms.Label();
             this.gpoBoxAlta.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPersonas)).BeginInit();
@@ -60,7 +60,7 @@
             // 
             // gpoBoxAlta
             // 
-            this.gpoBoxAlta.Controls.Add(this.txtInconsist);
+            this.gpoBoxAlta.Controls.Add(this.lblVariosUsers);
             this.gpoBoxAlta.Controls.Add(this.txtDNI);
             this.gpoBoxAlta.Controls.Add(this.txtMail);
             this.gpoBoxAlta.Controls.Add(this.lblMail);
@@ -69,22 +69,10 @@
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
-            this.gpoBoxAlta.Size = new System.Drawing.Size(614, 85);
+            this.gpoBoxAlta.Size = new System.Drawing.Size(614, 100);
             this.gpoBoxAlta.TabIndex = 16;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Filtros de búsqueda";
-            // 
-            // txtInconsist
-            // 
-            this.txtInconsist.Enabled = false;
-            this.txtInconsist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInconsist.Location = new System.Drawing.Point(37, 56);
-            this.txtInconsist.Name = "txtInconsist";
-            this.txtInconsist.Size = new System.Drawing.Size(524, 23);
-            this.txtInconsist.TabIndex = 28;
-            this.txtInconsist.Text = "Existen varios clientes con los datos incresados por favor verifique y corrija su" +
-                "s datos.";
-            this.txtInconsist.Visible = false;
             // 
             // txtDNI
             // 
@@ -132,7 +120,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(520, 103);
+            this.btnBuscar.Location = new System.Drawing.Point(519, 118);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(106, 23);
             this.btnBuscar.TabIndex = 15;
@@ -142,7 +130,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 103);
+            this.btnLimpiar.Location = new System.Drawing.Point(11, 118);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(114, 23);
             this.btnLimpiar.TabIndex = 14;
@@ -153,7 +141,7 @@
             // BtnConfirmar
             // 
             this.BtnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConfirmar.Location = new System.Drawing.Point(495, 398);
+            this.BtnConfirmar.Location = new System.Drawing.Point(494, 413);
             this.BtnConfirmar.Name = "BtnConfirmar";
             this.BtnConfirmar.Size = new System.Drawing.Size(131, 33);
             this.BtnConfirmar.TabIndex = 20;
@@ -163,7 +151,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(12, 408);
+            this.btnModificar.Location = new System.Drawing.Point(11, 423);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(124, 23);
             this.btnModificar.TabIndex = 19;
@@ -252,7 +240,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 293);
+            this.groupBox1.Location = new System.Drawing.Point(12, 308);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(614, 99);
             this.groupBox1.TabIndex = 18;
@@ -273,16 +261,22 @@
             this.gridPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar});
-            this.gridPersonas.Location = new System.Drawing.Point(12, 132);
+            this.gridPersonas.Location = new System.Drawing.Point(12, 147);
             this.gridPersonas.Name = "gridPersonas";
             this.gridPersonas.ReadOnly = true;
             this.gridPersonas.Size = new System.Drawing.Size(614, 155);
             this.gridPersonas.TabIndex = 13;
             this.gridPersonas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPersonas_CellContentClick);
             // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Select";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(253, 103);
+            this.btnNuevo.Location = new System.Drawing.Point(252, 118);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(106, 23);
             this.btnNuevo.TabIndex = 17;
@@ -293,7 +287,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(358, 398);
+            this.btnCancelar.Location = new System.Drawing.Point(357, 413);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 33);
             this.btnCancelar.TabIndex = 29;
@@ -301,17 +295,21 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // Seleccionar
+            // lblVariosUsers
             // 
-            this.Seleccionar.HeaderText = "Select";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
+            this.lblVariosUsers.AutoSize = true;
+            this.lblVariosUsers.Location = new System.Drawing.Point(6, 65);
+            this.lblVariosUsers.Name = "lblVariosUsers";
+            this.lblVariosUsers.Size = new System.Drawing.Size(519, 17);
+            this.lblVariosUsers.TabIndex = 29;
+            this.lblVariosUsers.Text = "Existen varios clientes con los datos ingresados. Por favor valide uno.";
+            this.lblVariosUsers.Visible = false;
             // 
             // BusquedaReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 447);
+            this.ClientSize = new System.Drawing.Size(637, 458);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.BtnConfirmar);
             this.Controls.Add(this.btnModificar);
@@ -353,12 +351,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView gridPersonas;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.MaskedTextBox txtInconsist;
         private System.Windows.Forms.MaskedTextBox txtMail;
         private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.MaskedTextBox txtTipoSel;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
+        private System.Windows.Forms.Label lblVariosUsers;
     }
 }

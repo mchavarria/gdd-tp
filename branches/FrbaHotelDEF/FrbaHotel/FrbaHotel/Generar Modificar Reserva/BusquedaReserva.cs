@@ -80,8 +80,11 @@ namespace FrbaHotel.Generar_Modificar_Reserva
                     Valores.Append("p.num_doc = " + dni + "AND p.codigo_tipo_doc = " + tipoDni);
                 }
 
-                gridPersonas.DataSource = sPersona.GetBySQL("SELECT * FROM hotel.persona p WHERE " + Valores.ToString());
-
+                Valores.Append(" AND estado != 0");
+                List<Persona> personas = sPersona.GetBySQL("SELECT * FROM hotel.persona p WHERE " + Valores.ToString());
+                gridPersonas.DataSource = personas;
+                if (personas.Count() > 1)
+                    lblVariosUsers.Visible = true;
             }
             else
             {
