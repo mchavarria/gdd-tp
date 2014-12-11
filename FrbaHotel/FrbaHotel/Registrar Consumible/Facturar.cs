@@ -73,7 +73,7 @@ namespace FrbaHotel.Registrar_Consumible
 
         private bool validarCampos()
         {
-            if (numReservatxt.Text == "" || cboMetPago.SelectedItem == "")
+            if (numReservatxt.Text == "" || cboMetPago.Text == "")
             {
                 MessageBox.Show("Complete los datos requeridos con *");
                 return false;

@@ -53,7 +53,7 @@
             this.gpoBoxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpoBoxAlta.Location = new System.Drawing.Point(12, 12);
             this.gpoBoxAlta.Name = "gpoBoxAlta";
-            this.gpoBoxAlta.Size = new System.Drawing.Size(614, 69);
+            this.gpoBoxAlta.Size = new System.Drawing.Size(614, 110);
             this.gpoBoxAlta.TabIndex = 16;
             this.gpoBoxAlta.TabStop = false;
             this.gpoBoxAlta.Text = "Filtros obligatorios";
@@ -69,14 +69,14 @@
             "Segundo",
             "Tercero",
             "Cuarto"});
-            this.cboTrimestre.Location = new System.Drawing.Point(220, 32);
+            this.cboTrimestre.Location = new System.Drawing.Point(364, 31);
             this.cboTrimestre.Name = "cboTrimestre";
-            this.cboTrimestre.Size = new System.Drawing.Size(72, 24);
+            this.cboTrimestre.Size = new System.Drawing.Size(95, 24);
             this.cboTrimestre.TabIndex = 28;
             // 
             // txtAño
             // 
-            this.txtAño.Location = new System.Drawing.Point(64, 32);
+            this.txtAño.Location = new System.Drawing.Point(167, 31);
             this.txtAño.Mask = "9999";
             this.txtAño.Name = "txtAño";
             this.txtAño.Size = new System.Drawing.Size(51, 23);
@@ -85,7 +85,7 @@
             // lblAño
             // 
             this.lblAño.AutoSize = true;
-            this.lblAño.Location = new System.Drawing.Point(6, 34);
+            this.lblAño.Location = new System.Drawing.Point(109, 34);
             this.lblAño.Name = "lblAño";
             this.lblAño.Size = new System.Drawing.Size(52, 17);
             this.lblAño.TabIndex = 18;
@@ -103,15 +103,15 @@
             "Hoteles con mayor cant. días fuera de servicio",
             "Habitaciones con mayor cant. de días y veces ocupadas",
             "Cliente con mayor cant. de puntos"});
-            this.cboTop5.Location = new System.Drawing.Point(384, 32);
+            this.cboTop5.Location = new System.Drawing.Point(124, 74);
             this.cboTop5.Name = "cboTop5";
-            this.cboTop5.Size = new System.Drawing.Size(224, 24);
+            this.cboTop5.Size = new System.Drawing.Size(423, 24);
             this.cboTop5.TabIndex = 14;
             // 
             // lblDNI
             // 
             this.lblDNI.AutoSize = true;
-            this.lblDNI.Location = new System.Drawing.Point(298, 35);
+            this.lblDNI.Location = new System.Drawing.Point(25, 74);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(89, 17);
             this.lblDNI.TabIndex = 6;
@@ -120,7 +120,7 @@
             // lblTrimestre
             // 
             this.lblTrimestre.AutoSize = true;
-            this.lblTrimestre.Location = new System.Drawing.Point(121, 35);
+            this.lblTrimestre.Location = new System.Drawing.Point(265, 34);
             this.lblTrimestre.Name = "lblTrimestre";
             this.lblTrimestre.Size = new System.Drawing.Size(93, 17);
             this.lblTrimestre.TabIndex = 4;
@@ -128,30 +128,33 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(520, 87);
+            this.btnBuscar.Location = new System.Drawing.Point(520, 128);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(106, 23);
             this.btnBuscar.TabIndex = 15;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 87);
+            this.btnLimpiar.Location = new System.Drawing.Point(12, 128);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(114, 23);
             this.btnLimpiar.TabIndex = 14;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // gridEstadistica
             // 
             this.gridEstadistica.AllowUserToDeleteRows = false;
+            this.gridEstadistica.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gridEstadistica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridEstadistica.Location = new System.Drawing.Point(12, 116);
+            this.gridEstadistica.Location = new System.Drawing.Point(12, 157);
             this.gridEstadistica.Name = "gridEstadistica";
             this.gridEstadistica.ReadOnly = true;
-            this.gridEstadistica.Size = new System.Drawing.Size(614, 458);
+            this.gridEstadistica.Size = new System.Drawing.Size(614, 417);
             this.gridEstadistica.TabIndex = 13;
             // 
             // ListadoEstadistico
