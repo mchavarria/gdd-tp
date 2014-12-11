@@ -48,7 +48,7 @@ namespace FrbaHotel.ClasesTabla
                 Consumible consumible = new Consumible();
                 consumible.codigo = c.Field<decimal>("codigo");
                 consumible.descripcion = c.Field<string>("descripcion");
-                consumible.cantidad = c.Field<int>("cantidad");
+                consumible.cantidad = c.Field<decimal>("cantidad");
                 consumible.precio = c.Field<decimal>("precio");
                 consumibles.Add(consumible);
             }

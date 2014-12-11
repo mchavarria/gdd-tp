@@ -47,24 +47,45 @@ namespace FrbaHotel.Registrar_Consumible
 
         private void cargarReservabtn_Click(object sender, EventArgs e)
         {
-            //TODO Validar campos
+            bool valido = validarCampos();
 
-            List<ItemFactura> itemsFactura = sFactura.getItemsFactura(numReservatxt.Text);
+            if (valido)
+            {
 
-            gridItems.DataSource = itemsFactura;
+                List<ItemFactura> itemsFactura = sFactura.getItemsFactura(numReservatxt.Text);
 
-            total += calcularTotal(itemsFactura);
+                gridItems.DataSource = itemsFactura;
 
-            SConsumible sConsumible = new SConsumible();
+                total += calcularTotal(itemsFactura);
 
-            List<Consumible> consumibles = sConsumible.GetConsumiblesPorReserva(numReservatxt.Text);
+                SConsumible sConsumible = new SConsumible();
 
-            gridConsumos.DataSource = consumibles;
+                List<Consumible> consumibles = sConsumible.GetConsumiblesPorReserva(numReservatxt.Text);
 
-            total += calcularTotal(consumibles);
+                gridConsumos.DataSource = consumibles;
 
-            txtMontoTotal.Text = total.ToString();
-            btnGuardar.Enabled = true;
+                total += calcularTotal(consumibles);
+
+                txtMontoTotal.Text = total.ToString();
+                btnGuardar.Enabled = true;
+            }
+        }
+
+        private bool validarCampos()
+        {
+            if (numReservatxt.Text == "" || cboMetPago.SelectedItem == "")
+            {
+                MessageBox.Show("Complete los datos requeridos con *");
+                return false;
+            }
+
+            if (sReserva.GetReserva(numReservatxt.Text) == null)
+            {
+                MessageBox.Show("El codigo de reserva ingresado no existe");
+                return false;
+            }
+
+            return true;
         }
 
         private decimal calcularTotal(List<ItemFactura> itemsFactura)
@@ -91,7 +112,13 @@ namespace FrbaHotel.Registrar_Consumible
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            //TODO Limpiar campos
+            numReservatxt.Text = "";
+            cboMetPago.Text = "";
+            cargarReservabtn.Enabled = true;
+            tarjetabtn.Enabled = false;
+
+            gridConsumos.DataSource = null;
+            gridItems.DataSource = null;
         }
 
         private void cboMetPago_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,10 +126,14 @@ namespace FrbaHotel.Registrar_Consumible
             if (((MetodoPago)cboMetPago.SelectedItem).codigo == 2)
             {
                 tarjetabtn.Enabled = true;
+                cargarReservabtn.Enabled = false;
+                btnGuardar.Enabled = false;
             }
             else
             {
                 tarjetabtn.Enabled = false;
+                cargarReservabtn.Enabled = true;
+                btnGuardar.Enabled = true;
             }
         }
 
@@ -111,6 +142,7 @@ namespace FrbaHotel.Registrar_Consumible
             Registrar_Consumible.Tarjeta tarjetaScreen = new FrbaHotel.Registrar_Consumible.Tarjeta();
             tarjetaScreen.codigoReserva = numReservatxt.Text;
             tarjetaScreen.Show();
+            cargarReservabtn.Enabled = true;
         }
     }
 }
