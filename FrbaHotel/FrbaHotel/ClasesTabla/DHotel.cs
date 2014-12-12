@@ -30,6 +30,8 @@ namespace FrbaHotel.ClasesTabla
                 hotel.fecha_creacion = r.Field<DateTime>("fecha_creacion");
                 hotel.administrador = r.Field<decimal?>("administrador");
                 hotel.recarga_estrella = r.Field<decimal>("recarga_estrella");
+                if (hotel.ciudad != null)
+                    hotel.ciudad = hotel.ciudad.TrimEnd();
                 hoteles.Add(hotel);
             }
             return hoteles;
@@ -37,7 +39,7 @@ namespace FrbaHotel.ClasesTabla
 
         public List<Hotel> GetAllActivosCompleto()
         {
-            DataTable us = entidadBase.TraerDatos("select u.codigo,u.nombre,u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais,u.ciudad,u.fecha_creacion,u.administrador, u.recarga_estrella from hotel.Hotel u, hotel.Cancelacion_Hotel c where ( u.codigo = c.cod_hotel and  (c.fecha_hasta) < '"+ FormIni.FechaSistema +"' or c.fecha_desde >'" + FormIni.FechaSistema + "') or (u.codigo not in (select can.cod_hotel from hotel.cancelacion_hotel can)) group by u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle, u.num_calle,u.pais,u.ciudad,u.nombre,u.fecha_creacion");
+            DataTable us = entidadBase.TraerDatos("select * from hotel.Hotel u where u.codigo not in  (select c.cod_hotel from hotel.cancelacion_hotel c where c.fecha_hasta < '"+ FormIni.FechaSistema +" ' or c.fecha_desde > '" + FormIni.FechaSistema.ToShortDateString()+"')");
             List<Hotel> hoteles = new List<Hotel>();
 
             foreach (DataRow r in us.Rows)
@@ -55,6 +57,8 @@ namespace FrbaHotel.ClasesTabla
                 hotel.fecha_creacion = r.Field<DateTime>("fecha_creacion");
                 hotel.administrador = r.Field<Nullable<decimal>>("administrador");
                 hotel.recarga_estrella = r.Field<decimal>("recarga_estrella");
+                if (hotel.ciudad != null)
+                    hotel.ciudad = hotel.ciudad.TrimEnd();
                 hoteles.Add(hotel);
             }
             return hoteles;
@@ -64,7 +68,10 @@ namespace FrbaHotel.ClasesTabla
         {
                List<Hotel> hoteles = GetAll();
                Hotel hotel = (from u in hoteles where u.direccionCompleta == direccion select u).SingleOrDefault();
-               return hotel;
+               if(hotel != null)
+                    if (hotel.ciudad != null)
+                    hotel.ciudad = hotel.ciudad.TrimEnd();   
+            return hotel;
         } 
 
         private string ArmarValores(Hotel hotel)
@@ -134,6 +141,8 @@ namespace FrbaHotel.ClasesTabla
                 hotel.fecha_creacion = r.Field<DateTime>("fecha_creacion");
                 hotel.administrador = r.Field <Nullable<decimal>>("administrador");
                 hotel.recarga_estrella = r.Field<decimal>("recarga_estrella");
+                if (hotel.ciudad != null)
+                    hotel.ciudad = hotel.ciudad.TrimEnd();
                 hoteles.Add(hotel);
             }
             return hoteles;
@@ -142,6 +151,9 @@ namespace FrbaHotel.ClasesTabla
         public Hotel GetByCod(decimal cod)
         {
             Hotel hotel = GetBySQL("select * from hotel.Hotel where codigo =" + cod).SingleOrDefault();
+            if(hotel != null)
+                if (hotel.ciudad != null)
+                hotel.ciudad = hotel.ciudad.TrimEnd();
             return hotel;
         }
 
@@ -178,10 +190,11 @@ namespace FrbaHotel.ClasesTabla
         public decimal Save(Hotel hotel, decimal codUser)
         {
             int ex = entidadBase.EjecutarSQL("insert hotel.Hotel (nombre,mail,telefono,cant_estrellas,nom_calle,num_calle,pais,fecha_creacion,administrador,recarga_estrella,ciudad) values (" + ArmarValores(hotel)+") ");
-            int ex2 = entidadBase.EjecutarSQL("insert hotel.Usuario_hotel (cod_usuario,cod_hotel) values (" + codUser + "," + hotel.codigo + ")");
             DataTable resultID = entidadBase.TraerDatos("SELECT max(codigo) from hotel.Hotel ");
             DataRow row = resultID.Rows[0];
-            return Convert.ToInt32(row[0]);
+            int id = Convert.ToInt32(row[0]);
+            int ex2 = entidadBase.EjecutarSQL("insert hotel.Usuario_hotel (cod_usuario,cod_hotel) values (" + codUser + "," + id + ")");
+            return id;
         }
 
         public void SaveCancelacion(CancelacionHotel cancHotel)

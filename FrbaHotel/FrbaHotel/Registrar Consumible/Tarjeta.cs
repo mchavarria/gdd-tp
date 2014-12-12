@@ -64,5 +64,11 @@ namespace FrbaHotel.Registrar_Consumible
                 Close();
             }
         }
+
+        private void Tarjeta_Load(object sender, EventArgs e)
+        {
+            calendarioDesde.TodayDate = FormIni.FechaSistema;
+            calendarioHasta.TodayDate = FormIni.FechaSistema;
+        }
     }
 }

@@ -222,7 +222,10 @@ namespace FrbaHotel.ABM_de_Usuario
                 codUsuario = sUsuario.Update(usuario);
             }
             altaRoles(codUsuario);
-            altaHotelesRol(codUsuario);
+
+            if (valorL == 0)
+                altaHotelesRol(codUsuario); //solo da alta a la relacion si es que es un usuario nuevo
+            
             MessageBox.Show("Operación exitosa!");
             if (valorL != 0)
                 this.Close();
@@ -336,12 +339,13 @@ namespace FrbaHotel.ABM_de_Usuario
 
               */
             calendNacimiento.MaxDate = FormIni.FechaSistema;
+            calendNacimiento.TodayDate = FormIni.FechaSistema;
 
             if (Login.Log.hotel != 0)
             {
                 SHotel sHotel = new SHotel();
                 Hotel hotel = sHotel.GetByCod(Login.Log.hotel);
-                if (hotel.administrador != 0 || hotel.administrador != null)
+                if ((hotel.administrador != 0 || hotel.administrador != null) && Login.Log.user != 2)
                 {
 
                     SRol SRol = new SRol();

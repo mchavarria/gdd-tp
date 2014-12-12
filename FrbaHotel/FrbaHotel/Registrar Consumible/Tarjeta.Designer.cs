@@ -194,6 +194,7 @@
             this.Controls.Add(this.gpoBoxAlta);
             this.Name = "Tarjeta";
             this.Text = "Tarjeta";
+            this.Load += new System.EventHandler(this.Tarjeta_Load);
             this.gpoBoxAlta.ResumeLayout(false);
             this.gpoBoxAlta.PerformLayout();
             this.ResumeLayout(false);

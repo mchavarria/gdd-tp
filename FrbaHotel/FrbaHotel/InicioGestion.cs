@@ -155,6 +155,15 @@ namespace FrbaHotel
             }
             else
                 cargarCBOFunc();
+
+            ActualizarReservasNOTSHOW();
+        }
+
+        private void ActualizarReservasNOTSHOW()
+        {
+            EntidadBase entidad = new EntidadBase();
+            entidad.EjecutarSQL("update hotel.reserva set cod_estado = 5 where fecha_desde < '"+FormIni.FechaSistema+"' and (cod_estado = 1 or cod_estado = 2)");
+   
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

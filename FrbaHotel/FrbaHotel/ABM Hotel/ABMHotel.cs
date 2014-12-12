@@ -184,7 +184,7 @@ namespace FrbaHotel.ABM_Hotel
             ckLstRegimenes.DataSource = regimenes;
             ckLstRegimenes.DisplayMember = "descripcion";
             ckLstRegimenes.ValueMember = "codigo";
-
+            calendFecha.TodayDate = FormIni.FechaSistema;
             if (codHotel != 0)
                 cargarFormulario();
 

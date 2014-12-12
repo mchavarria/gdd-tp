@@ -32,7 +32,7 @@ namespace FrbaHotel.ClasesTabla
         public decimal Save(Reserva reserva)
         {
             reserva.cod_estado = 1;
-            reserva.cod_usuario_carga = PublicUserClass.userLogueado;
+            reserva.cod_usuario_carga = Login.Log.user;
 
             int ex = entidadBase.EjecutarSQL("insert hotel.Reserva (codigo,cod_hotel,fecha_desde,fecha_hasta,cant_huespedes,cod_tipo_regimen,cod_estado,cod_usuario_carga,cant_noches, cod_persona,fecha_creacion) values (" + ArmarValores(reserva) + ")");
             DataTable resultID = entidadBase.TraerDatos("SELECT max(codigo) from hotel.Reserva ");
@@ -135,19 +135,26 @@ namespace FrbaHotel.ClasesTabla
         public void auditarReserva(Reserva reserva, string fecha, string motivo)
         {
 
-            decimal usuarioLogueado = PublicUserClass.userLogueado;
-            decimal persona;
+            decimal usuarioLogueado = Login.Log.user;
+            decimal? persona;
             if (usuarioLogueado == 1)
             {
                 persona = reserva.cod_persona;
             }
-            else
+            else if (usuarioLogueado != 2)
             {
                 DataTable per = entidadBase.TraerDatos("SELECT u.cod_persona codigo FROM hotel.Usuario u WHERE u.codigo =" + usuarioLogueado);
                 DataRow r = per.Rows[0];
                 persona = r.Field<decimal>("codigo");
             }
-            int ex = entidadBase.EjecutarSQL("insert hotel.Auditoria_Reserva (cod_reserva,motivo,fecha,cod_persona,cod_usuario) values (" + reserva.codigo + ",'" + motivo + "','" + fecha + "'," + persona + "," + usuarioLogueado + ")");
+            else
+                persona = null;
+            if(persona != null)
+                entidadBase.EjecutarSQL("insert hotel.Auditoria_Reserva (cod_reserva,motivo,fecha,cod_persona,cod_usuario) values (" + reserva.codigo + ",'" + motivo + "','" + fecha + "'," + persona + "," + usuarioLogueado + ")");
+
+             else
+                entidadBase.EjecutarSQL("insert hotel.Auditoria_Reserva (cod_reserva,motivo,fecha,cod_persona,cod_usuario) values (" + reserva.codigo + ",'" + motivo + "','" + fecha + "',null," + usuarioLogueado + ")");
+
         }
 
         public void cancelarReserva(Reserva reserva)

@@ -19,6 +19,8 @@ namespace FrbaHotel.ABM_Hotel
 
         private void BajaHotel_Load(object sender, EventArgs e)
         {
+          calendFechaDesde.TodayDate = FormIni.FechaSistema;
+          calendHasta.TodayDate = FormIni.FechaSistema;
             codHotel = ABM_Hotel.BusquedaHotel.hotelSelected;
         }
 

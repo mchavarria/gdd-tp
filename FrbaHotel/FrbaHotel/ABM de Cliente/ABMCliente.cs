@@ -151,6 +151,8 @@ namespace FrbaHotel.ABM_de_Cliente
 
         private void ABMCliente_Load(object sender, EventArgs e)
         {
+            calendNacimiento.TodayDate = FormIni.FechaSistema;
+            calendNacimiento.MaxDate = FormIni.FechaSistema;
             cboTipoDNI.DisplayMember = "descripcion";
             cboTipoDNI.ValueMember = "codigo";
             cboTipoDNI.DataSource = sTipoDoc.GetAll();
