@@ -14,6 +14,7 @@ namespace FrbaHotel.Generar_Modificar_Reserva
 {
     public partial class AMReserva : Form
     {
+        public static decimal codUSER = Login.Log.user;
         SReserva sReserva = new SReserva();
         STipoHab sTipoHab = new STipoHab();
         SHabitacion sHabitacion = new SHabitacion();
@@ -48,7 +49,8 @@ namespace FrbaHotel.Generar_Modificar_Reserva
         {
             txtFechaCarga.Text = FormIni.FechaSistema.ToShortDateString();
             calendarioDesde.MinDate = FormIni.FechaSistema;
-
+            calendarioDesde.TodayDate = FormIni.FechaSistema;
+            calendarioHasta.TodayDate = FormIni.FechaSistema;
             if (Login.Log.hotel == 0)
             {
                 List<Hotel> hoteles = sHotel.GetAllActivos();
@@ -429,6 +431,8 @@ namespace FrbaHotel.Generar_Modificar_Reserva
                     reservaVista = reserva;
                     cargarFormularioParaReserva(reservaVista);
                     btnModificarReserva.Visible = true;
+                    if(reserva.cod_estado == 5)
+                        MessageBox.Show("Esta reserva fue cancelada por not-show!");
                 }
                 else
                     MessageBox.Show("El número de reserva no es válido");
@@ -525,11 +529,11 @@ namespace FrbaHotel.Generar_Modificar_Reserva
             cboRegimen.Enabled = false;
 
             //Usuario que carga
-            user_selected = reserva.cod_usuario_carga.ToString();
+            user_selected = reserva.cod_persona.ToString();
 
             //Cantidad de Huespedes
-            cantidad = (decimal)reserva.cant_huespedes;
-            nmUpDnCantHuesp.Value = cantidad;
+            if(reserva.cant_huespedes != null)
+                cantidad = (decimal)reserva.cant_huespedes;
             nmUpDnCantHuesp.Enabled = false;
             btnVerif.Enabled = false;
 
@@ -547,7 +551,11 @@ namespace FrbaHotel.Generar_Modificar_Reserva
                 precioBase = Convert.ToDecimal(sHabitacion.GetPrecioByHabitacion(reserva.cod_hotel.ToString(), hab.numero.ToString(), reserva.cod_tipo_regimen.ToString()));
                 decimal personas = getTipoHabitacion(hab.descripcion);
                 reservaTotal = reservaTotal + ((precioBase * personas) + recEstrella);
+
+                if(reserva.cant_huespedes == null)
+                    cantidad = personas + cantidad;
             }
+            nmUpDnCantHuesp.Value = cantidad;
             txtValorReserva.Text = (reservaTotal * reserva.cant_noches).ToString();
         }
 
@@ -559,7 +567,7 @@ namespace FrbaHotel.Generar_Modificar_Reserva
                 btnCalendarioDesde.Enabled = true;
                 btnCalendarioHasta.Enabled = true;
 
-                cboHotel.Enabled = true;
+                cboHotel.Enabled = false;
                 cboRegimen.Enabled = true;
 
                 //Cantidad de Huespedes

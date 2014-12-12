@@ -147,6 +147,7 @@
             this.Name = "FormIni";
             this.Text = "Gestión de Hotelería";
             this.Load += new System.EventHandler(this.FormIni_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormIni_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

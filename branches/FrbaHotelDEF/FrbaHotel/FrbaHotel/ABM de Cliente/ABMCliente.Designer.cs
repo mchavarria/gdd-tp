@@ -248,7 +248,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(90, 164);
-            this.txtTelefono.Mask = "000-000-0000";
+            this.txtTelefono.Mask = "00-0000-0000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(279, 23);
             this.txtTelefono.TabIndex = 25;
