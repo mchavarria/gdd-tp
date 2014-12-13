@@ -28,10 +28,21 @@ namespace FrbaHotel.Cancelar_Reserva
                 {
                     if (reserva.cod_estado == 1 || reserva.cod_estado == 2)
                     {
-                        sReserva.cancelarReserva(reserva);
-                        sReserva.auditarReserva(reserva, FormIni.FechaSistema.ToShortDateString(), "Baja - "+txtareaMotivo.Text);
-                        MessageBox.Show("La reserva ha sido cancelada correctamente");
-                        resetear();
+                        if(Login.Log.user != 1){
+                            if(reserva.cod_hotel == Login.Log.hotel){
+                                sReserva.cancelarReserva(reserva);
+                                sReserva.auditarReserva(reserva, FormIni.FechaSistema.ToShortDateString(), "Baja - " + txtareaMotivo.Text);
+                                MessageBox.Show("La reserva ha sido cancelada correctamente");
+                                resetear();
+                            }
+                            else
+                                MessageBox.Show("No puede cancelar reservas de otros hoteles");
+                        }else{
+                            sReserva.cancelarReserva(reserva);
+                            sReserva.auditarReserva(reserva, FormIni.FechaSistema.ToShortDateString(), "Baja - "+txtareaMotivo.Text);
+                            MessageBox.Show("La reserva ha sido cancelada correctamente");
+                            resetear();
+                        }
                     }
                     else
                     {
