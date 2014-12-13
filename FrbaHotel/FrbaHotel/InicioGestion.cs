@@ -162,7 +162,7 @@ namespace FrbaHotel
         private void ActualizarReservasNOTSHOW()
         {
             EntidadBase entidad = new EntidadBase();
-            entidad.EjecutarSQL("update hotel.reserva set cod_estado = 5 where fecha_desde < '"+FormIni.FechaSistema+"' and (cod_estado = 1 or cod_estado = 2)");
+            entidad.EjecutarSQL("update hotel.reserva set cod_estado = 5 where fecha_desde < '" + FechaSistema.ToShortDateString() + "' and (cod_estado = 1 or cod_estado = 2)");
    
         }
 
