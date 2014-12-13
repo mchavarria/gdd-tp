@@ -39,7 +39,7 @@ namespace FrbaHotel.ClasesTabla
 
         public List<Hotel> GetAllActivosCompleto()
         {
-            DataTable us = entidadBase.TraerDatos("select * from hotel.Hotel u where u.codigo not in  (select c.cod_hotel from hotel.cancelacion_hotel c where c.fecha_hasta < '"+ FormIni.FechaSistema +" ' or c.fecha_desde > '" + FormIni.FechaSistema.ToShortDateString()+"')");
+            DataTable us = entidadBase.TraerDatos("select * from hotel.Hotel u where u.codigo not in  (select c.cod_hotel from hotel.cancelacion_hotel c where c.fecha_hasta < '" + FormIni.FechaSistema.ToShortDateString() + " ' or c.fecha_desde > '" + FormIni.FechaSistema.ToShortDateString() + "')");
             List<Hotel> hoteles = new List<Hotel>();
 
             foreach (DataRow r in us.Rows)

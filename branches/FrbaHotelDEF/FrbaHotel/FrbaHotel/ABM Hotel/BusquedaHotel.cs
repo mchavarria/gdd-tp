@@ -47,8 +47,7 @@ namespace FrbaHotel.ABM_Hotel
 
                 if (numUpDnCantEstrellas.Value != 0) Valores.Append(" u.cant_estrellas = " + numUpDnCantEstrellas.Value);
 
-
-                gridHoteles.DataSource = sHotel.GetBySQLGRID("select u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais, u.ciudad,u.nombre,u.fecha_creacion  from hotel.Hotel u where u.codigo not in (select c.cod_hotel from hotel.cancelacion_hotel c where c.fecha_hasta < '" + FormIni.FechaSistema + "' or c.fecha_desde > '" + FormIni.FechaSistema + "')  and " + Valores.ToString());
+                gridHoteles.DataSource = sHotel.GetBySQLGRID("select u.codigo, u.mail,u.telefono,u.cant_estrellas,u.nom_calle,u.num_calle,u.pais, u.ciudad,u.nombre,u.fecha_creacion  from hotel.Hotel u where u.codigo not in (select c.cod_hotel from hotel.cancelacion_hotel c where c.fecha_hasta < '" + FormIni.FechaSistema.ToShortDateString() + "' or c.fecha_desde > '" + FormIni.FechaSistema + "')  and " + Valores.ToString());
 
             }
             else cargate();

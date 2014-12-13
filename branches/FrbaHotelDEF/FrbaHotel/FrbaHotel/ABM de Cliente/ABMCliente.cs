@@ -115,9 +115,20 @@ namespace FrbaHotel.ABM_de_Cliente
         //Valida los campos obligatorios
         private bool camposObligatorios()
         {
-            if (txtPais.Text != "" && txtCiudad.Text != "" && txtCalle.Text != "" && txtNumCalle.Text != "" && txtTelefono.Text != "" &&
+            string telefono = txtTelefono.Text.Replace('-', ' ').Replace(" ", "").Trim();
+            if (txtPais.Text != "" && txtCiudad.Text != "" && txtCalle.Text != "" && txtNumCalle.Text != "" && telefono != "" &&
             txtMail.Text != "" && cboTipoDNI.SelectedValue.ToString() != "" && txtNumDNI.Text != "" && txtNombre.Text != "" && txtApellido.Text != "")
             {
+
+                try
+                {
+                    DateTime.Parse(txtNacimiento.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("La fecha de nacimiento ingresada es invalida");
+                    return false;
+                }
                 return true;
             }
             else
