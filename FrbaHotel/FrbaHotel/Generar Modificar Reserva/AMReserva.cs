@@ -357,7 +357,9 @@ namespace FrbaHotel.Generar_Modificar_Reserva
             sReserva.actualizarReserva(reservaVista);
             sReserva.auditarReserva(reservaVista, txtFechaCarga.Text, "reserva modificada");
 
-            //VALIDAR LAS HABIACIONES
+            //VALIDAR LAS HABITACIONES
+            sReserva.desasociarReservaHabitacion(reservaVista.codigo);
+            sReserva.asociarReservaHabitacciones(habSeleccionadas, reservaVista.codigo);
             //PARA LA RESERVA
             MessageBox.Show("Datos actualizados correctamente");
             resetearValores();
@@ -428,11 +430,26 @@ namespace FrbaHotel.Generar_Modificar_Reserva
                 //Cargar el formulario con los datos obtenidos
                 if (reserva != null)
                 {
-                    reservaVista = reserva;
-                    cargarFormularioParaReserva(reservaVista);
-                    btnModificarReserva.Visible = true;
-                    if(reserva.cod_estado == 5)
-                        MessageBox.Show("Esta reserva fue cancelada por not-show!");
+                    if (Login.Log.user == 1)
+                    {
+                        reservaVista = reserva;
+                        cargarFormularioParaReserva(reservaVista);
+                        btnModificarReserva.Visible = true;
+                        if (reserva.cod_estado == 5)
+                            MessageBox.Show("Esta reserva fue cancelada por not-show!");
+                    }
+                    else
+                    { 
+                        if(Login.Log.hotel == reserva.cod_hotel){
+                            reservaVista = reserva;
+                            cargarFormularioParaReserva(reservaVista);
+                            btnModificarReserva.Visible = true;
+                            if (reserva.cod_estado == 5)
+                                MessageBox.Show("Esta reserva fue cancelada por not-show!");
+                        }
+                        else
+                            MessageBox.Show("No puede modificar reservas de otros hoteles.");
+                    }
                 }
                 else
                     MessageBox.Show("El número de reserva no es válido");

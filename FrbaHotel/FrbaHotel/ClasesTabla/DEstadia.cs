@@ -20,7 +20,7 @@ namespace FrbaHotel.ClasesTabla
 
         public decimal checkOut(string codigo, string fecha_out)
         {
-            int ex = entidadBase.EjecutarSQL("hotel.SP_UPDESTADIA " + codigo + ",'" + fecha_out + "'," + PublicUserClass.userLogueado);
+            int ex = entidadBase.EjecutarSQL("hotel.SP_UPDESTADIA " + codigo + ",'" + fecha_out + "'," + Login.Log.user);
             return ex;
         }
 
@@ -37,10 +37,10 @@ namespace FrbaHotel.ClasesTabla
             if (estadia.cod_usuario_carga_in > 0)
                 Valores.Append("" + estadia.cod_usuario_carga_in + ",");
             else
-                Valores.Append("" + PublicUserClass.userLogueado + ",");
+                Valores.Append("" + Login.Log.user + ",");
 
             if (estadia.cod_usuario_carga_in > 0)
-                Valores.Append("" + PublicUserClass.userLogueado + ",");
+                Valores.Append("" + Login.Log.user + ",");
             else
                 Valores.Append("NULL,");
 

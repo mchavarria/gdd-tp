@@ -84,6 +84,11 @@ namespace FrbaHotel.ClasesTabla
             int ex = entidadBase.EjecutarSQL("insert hotel.Reserva_Habitacion (cod_reserva,cod_habitacion) values (" + num_reserva + "," + cod_habitaccion + ")");
         }
 
+        public void desasociarReservaHabitacion(decimal num_reserva)
+        {
+            int ex = entidadBase.EjecutarSQL("delete hotel.Reserva_Habitacion where cod_reserva = " + num_reserva + "");
+        }
+
         //Devuelve la reserva por codigo
         public Reserva getReserva(string num_reserva)
         {
@@ -159,11 +164,11 @@ namespace FrbaHotel.ClasesTabla
 
         public void cancelarReserva(Reserva reserva)
         {
-            decimal usuarioLogueado = PublicUserClass.userLogueado;
+            decimal usuarioLogueado = Login.Log.user;
             //cancelado por not show
             decimal codEstado = 5;
             decimal persona;
-            if (usuarioLogueado == 1)
+            if (usuarioLogueado == 1 || usuarioLogueado == 2)
             {
                 persona = reserva.cod_persona;
                 //cancelado por cliente (guest)

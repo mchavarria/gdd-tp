@@ -43,6 +43,12 @@ namespace FrbaHotel.ClasesTabla
             }
         }
 
+        public void desasociarReservaHabitacion(decimal num_reserva)
+        {
+            reservaDAO.desasociarReservaHabitacion(num_reserva);
+            
+        }
+
         //Obtiene la reserva por codigo
         public Reserva getReserva(string num_reserva)
         {
